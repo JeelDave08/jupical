@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import JourneyVisual from './JourneyVisual';
 import './Footer.css';
 
 const socialLinks = [
@@ -44,33 +43,6 @@ export default function Footer() {
 
   return (
     <footer className="footer" id="contact" aria-label="Site footer">
-      {/* About & Hire Odoo Expert Section */}
-      <div className="footer__about-section">
-        <div className="container">
-          <div className="footer__about-grid">
-            {/* Left Column: Animated Journey Visual Image */}
-            <div className="footer__about-image-col">
-              <JourneyVisual />
-            </div>
-
-            {/* Right Column: Text & Hire Odoo Expert Button */}
-            <div className="footer__about-content-col">
-              <p className="footer__about-paragraph">
-                Founded in 2016 and officially registered as a Pvt. Ltd. in 2018, Jupical began with a vision to revolutionize business operations for industries worldwide. As a certified Odoo partner, our relentless pursuit of innovation has helped organizations across the globe achieve automation, efficiency, and measurable growth.
-              </p>
-              <p className="footer__about-paragraph">
-                Our dedicated resource model allows us to deliver Odoo ERP implementation and support services with consistent quality no matter where our clients are located.
-              </p>
-              <div className="footer__about-action">
-                <a href="mailto:info@jupical.io" className="footer__hire-btn" id="hire-odoo-expert-btn">
-                  Hire Odoo Expert
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Clean Brand section */}
       <div className="footer__links-section">
         <div className="container footer__brand-container">

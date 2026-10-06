@@ -8,7 +8,7 @@ import './Navbar.css';
 
 function CompanyNavIcon() {
   return (
-    <svg className="navbar__nav-icon navbar__nav-icon--company" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0075FF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg className="navbar__nav-icon navbar__nav-icon--company" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0075FF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18" />
       <path d="M6 12H4a2 2 0 0 0-2 2v8" />
       <path d="M18 9h2a2 2 0 0 1 2 2v11" />
@@ -19,7 +19,7 @@ function CompanyNavIcon() {
 
 function ErpNetworkIcon() {
   return (
-    <svg className="navbar__nav-icon navbar__erp-icon" width="18" height="18" viewBox="0 0 24 24" fill="none">
+    <svg className="navbar__nav-icon navbar__erp-icon" width="15" height="15" viewBox="0 0 24 24" fill="none">
       <line x1="6" y1="18" x2="12" y2="6" stroke="#0075FF" strokeWidth="1.8" className="erp-line erp-line--1" />
       <line x1="18" y1="18" x2="12" y2="6" stroke="#0075FF" strokeWidth="1.8" className="erp-line erp-line--2" />
       <line x1="6" y1="18" x2="18" y2="18" stroke="#0075FF" strokeWidth="1.8" className="erp-line erp-line--3" />
@@ -33,7 +33,7 @@ function ErpNetworkIcon() {
 
 function ConnectorsNavIcon() {
   return (
-    <svg className="navbar__nav-icon navbar__nav-icon--connectors" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0075FF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg className="navbar__nav-icon navbar__nav-icon--connectors" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0075FF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 2v6" /><path d="M12 16v6" />
       <path d="M4.93 10.93l4.24 4.24" /><path d="M14.83 8.83l4.24 4.24" />
       <circle cx="12" cy="12" r="3" stroke="#0075FF" strokeWidth="1.8" fill="none" />
@@ -45,7 +45,7 @@ function ConnectorsNavIcon() {
 
 function ResourcesNavIcon() {
   return (
-    <svg className="navbar__nav-icon navbar__nav-icon--resources" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0075FF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg className="navbar__nav-icon navbar__nav-icon--resources" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0075FF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
       <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
       <line x1="9" y1="7" x2="15" y2="7" /><line x1="9" y1="11" x2="15" y2="11" />
@@ -755,7 +755,7 @@ export default function Navbar() {
                 {item.icon}
                 <span>{t(item.label)}</span>
 
-                <svg className="navbar__chevron" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <svg className="navbar__chevron" width="10" height="10" viewBox="0 0 12 12" fill="none">
                   <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </a>

@@ -7,6 +7,7 @@ import Stats from './components/Stats';
 import CompanySection from './components/CompanySection';
 import Services from './components/Services';
 import BeforeAfter from './components/BeforeAfter';
+import JupicalJourney from './components/JupicalJourney';
 
 import Footer from './components/Footer';
 
@@ -21,7 +22,7 @@ function App() {
         <Services />
         <CompanySection />
         <BeforeAfter />
-
+        <JupicalJourney />
       </main>
       <Footer />
     </ThemeProvider>

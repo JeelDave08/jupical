@@ -6,9 +6,9 @@
 .journey-visual {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 7;     /* matches landscape journey_visual_blue.png */
+  aspect-ratio: 1 / 1;      /* image is square */
   border-radius: 20px;
-  overflow: visible;         /* let rocket glow bleed slightly outside */
+  overflow: hidden;
   background: #ffffff;
   user-select: none;
 }
