@@ -475,27 +475,63 @@
 
 @media (max-width: 640px) {
   .company-section {
-    padding: 64px 0;
+    padding: 56px 0;
   }
 
+  .company-section__header {
+    margin-bottom: 36px;
+    padding: 0 4px;
+  }
+
+  /* Force high-contrast text on mobile — light backgrounds wash out thin fonts */
   .company-section__heading {
-    font-size: 28px;
+    font-size: 26px;
+    font-weight: 800;
+    color: #0B1F33 !important;
+    letter-spacing: -0.015em;
+  }
+
+  .company-section__subheading {
+    font-size: 15px;
+    color: #3D4F61 !important;
+    line-height: 1.6;
   }
 
   .company-section__grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 14px;
   }
 
   .company-card {
-    padding: 24px;
-    min-height: 200px;
+    padding: 22px 20px;
+    min-height: 190px;
     border-radius: 18px;
+  }
+
+  /* Force card title colour on mobile */
+  .company-card__title {
+    font-size: 18px;
+    font-weight: 800;
+    color: #0B1F33 !important;
+  }
+
+  .company-card__subtitle {
+    font-size: 13px;
+    color: #475569 !important;
   }
 
   /* Mobile: Disable heavy cursor spotlight and border rotation */
   .company-card__spotlight,
   .company-card__border-glow {
     display: none !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .company-section__heading {
+    font-size: 23px;
+  }
+  .company-card {
+    padding: 18px 16px;
   }
 }

@@ -7,64 +7,48 @@
   width: 100%;
   background: #ffffff;
   position: relative;
+  padding: 80px 0;
 }
 
 .jj-wrap {
-  max-width: 1180px;
+  max-width: 1260px;
   margin: 0 auto;
-  padding: 60px 24px;
+  padding: 0 32px;
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 56px;
+  grid-template-columns: 1.28fr 1fr;
+  gap: 64px;
   align-items: center;
   background: #ffffff;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 960px) {
   .jj-wrap {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 48px;
+    padding: 0 24px;
   }
 }
 
-/* Left Card */
+/* Left Illustration Container (no card, no border, no frame, sits directly on white) */
 .jj-card {
   position: relative;
-  background: #ffffff;
-  border-radius: 28px;
-  padding: 10px;
-  box-shadow: 0 10px 40px rgba(37, 99, 235, 0.10);
-  border: 1px solid #eef2fb;
-  overflow: hidden;
-  cursor: pointer;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  border: none;
+  overflow: visible;
   user-select: none;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: none;
 }
 
 .jj-card:hover {
-  box-shadow: 0 16px 48px rgba(37, 99, 235, 0.15);
-}
-
-.jj-media {
-  position: relative;
-  width: 100%;
-  line-height: 0;
-}
-
-.jj-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-}
-
-.jj-svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: visible;
+  box-shadow: none;
+  transform: none;
 }
 
 /* Right Content */
@@ -72,19 +56,20 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
 }
 
 .jj-p {
-  font-size: 15.5px;
+  font-size: 16px;
   line-height: 1.85;
   color: #3b4560;
-  margin-bottom: 22px;
-  max-width: 420px;
+  margin-bottom: 24px;
+  max-width: 480px;
   font-family: inherit;
 }
 
 .jj-p:last-of-type {
-  margin-bottom: 28px;
+  margin-bottom: 36px;
 }
 
 .jj-btn {
@@ -92,43 +77,21 @@
   color: #ffffff;
   font-weight: 600;
   font-size: 15px;
-  padding: 16px 30px;
+  padding: 16px 32px;
   border-radius: 999px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
-  display: inline-block;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .jj-btn:hover {
+  background: #111827;
   transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
   color: #ffffff;
-}
-
-/* Milestone Pulse Ring */
-.jj-pulse-ring {
-  animation: jjPulse 1.2s infinite ease-in-out;
-  transform-origin: center;
-  transform-box: fill-box;
-}
-
-@keyframes jjPulse {
-  0% {
-    transform: scale(0.85);
-    opacity: 0.95;
-    stroke-width: 3.5;
-  }
-  50% {
-    transform: scale(1.3);
-    opacity: 0.4;
-    stroke-width: 2;
-  }
-  100% {
-    transform: scale(0.85);
-    opacity: 0.95;
-    stroke-width: 3.5;
-  }
 }

@@ -1,330 +1,323 @@
-/**
- * JourneyVisual.jsx
+import { useEffect, useId, useMemo, useRef } from "react";
+import defaultBg from "./timeline-bg.jpg";
+import defaultRocket from "./rocket.png";
+
+/* ------------------------------------------------------------------ *
+ *  RocketJourney / JourneyVisual
+ *  A rocket takes off from the launch pad, flies along the highway
+ *  through 2016 → 2026 (a green tick pops on every year it passes) and
+ *  parks in front of the "Vision 2030" gate. Autoplays and loops forever.
  *
- * Renders journey_visual_blue.png unchanged (it already contains the
- * static 3-D rocket on the launchpad, milestone cards and the blue road).
- *
- * On top of that image we overlay an SVG with:
- *   • An invisible <path> that traces the actual road in the image.
- *   • An animated blue rocket + cyan exhaust glow that travel along
- *     that path using the Web Animations API (offsetDistance /
- *     CSS Motion Path) — no React state is touched during animation,
- *     so there are zero unnecessary re-renders.
- *
- * Journey:  2016 → 2018 → 2020 → 2022 → 2024 → 2026 → ∞
- * After the rocket fades out past 2026 it silently resets and loops.
- */
+ *  All coordinates are in the artwork's own pixel space (1024 × 765).
+ * ------------------------------------------------------------------ */
 
-import { useEffect, useRef } from 'react';
-import './JourneyVisual.css';
+// Road centre line, in order of travel (the rocket hovers `hover` px above it)
+const ROAD = [
+  [262, 632], [305, 612], [348, 592], [372, 565], [365, 540], [335, 515],
+  [310, 485], [303, 450], [318, 424], [355, 412], [410, 414], [470, 440],
+  [530, 470], [590, 480], [645, 470], [685, 445], [660, 420], [625, 385],
+  [618, 345], [640, 315], [690, 290], [745, 262], [800, 232], [850, 205],
+];
 
-/* ─── Path geometry ────────────────────────────────────────────────────────
-   The SVG viewBox is 1000×1000 matching the square image.
-   Points are traced over the image's glowing blue road:
+// year, highlight box [x, y, w, h], road point the rocket passes (null = last stop)
+const MILESTONES = [
+  ["2016", [74, 514, 128, 80], [262, 632]],
+  ["2018", [407, 538, 138, 78], [372, 565]],
+  ["2020", [228, 320, 139, 66], [318, 424]],
+  ["2022", [638, 490, 140, 66], [620, 478]],
+  ["2024", [700, 350, 138, 80], [670, 435]],
+  ["2026", [590, 182, 130, 78], [690, 290]],
+  ["2030", null, null], // the vision: never ticked, only the label appears
+];
 
-     Bottom-left launchpad (2016) → wide S-curve around the planet orb
-     → top-right 2026 milestone → off-canvas ∞ extension.
+const PAD_START = [[212, 600], [214, 556]]; // straight up from the launch pad
 
-   Tweak control points here if you want to micro-adjust the path.
-─────────────────────────────────────────────────────────────────────────── */
-const ROAD =
-  'M 175,870 ' +
-  // bottom section — launchpad to first bend
-  'C 240,820 310,780 380,745 ' +
-  // left arc going up
-  'C 435,718 475,670 490,620 ' +
-  // top of left loop
-  'C 503,578 503,548 492,518 ' +
-  // entering loop around planet
-  'C 475,488 448,464 428,444 ' +
-  // loop floor
-  'C 400,418 390,402 402,382 ' +
-  // loop right side rising
-  'C 418,358 452,348 492,354 ' +
-  // continuing clockwise
-  'C 532,360 562,380 577,410 ' +
-  // back past centre heading right
-  'C 593,442 592,472 582,502 ' +
-  // heading up-left exit from loop
-  'C 567,534 546,560 536,595 ' +
-  // sweeping right and up
-  'C 521,636 522,682 542,722 ' +
-  // right section
-  'C 562,756 612,776 662,760 ' +
-  // curving toward upper-right
-  'C 712,744 752,710 776,670 ' +
-  // top right section
-  'C 802,630 812,582 800,532 ' +
-  // descending near 2024
-  'C 786,480 762,444 750,414 ' +
-  // rising toward 2026
-  'C 740,384 746,350 772,324 ' +
-  // 2026 milestone
-  'C 802,294 846,283 877,268 ';
+// Catmull-Rom → cubic Bézier path through the points
+function smoothPath(P) {
+  let d = `M${P[0][0]} ${P[0][1]}`;
+  for (let i = 0; i < P.length - 1; i++) {
+    const a = P[i - 1] || P[i], b = P[i], c = P[i + 1], e = P[i + 2] || c;
+    d += ` C${b[0] + (c[0] - a[0]) / 6} ${b[1] + (c[1] - a[1]) / 6} ${c[0] - (e[0] - b[0]) / 6} ${c[1] - (e[1] - b[1]) / 6} ${c[0]} ${c[1]}`;
+  }
+  return d;
+}
 
-// Extension past 2026 — curves toward top-right off-canvas (∞)
-const FUTURE =
-  'C 920,248 972,228 1044,212 ' +
-  'C 1110,196 1170,192 1240,192';
+const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+const ease = (t) => 0.5 - Math.cos(Math.PI * t) / 2;
 
-const FULL_PATH = ROAD + FUTURE;
+export default function RocketJourney({
+  bgSrc = defaultBg,          // the artwork (1024 × 765)
+  rocketSrc = defaultRocket,  // rocket cut-out, transparent PNG, nose pointing up
+  liftoff = 1800,             // ms, take-off from the pad
+  flight = 15500,             // ms, pad → gate  (smaller = faster)
+  pause = 2600,               // ms, rest at the gate before the loop restarts
+  hover = 26,                 // px the rocket flies above the road
+  trail = 240,                // px length of the light trail
+  className,
+  style,
+}) {
+  const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
+  const blurId = `rj-blur-${uid}`, glowId = `rj-glow-${uid}`;
 
-// What fraction (0-1) of FULL_PATH corresponds to the 2026 milestone
-// The road section is ~87 % of the full path
-const FRAC_2026 = 0.87;
+  const pts = useMemo(() => [...PAD_START, ...ROAD.map(([x, y]) => [x, y - hover])], [hover]);
+  const d = useMemo(() => smoothPath(pts), [pts]);
 
-// Timing (seconds)
-const DURATION_TOTAL  = 14;   // full journey start → end
-const PAUSE_2026      = 1.0;  // hold at 2026 before going to ∞
-const FADE_OUT_DUR    = 2.5;  // opacity fade while travelling to ∞
-const PAUSE_AT_START  = 0.8;  // invisible pause before re-appearing
+  const pathRef = useRef(null), trailGlowRef = useRef(null), trailLineRef = useRef(null);
+  const rocketRef = useRef(null), flameRef = useRef(null), pillRef = useRef(null);
+  const hlRefs = useRef([]), tickRefs = useRef([]);
 
-export default function JourneyVisual() {
-  const containerRef = useRef(null);
-  const rocketRef    = useRef(null);
-  const exhaustRef   = useRef(null);
-  const activeAnims  = useRef([]);
-  const running      = useRef(false);
-
-  /* ── helpers ─────────────────────────────────────────────────────────── */
-
-  /** Promisified delay */
-  const wait = ms => new Promise(r => setTimeout(r, ms));
-
-  /** Direct-DOM offsetDistance animation via Web Animations API */
-  const animOffset = (el, from, to, durationSec, easing = 'cubic-bezier(0.37,0,0.63,1)') => {
-    let resolve;
-    const promise = new Promise(r => { resolve = r; });
-    const anim = el.animate(
-      [{ offsetDistance: `${from}%` }, { offsetDistance: `${to}%` }],
-      { duration: durationSec * 1000, easing, fill: 'forwards' }
-    );
-    activeAnims.current.push(anim);
-    anim.onfinish = () => {
-      el.style.offsetDistance = `${to}%`;
-      resolve();
-    };
-    anim.oncancel = () => resolve();
-    return promise;
-  };
-
-  /** Direct-DOM opacity fade */
-  const animOpacity = (el, from, to, durationSec) => {
-    const anim = el.animate(
-      [{ opacity: from }, { opacity: to }],
-      { duration: durationSec * 1000, easing: 'ease-in', fill: 'forwards' }
-    );
-    activeAnims.current.push(anim);
-  };
-
-  /** Cancel all running animations immediately */
-  const cancelAll = () => {
-    activeAnims.current.forEach(a => { try { a.cancel(); } catch (_) {} });
-    activeAnims.current = [];
-  };
-
-  /* ── main loop ───────────────────────────────────────────────────────── */
-  const loop = async () => {
-    const rocket  = rocketRef.current;
-    const exhaust = exhaustRef.current;
-    if (!rocket || !exhaust || !running.current) return;
-
-    // Reset positions silently (opacity 0)
-    rocket.style.offsetDistance  = '0%';
-    exhaust.style.offsetDistance = '0%';
-    rocket.style.opacity  = '0';
-    exhaust.style.opacity = '0';
-
-    await wait(PAUSE_AT_START * 1000);
-    if (!running.current) return;
-
-    // Appear at launchpad
-    rocket.style.opacity  = '1';
-    exhaust.style.opacity = '1';
-
-    const durTo2026   = DURATION_TOTAL * FRAC_2026;
-    const durToInfty  = DURATION_TOTAL * (1 - FRAC_2026);
-
-    // ── Phase 1: 2016 → 2026 ──
-    await animOffset(rocket,  0, FRAC_2026 * 100, durTo2026);
-    await animOffset(exhaust, 0, FRAC_2026 * 100, durTo2026);
-    if (!running.current) return;
-
-    await wait(PAUSE_2026 * 1000);
-    if (!running.current) return;
-
-    // ── Phase 2: 2026 → ∞ (with fade) ──
-    animOffset(rocket,  FRAC_2026 * 100, 100, durToInfty);
-    animOffset(exhaust, FRAC_2026 * 100, 100, durToInfty);
-    animOpacity(rocket,  1, 0, FADE_OUT_DUR);
-    animOpacity(exhaust, 1, 0, FADE_OUT_DUR);
-
-    await wait(durToInfty * 1000);
-    if (!running.current) return;
-
-    // tiny pause, then restart
-    await wait(400);
-    if (running.current) loop();
-  };
-
-  /* ── Intersection Observer ───────────────────────────────────────────── */
   useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
+    const path = pathRef.current;
+    if (!path) return;
+    const L = path.getTotalLength();
+    if (!L) return;
 
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !running.current) {
-          running.current = true;
-          loop();
-        } else if (!entry.isIntersecting && running.current) {
-          running.current = false;
-          cancelAll();
+    // samples used to find where the rocket passes each milestone
+    const samples = [];
+    for (let s = 0; s <= L; s += 3) {
+      const q = path.getPointAtLength(s);
+      samples.push([s, q.x, q.y]);
+    }
+    const at = MILESTONES.map((m, i) => {
+      if (i === 0) return -1;        // 2016 ticks the moment the rocket starts
+      if (!m[2]) return 0.985;       // the gate
+      let best = 1e9, bd = 0;
+      const tx = m[2][0], ty = m[2][1] - hover;
+      for (const [s, x, y] of samples) {
+        const e = (x - tx) ** 2 + (y - ty) ** 2;
+        if (e < best) {
+          best = e;
+          bd = s;
         }
-      },
-      { threshold: 0.08 }
-    );
-    obs.observe(el);
+      }
+      return bd / L;
+    });
 
-    return () => {
-      running.current = false;
-      cancelAll();
-      obs.disconnect();
+    let raf = 0, timer = 0, ang = 0, sx = 1, face = 1;
+
+    const draw = (k) => {
+      if (!pathRef.current || !rocketRef.current || !flameRef.current || !trailGlowRef.current || !trailLineRef.current) {
+        return;
+      }
+      const dist = k * L;
+      const a = path.getPointAtLength(dist);
+      const b = path.getPointAtLength(Math.min(L, dist + 34));
+      const c = path.getPointAtLength(Math.max(0, dist - 34));
+
+      const slope = (Math.atan2(b.y - c.y, Math.max(Math.abs(b.x - c.x), 1)) * 180) / Math.PI;
+      const dxn = (b.x - c.x) / (Math.hypot(b.x - c.x, b.y - c.y) || 1);
+
+      // 3D "turn-around" flip when the road swings back to the left
+      if (dxn < -0.22) face = -1;
+      else if (dxn > 0.22) face = 1;
+
+      let target = 90 + clamp(slope * 0.55, -30, 30); // 90° = nose pointing right
+      if (k > 0.88) {                                  // last stretch: align with the road → aims into the gate opening
+        const f = Math.min(1, (k - 0.88) / 0.08), s = f * f * (3 - 2 * f);
+        target = target * (1 - s) + (90 + clamp(slope, -40, 40)) * s;
+      }
+      if (k > 0.93) face = 1;
+
+      ang += (target - ang) * 0.1;
+      sx += (face - sx) * 0.08;
+      const sxx = Math.abs(sx) < 0.04 ? 0.04 * (sx < 0 ? -1 : 1) : sx;
+      rocketRef.current.setAttribute("transform", `translate(${a.x},${a.y}) scale(${sxx},1) rotate(${ang})`);
+
+      flameRef.current.setAttribute("ry", 20 + Math.random() * 10);
+      flameRef.current.setAttribute("opacity", k > 0.99 ? 0 : 1);
+
+      const tl = Math.min(dist, trail);
+      const dash = `0 ${Math.max(0, dist - tl)} ${tl} ${L}`;
+      const fade = k > 0.99 ? 0 : 1;
+      trailGlowRef.current.setAttribute("stroke-dasharray", dash);
+      trailLineRef.current.setAttribute("stroke-dasharray", dash);
+      trailGlowRef.current.style.opacity = fade * 0.75;
+      trailLineRef.current.style.opacity = fade * 0.9;
+
+      MILESTONES.forEach((_, i) => {
+        const on = k >= at[i] - 0.004;
+        hlRefs.current[i]?.classList.toggle("on", on);
+        tickRefs.current[i]?.classList.toggle("on", on);
+      });
+      if (pillRef.current) {
+        pillRef.current.classList.toggle("on", k >= 0.985);
+      }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
-  /* ── Render ──────────────────────────────────────────────────────────── */
+    const play = () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(timer);
+      ang = 0;
+      sx = 1;
+      face = 1;
+      pillRef.current?.classList.remove("on");
+      tickRefs.current.forEach((g) => g?.classList.remove("on"));
+      hlRefs.current.forEach((g) => g?.classList.remove("on"));
+      const t0 = performance.now();
+      const frame = (now) => {
+        const t = now - t0;
+        let k;
+        if (t < liftoff) k = ease(t / liftoff) * 0.04;
+        else {
+          const u = Math.min(1, (t - liftoff) / flight);
+          k = 0.04 + ease(u) * 0.96;
+          if (u >= 1) {
+            draw(1);
+            timer = window.setTimeout(play, pause);
+            return;
+          }
+        }
+        draw(k);
+        raf = requestAnimationFrame(frame);
+      };
+      raf = requestAnimationFrame(frame);
+    };
+
+    const onVisible = () => {
+      if (!document.hidden) play();
+    };
+    play(); // autoplay, loops forever
+    document.addEventListener("visibilitychange", onVisible);
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(timer);
+      document.removeEventListener("visibilitychange", onVisible);
+    };
+  }, [d, hover, liftoff, flight, pause, trail]);
+
   return (
-    <div className="journey-visual" ref={containerRef}>
-
-      {/* Base image — completely untouched */}
-      <img
-        src="/journey_visual_blue.png"
-        alt="Jupical Technologies journey timeline"
-        className="journey-visual__img"
-        draggable="false"
-      />
-
-      {/* SVG overlay — only the animated rocket lives here */}
-      <svg
-        className="journey-visual__svg"
-        viewBox="0 0 1000 1000"
-        preserveAspectRatio="xMidYMid meet"
-        aria-hidden="true"
-      >
-        <defs>
-          {/* Cyan exhaust glow */}
-          <radialGradient id="jv-exh" cx="50%" cy="50%" r="50%">
-            <stop offset="0%"   stopColor="#00E5FF" stopOpacity="1"  />
-            <stop offset="55%"  stopColor="#0075FF" stopOpacity="0.55" />
-            <stop offset="100%" stopColor="#003FFF" stopOpacity="0"  />
-          </radialGradient>
-
-          {/* Rocket body gradient */}
-          <linearGradient id="jv-rbody" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%"   stopColor="#42A5F5" />
-            <stop offset="100%" stopColor="#0D47A1" />
-          </linearGradient>
-
-          {/* Drop-shadow + glow for rocket */}
-          <filter id="jv-glow" x="-70%" y="-70%" width="240%" height="240%">
-            <feGaussianBlur stdDeviation="4.5" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-
-          {/* Soft glow for exhaust */}
-          <filter id="jv-exh-glow" x="-100%" y="-100%" width="300%" height="300%">
-            <feGaussianBlur stdDeviation="7" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-
-        {/* ── Cyan exhaust (travels slightly behind rocket) ── */}
-        <g
-          ref={exhaustRef}
-          style={{
-            offsetPath:     `path("${FULL_PATH}")`,
-            offsetDistance: '0%',
-            offsetRotate:   'auto',
-            opacity: 0,
-            willChange: 'offset-distance, opacity',
-          }}
+    <div className={`rj ${className || ""}`} style={style}>
+      <style>{CSS}</style>
+      <div className="rj-stage">
+        <svg
+          viewBox="0 0 1024 765"
+          role="img"
+          aria-label="Animated company timeline: a rocket takes off and flies along the highway from 2016 to the 2030 vision"
         >
-          {/* Main glow blob pointing backward */}
-          <ellipse
-            cx="-26" cy="0"
-            rx="28" ry="10"
-            fill="url(#jv-exh)"
-            filter="url(#jv-exh-glow)"
-          />
-          {/* Bright core streak */}
-          <ellipse
-            cx="-18" cy="0"
-            rx="12" ry="5"
-            fill="#00E5FF"
-            opacity="0.85"
-          />
-          {/* Tiny hot-white centre */}
-          <ellipse
-            cx="-14" cy="0"
-            rx="5" ry="2.5"
-            fill="#ffffff"
-            opacity="0.9"
-          />
-        </g>
+          <defs>
+            <filter id={blurId} x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="7" />
+            </filter>
+            <radialGradient id={glowId}>
+              <stop offset="0" stopColor="#fff" />
+              <stop offset=".35" stopColor="#22E6FF" />
+              <stop offset="1" stopColor="#22E6FF" stopOpacity="0" />
+            </radialGradient>
+          </defs>
 
-        {/* ── Animated Rocket ── */}
-        {/*
-            The rocket points in the +X direction (nose at right).
-            offsetRotate:'auto' auto-rotates it to face the path tangent.
-            Rocket is centred at (0,0) so offset-anchor hits its nose.
-        */}
-        <g
-          ref={rocketRef}
-          style={{
-            offsetPath:     `path("${FULL_PATH}")`,
-            offsetDistance: '0%',
-            offsetRotate:   'auto',
-            opacity: 0,
-            willChange: 'offset-distance, opacity',
-          }}
-          filter="url(#jv-glow)"
-        >
-          {/* Body */}
-          <ellipse cx="0" cy="0" rx="16" ry="9" fill="url(#jv-rbody)" />
+          <image href={bgSrc} width="1024" height="765" />
 
-          {/* Nose cone */}
+          {/* 2016 card (redrawn so the rocket can leave the pad) */}
+          <g fontFamily="system-ui,sans-serif">
+            <rect x="74" y="514" width="128" height="80" rx="14" fill="#fff" stroke="#D3E2FA" strokeWidth="1.5" />
+            <text x="88" y="540" fontSize="17" fontWeight="800" fill="#1E6BFF">🚀 2016</text>
+            <text x="88" y="560" fontSize="12.5" fontWeight="700" fill="#0B2A6F">Founded</text>
+            <text x="88" y="574" fontSize="9" fill="#4F6896">Started our journey with a</text>
+            <text x="88" y="585" fontSize="9" fill="#4F6896">vision to simplify business</text>
+          </g>
+
+          {/* glow around each card once passed */}
+          {MILESTONES.map(([year, box], i) => box && (
+            <rect
+              key={year}
+              ref={(el) => (hlRefs.current[i] = el)}
+              className="rj-hl"
+              x={box[0]}
+              y={box[1]}
+              width={box[2]}
+              height={box[3]}
+              rx="14"
+            />
+          ))}
+
+          <path ref={pathRef} d={d} fill="none" stroke="none" />
           <path
-            d="M 14,-4 Q 28,0 14,4 Z"
-            fill="#64B5F6"
+            ref={trailGlowRef}
+            d={d}
+            fill="none"
+            stroke="#22E6FF"
+            strokeWidth="14"
+            strokeLinecap="round"
+            filter={`url(#${blurId})`}
+          />
+          <path
+            ref={trailLineRef}
+            d={d}
+            fill="none"
+            stroke="#fff"
+            strokeWidth="3.5"
+            strokeLinecap="round"
           />
 
-          {/* Belly highlight */}
-          <ellipse cx="-1" cy="2" rx="10" ry="4.5" fill="#E3F2FD" opacity="0.65" />
+          {/* animated green ticks */}
+          {MILESTONES.map(([year, box], i) => box && (
+            <g
+              key={year}
+              ref={(el) => (tickRefs.current[i] = el)}
+              className="rj-tk"
+              transform={`translate(${box[0] + box[2] - 6},${box[1] + 6})`}
+            >
+              <circle className="rg" r="11" fill="none" stroke="#19C37D" strokeWidth="2" />
+              <g className="tki">
+                <circle r="12" fill="#19C37D" stroke="#fff" strokeWidth="2.5" />
+                <path
+                  d="M-5.5 0.5 L-1.5 4.5 L6 -4"
+                  fill="none"
+                  stroke="#fff"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </g>
+            </g>
+          ))}
 
-          {/* Porthole */}
-          <circle cx="3" cy="-1" r="4"   fill="white"   opacity="0.95" />
-          <circle cx="3" cy="-1" r="2.5" fill="#29B6F6" />
-          <circle cx="2" cy="-2" r="1"   fill="white"   opacity="0.7"  />
+          <g ref={rocketRef}>
+            <ellipse ref={flameRef} cx="0" cy="60" rx="12" ry="26" fill={`url(#${glowId})`} />
+            <image href={rocketSrc} x="-25" y="-47.5" width="50" height="95" />
+          </g>
 
-          {/* Upper fin */}
-          <path d="M -14,-2 L -22,-11 L -8,-6 Z" fill="#0D47A1" />
-          {/* Lower fin */}
-          <path d="M -14, 2 L -22, 11 L -8, 6 Z"  fill="#0D47A1" />
-
-          {/* Nozzle */}
-          <rect x="-20" y="-3.5" width="7" height="7" rx="2.5" fill="#42A5F5" />
-          {/* Nozzle opening glow */}
-          <ellipse cx="-20" cy="0" rx="3" ry="3.5" fill="#00E5FF" opacity="0.8" />
-        </g>
-      </svg>
+          <g ref={pillRef} className="rj-pill">
+            <rect x="792" y="8" width="160" height="28" rx="14" fill="#fff" stroke="#22E6FF" strokeWidth="2" />
+            <text
+              x="872"
+              y="27"
+              textAnchor="middle"
+              fontSize="13.5"
+              fontWeight="800"
+              fill="#0B2A6F"
+              fontFamily="system-ui,sans-serif"
+            >
+              Vision 2030
+            </text>
+          </g>
+        </svg>
+      </div>
     </div>
   );
 }
+
+export { RocketJourney, RocketJourney as JourneyVisual };
+
+const CSS = `
+.rj{background:#ffffff;width:100%;max-width:100%;margin:0 auto}
+.rj svg{display:block;width:100%;height:auto}
+.rj-stage{
+  -webkit-mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent),linear-gradient(to bottom,transparent,#000 5%,#000 94%,transparent);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent),linear-gradient(to bottom,transparent,#000 5%,#000 94%,transparent);
+  mask-composite:intersect}
+.rj-hl{fill:none;stroke:#22E6FF;stroke-width:3;opacity:0;transition:opacity .35s;filter:drop-shadow(0 0 9px rgba(34,230,255,.95))}
+.rj-hl.on{opacity:1}
+.rj-tk .tki{transform:scale(0);transform-box:fill-box;transform-origin:center}
+.rj-tk.on .tki{animation:rj-pop .55s cubic-bezier(.2,1.7,.4,1) forwards}
+.rj-tk path{stroke-dasharray:16;stroke-dashoffset:16}
+.rj-tk.on path{animation:rj-draw .4s .25s ease forwards}
+.rj-tk .rg{opacity:0;transform-box:fill-box;transform-origin:center}
+.rj-tk.on .rg{animation:rj-ring .8s ease-out forwards}
+.rj-pill{opacity:0;transition:opacity .6s .3s}
+.rj-pill.on{opacity:1}
+@keyframes rj-pop{to{transform:scale(1)}}
+@keyframes rj-draw{to{stroke-dashoffset:0}}
+@keyframes rj-ring{0%{opacity:.8;transform:scale(1)}100%{opacity:0;transform:scale(3)}}
+`;
