@@ -174,11 +174,137 @@ function ConnectorPlatformLogo({ id }) {
         </svg>
       );
     case 'gusto':
+    case 'gusto-crm':
       return (
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
           <rect width="24" height="24" rx="6" fill="#F44336" />
           <circle cx="12" cy="12" r="5" stroke="white" strokeWidth="2.2" fill="none" />
           <path d="M12 7V12H15" stroke="white" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+      );
+    case 'ebay':
+      return (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="6" fill="#FFFFFF" stroke="#E2E8F0" strokeWidth="1" />
+          <text x="3" y="16" fontFamily="Arial, sans-serif" fontWeight="900" fontSize="11">
+            <tspan fill="#E53238">e</tspan>
+            <tspan fill="#0064D2">b</tspan>
+            <tspan fill="#F5AF02">a</tspan>
+            <tspan fill="#86B817">y</tspan>
+          </text>
+        </svg>
+      );
+    case 'zid':
+      return (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="6" fill="#7C3AED" />
+          <path d="M7 8h10l-6 8h6" stroke="white" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      );
+    case 'freshbooks':
+      return (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="6" fill="#0075DE" />
+          <path d="M7 17V8c0-1.1.9-2 2-2h6v3.5H10.5V11H15v3.5h-4.5V17H7z" fill="white" />
+          <circle cx="16.5" cy="7.5" r="2" fill="#70BF44" />
+        </svg>
+      );
+    case 'tripletex':
+      return (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="6" fill="#FF6B00" />
+          <path d="M6 7h12M12 7v10M8 11h8" stroke="white" strokeWidth="2.2" strokeLinecap="round" />
+        </svg>
+      );
+    case 'pogo':
+      return (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="6" fill="#4F46E5" />
+          <circle cx="12" cy="12" r="5" stroke="white" strokeWidth="2" fill="none" />
+          <path d="M12 7v5l3 3" stroke="white" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+      );
+    case 'bill':
+      return (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="6" fill="#105BFA" />
+          <path d="M7 7h4.5c2 0 3.5 1.2 3.5 3 0 1.2-.7 2.2-1.8 2.6 1.4.4 2.3 1.5 2.3 3 0 2-1.7 3.4-3.8 3.4H7V7zm3 4.2h1.5c.8 0 1.5-.5 1.5-1.2 0-.8-.7-1.2-1.5-1.2H10v2.4zm0 5h1.8c1 0 1.8-.6 1.8-1.5 0-.9-.8-1.5-1.8-1.5H10v3z" fill="white" />
+        </svg>
+      );
+    case 'paystack':
+      return (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="6" fill="#081627" />
+          <rect x="6" y="7" width="12" height="2.2" rx="1.1" fill="#00C3F7" />
+          <rect x="6" y="11" width="8.5" height="2.2" rx="1.1" fill="#00C3F7" />
+          <rect x="6" y="15" width="12" height="2.2" rx="1.1" fill="#00C3F7" />
+        </svg>
+      );
+    case 'billplz':
+      return (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="6" fill="#FF5722" />
+          <path d="M7 6h5c2.2 0 4 1.8 4 4 0 1.3-.6 2.4-1.6 3.1 1.6.7 2.6 2.2 2.6 3.9 0 2.2-1.8 4-4 4H7V6z" fill="white" opacity="0.9" />
+          <path d="M9.5 8.5v3h2.5c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5H9.5zm0 5.5v4h3c1.1 0 2-.9 2-2s-.9-2-2-2H9.5z" fill="#FF5722" />
+        </svg>
+      );
+    case 'toyyibpay':
+      return (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="6" fill="#00875A" />
+          <path d="M7 9h10M12 9v9" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+          <circle cx="16.5" cy="7.5" r="2" fill="#D4AF37" />
+        </svg>
+      );
+    case 'shipengine':
+      return (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="6" fill="#002E5D" />
+          <path d="M12 5l6 4v6l-6 4-6-4V9l6-4z" stroke="#00B3E6" strokeWidth="1.8" fill="none" />
+          <circle cx="12" cy="12" r="2.5" fill="#00B3E6" />
+        </svg>
+      );
+    case 'cargonizer':
+      return (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="6" fill="#0D47A1" />
+          <rect x="6" y="8" width="12" height="8" rx="2" stroke="white" strokeWidth="1.8" fill="none" />
+          <path d="M6 12h12M10 8v8" stroke="white" strokeWidth="1.4" />
+        </svg>
+      );
+    case 'aftership':
+      return (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="6" fill="#FF5C00" />
+          <path d="M12 6L6 17h4l2-4 2 4h4L12 6z" fill="white" />
+        </svg>
+      );
+    case 'pipedrive':
+      return (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="6" fill="#00B67A" />
+          <path d="M8 18V7h4.5a3.5 3.5 0 0 1 0 7H8" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      );
+    case 'hubspot':
+      return (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="6" fill="#FF7A59" />
+          <circle cx="13" cy="13" r="3.5" stroke="white" strokeWidth="2" fill="none" />
+          <circle cx="13" cy="6" r="1.8" fill="white" />
+          <circle cx="6" cy="13" r="1.8" fill="white" />
+          <circle cx="18" cy="10" r="1.8" fill="white" />
+          <path d="M13 7.8V9.5M8 13h1.5M16.5 11l-1.5 1" stroke="white" strokeWidth="1.8" />
+        </svg>
+      );
+    case 'slack':
+      return (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="6" fill="#4A154B" />
+          <path d="M9.5 6a1.5 1.5 0 0 0-1.5 1.5v3.5a1.5 1.5 0 1 0 3 0V7.5A1.5 1.5 0 0 0 9.5 6z" fill="#E01E5A" />
+          <path d="M6 14.5a1.5 1.5 0 0 0 1.5 1.5h3.5a1.5 1.5 0 0 0 0-3H7.5A1.5 1.5 0 0 0 6 14.5z" fill="#36C5F0" />
+          <path d="M14.5 18a1.5 1.5 0 0 0 1.5-1.5v-3.5a1.5 1.5 0 0 0-3 0v3.5a1.5 1.5 0 0 0 1.5 1.5z" fill="#2EB67D" />
+          <path d="M18 9.5a1.5 1.5 0 0 0-1.5-1.5h-3.5a1.5 1.5 0 0 0 0 3h3.5A1.5 1.5 0 0 0 18 9.5z" fill="#ECB22E" />
         </svg>
       );
     default:
@@ -391,6 +517,8 @@ const connectorsData = {
     { id: 'opencart', name: 'OpenCart', sub: 'E-Commerce', href: '#opencart' },
     { id: 'magento', name: 'Magento', sub: 'E-Commerce', href: '#magento' },
     { id: 'prestashop', name: 'Prestashop', sub: 'E-Commerce', href: '#prestashop' },
+    { id: 'ebay', name: 'eBay', sub: 'E-Commerce', href: '#ebay' },
+    { id: 'zid', name: 'Zid', sub: 'E-Commerce', href: '#zid' },
   ],
   accounting: [
     { id: 'quickbooks', name: 'QuickBooks', sub: 'Accounting', href: '#qb' },
@@ -399,11 +527,33 @@ const connectorsData = {
     { id: 'zohobooks', name: 'Zoho Books', sub: 'Accounting', href: '#zohobooks' },
     { id: 'akaunting', name: 'Akaunting', sub: 'Accounting', href: '#akaunting' },
     { id: 'netvisor', name: 'Netvisor', sub: 'Accounting', href: '#netvisor' },
+    { id: 'freshbooks', name: 'FreshBook', sub: 'Accounting', href: '#freshbooks' },
+    { id: 'tripletex', name: 'Tripletex', sub: 'Accounting', href: '#tripletex' },
+    { id: 'pogo', name: 'Pogo', sub: 'Accounting', href: '#pogo' },
+    { id: 'bill', name: 'BILL', sub: 'Accounting', href: '#bill' },
   ],
   hr: [
     { id: 'bamboohr', name: 'Bamboo HR', sub: 'HR', href: '#bamboo' },
     { id: 'zohopeople', name: 'Zoho People', sub: 'HR', href: '#zohopeople' },
     { id: 'gusto', name: 'Gusto', sub: 'HR', href: '#gusto' },
+  ],
+  payment: [
+    { id: 'paystack', name: 'Paystack', sub: 'Payment', href: '#paystack' },
+    { id: 'billplz', name: 'Billplz', sub: 'Payment', href: '#billplz' },
+    { id: 'toyyibpay', name: 'ToyyibPay', sub: 'Payment', href: '#toyyibpay' },
+  ],
+  inventory: [
+    { id: 'shipengine', name: 'ShipEngine', sub: 'Inventory', href: '#shipengine' },
+    { id: 'cargonizer', name: 'Cargonizer', sub: 'Inventory', href: '#cargonizer' },
+    { id: 'aftership', name: 'AfterShip', sub: 'Inventory', href: '#aftership' },
+  ],
+  crm: [
+    { id: 'pipedrive', name: 'Pipedrive', sub: 'CRM', href: '#pipedrive' },
+    { id: 'hubspot', name: 'HubSpot', sub: 'CRM', href: '#hubspot' },
+    { id: 'gusto-crm', name: 'Gusto', sub: 'CRM', href: '#gusto-crm' },
+  ],
+  communication: [
+    { id: 'slack', name: 'Slack', sub: 'Communication', href: '#slack' },
   ],
 };
 
@@ -933,62 +1083,140 @@ export default function Navbar() {
                         </div>
                       </div>
 
-                      {/* RIGHT 3 COLUMNS: E-COMMERCE, ACCOUNTING, HR */}
+                      {/* RIGHT 3 COLUMNS: E-COMMERCE, ACCOUNTING, HR + 4 NEW CATEGORIES */}
                       <div className="nav-connectors-mega__columns">
-                        {/* Column 1: E-COMMERCE */}
+                        {/* Column 1: E-COMMERCE & PAYMENT */}
                         <div className="nav-connectors-col">
-                          <div className="nav-connectors-col__header">
-                            <span className="nav-connectors-col__title">E-COMMERCE</span>
-                            <span className="nav-connectors-col__line" />
+                          <div className="nav-connectors-col__group">
+                            <div className="nav-connectors-col__header">
+                              <span className="nav-connectors-col__title">E-COMMERCE</span>
+                              <span className="nav-connectors-col__line" />
+                            </div>
+                            <div className="nav-connectors-col__list">
+                              {connectorsData.ecommerce.map((c) => (
+                                <ConnectorCardItem
+                                  key={c.id}
+                                  item={c}
+                                  hoveredId={hoveredConnector}
+                                  onHover={setHoveredConnector}
+                                  onClose={() => setOpenDropdown(null)}
+                                />
+                              ))}
+                            </div>
                           </div>
-                          <div className="nav-connectors-col__list">
-                            {connectorsData.ecommerce.map((c) => (
-                              <ConnectorCardItem
-                                key={c.id}
-                                item={c}
-                                hoveredId={hoveredConnector}
-                                onHover={setHoveredConnector}
-                                onClose={() => setOpenDropdown(null)}
-                              />
-                            ))}
+
+                          <div className="nav-connectors-col__group">
+                            <div className="nav-connectors-col__header">
+                              <span className="nav-connectors-col__title">PAYMENT</span>
+                              <span className="nav-connectors-col__line" />
+                            </div>
+                            <div className="nav-connectors-col__list">
+                              {connectorsData.payment.map((c) => (
+                                <ConnectorCardItem
+                                  key={c.id}
+                                  item={c}
+                                  hoveredId={hoveredConnector}
+                                  onHover={setHoveredConnector}
+                                  onClose={() => setOpenDropdown(null)}
+                                />
+                              ))}
+                            </div>
                           </div>
                         </div>
 
-                        {/* Column 2: ACCOUNTING */}
+                        {/* Column 2: ACCOUNTING & INVENTORY */}
                         <div className="nav-connectors-col">
-                          <div className="nav-connectors-col__header">
-                            <span className="nav-connectors-col__title">ACCOUNTING</span>
-                            <span className="nav-connectors-col__line" />
+                          <div className="nav-connectors-col__group">
+                            <div className="nav-connectors-col__header">
+                              <span className="nav-connectors-col__title">ACCOUNTING</span>
+                              <span className="nav-connectors-col__line" />
+                            </div>
+                            <div className="nav-connectors-col__list">
+                              {connectorsData.accounting.map((c) => (
+                                <ConnectorCardItem
+                                  key={c.id}
+                                  item={c}
+                                  hoveredId={hoveredConnector}
+                                  onHover={setHoveredConnector}
+                                  onClose={() => setOpenDropdown(null)}
+                                />
+                              ))}
+                            </div>
                           </div>
-                          <div className="nav-connectors-col__list">
-                            {connectorsData.accounting.map((c) => (
-                              <ConnectorCardItem
-                                key={c.id}
-                                item={c}
-                                hoveredId={hoveredConnector}
-                                onHover={setHoveredConnector}
-                                onClose={() => setOpenDropdown(null)}
-                              />
-                            ))}
+
+                          <div className="nav-connectors-col__group">
+                            <div className="nav-connectors-col__header">
+                              <span className="nav-connectors-col__title">INVENTORY</span>
+                              <span className="nav-connectors-col__line" />
+                            </div>
+                            <div className="nav-connectors-col__list">
+                              {connectorsData.inventory.map((c) => (
+                                <ConnectorCardItem
+                                  key={c.id}
+                                  item={c}
+                                  hoveredId={hoveredConnector}
+                                  onHover={setHoveredConnector}
+                                  onClose={() => setOpenDropdown(null)}
+                                />
+                              ))}
+                            </div>
                           </div>
                         </div>
 
-                        {/* Column 3: HR */}
+                        {/* Column 3: HR, CRM & COMMUNICATION */}
                         <div className="nav-connectors-col">
-                          <div className="nav-connectors-col__header">
-                            <span className="nav-connectors-col__title">HR</span>
-                            <span className="nav-connectors-col__line" />
+                          <div className="nav-connectors-col__group">
+                            <div className="nav-connectors-col__header">
+                              <span className="nav-connectors-col__title">HR</span>
+                              <span className="nav-connectors-col__line" />
+                            </div>
+                            <div className="nav-connectors-col__list">
+                              {connectorsData.hr.map((c) => (
+                                <ConnectorCardItem
+                                  key={c.id}
+                                  item={c}
+                                  hoveredId={hoveredConnector}
+                                  onHover={setHoveredConnector}
+                                  onClose={() => setOpenDropdown(null)}
+                                />
+                              ))}
+                            </div>
                           </div>
-                          <div className="nav-connectors-col__list">
-                            {connectorsData.hr.map((c) => (
-                              <ConnectorCardItem
-                                key={c.id}
-                                item={c}
-                                hoveredId={hoveredConnector}
-                                onHover={setHoveredConnector}
-                                onClose={() => setOpenDropdown(null)}
-                              />
-                            ))}
+
+                          <div className="nav-connectors-col__group">
+                            <div className="nav-connectors-col__header">
+                              <span className="nav-connectors-col__title">CRM</span>
+                              <span className="nav-connectors-col__line" />
+                            </div>
+                            <div className="nav-connectors-col__list">
+                              {connectorsData.crm.map((c) => (
+                                <ConnectorCardItem
+                                  key={c.id}
+                                  item={c}
+                                  hoveredId={hoveredConnector}
+                                  onHover={setHoveredConnector}
+                                  onClose={() => setOpenDropdown(null)}
+                                />
+                              ))}
+                            </div>
+                          </div>
+
+                          <div className="nav-connectors-col__group">
+                            <div className="nav-connectors-col__header">
+                              <span className="nav-connectors-col__title">COMMUNICATION</span>
+                              <span className="nav-connectors-col__line" />
+                            </div>
+                            <div className="nav-connectors-col__list">
+                              {connectorsData.communication.map((c) => (
+                                <ConnectorCardItem
+                                  key={c.id}
+                                  item={c}
+                                  hoveredId={hoveredConnector}
+                                  onHover={setHoveredConnector}
+                                  onClose={() => setOpenDropdown(null)}
+                                />
+                              ))}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1379,7 +1607,7 @@ export default function Navbar() {
           {/* Mobile Odoo Connectors Group (IMAGE 2 Items) */}
           <div className="navbar__mobile-group">
             <span className="navbar__mobile-heading">Odoo Connectors</span>
-            {[...connectorsData.ecommerce, ...connectorsData.accounting, ...connectorsData.hr].map((item) => (
+            {[...connectorsData.ecommerce, ...connectorsData.accounting, ...connectorsData.hr, ...connectorsData.payment, ...connectorsData.inventory, ...connectorsData.crm, ...connectorsData.communication].map((item) => (
               <a key={item.id} href={item.href} className="navbar__mobile-link navbar__mobile-link--company" onClick={() => setMobileOpen(false)}>
                 <div className="mobile-text">
                   <span className="mobile-title">{item.name}</span>

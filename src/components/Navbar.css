@@ -455,8 +455,11 @@
    ============================================ */
 
 .navbar__dropdown--connectors {
-  width: 1040px;
+  width: 1060px;
   max-width: 95vw;
+  max-height: calc(100vh - 90px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 28px 32px 20px;
   border-radius: 28px;
   background: linear-gradient(180deg, #FFFFFF 0%, #FAFCFF 100%);
@@ -472,8 +475,24 @@
   pointer-events: none;
   transition: opacity 350ms cubic-bezier(0.16, 1, 0.3, 1), transform 350ms cubic-bezier(0.16, 1, 0.3, 1), visibility 350ms cubic-bezier(0.16, 1, 0.3, 1);
   position: absolute;
-  overflow: hidden;
   z-index: 1000;
+  /* Slim blue scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 117, 255, 0.35) transparent;
+}
+
+.navbar__dropdown--connectors::-webkit-scrollbar {
+  width: 5px;
+}
+
+.navbar__dropdown--connectors::-webkit-scrollbar-thumb {
+  background: rgba(0, 117, 255, 0.35);
+  border-radius: 10px;
+}
+
+.navbar__dropdown--connectors::-webkit-scrollbar-track {
+  background: rgba(0, 117, 255, 0.04);
+  border-radius: 10px;
 }
 
 .navbar__dropdown--connectors.navbar__dropdown--open {
@@ -691,6 +710,12 @@
 }
 
 .nav-connectors-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nav-connectors-col__group {
   display: flex;
   flex-direction: column;
 }
