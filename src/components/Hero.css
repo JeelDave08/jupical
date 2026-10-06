@@ -349,14 +349,21 @@
 
 /* RESPONSIVE LAYOUT */
 @media (max-width: 1024px) {
+  .hero {
+    min-height: auto;
+    padding-top: calc(var(--nav-height, 72px) + 16px);
+  }
   .hero__grid {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 24px;
+    gap: 32px;
   }
   .hero__left {
-    max-width: 100%;
+    max-width: 600px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .hero__description {
     margin-left: auto;
@@ -381,15 +388,57 @@
 .hero__stats-bar { background-color: #fff !important; }
 
 @media (max-width: 640px) {
+  .hero {
+    padding-top: calc(var(--nav-height, 72px) + 10px);
+    padding-bottom: 24px;
+  }
+  .hero__container {
+    padding: 0 16px;
+  }
+  .hero__eyebrow {
+    font-size: 11.5px;
+    padding: 5px 12px;
+    margin-bottom: 16px;
+  }
   .hero__title {
-    font-size: 2.3rem;
+    font-size: clamp(1.85rem, 6.6vw, 2.45rem);
+    line-height: 1.12;
+    margin-bottom: 16px;
+  }
+  .hero__description {
+    font-size: 14.5px;
+    line-height: 1.55;
+    margin-bottom: 22px;
+  }
+  .hero__actions {
+    width: 100%;
+    max-width: 320px;
+    gap: 10px;
+    flex-direction: column;
+    margin-bottom: 24px;
+  }
+  .hero__btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+  .hero__country-chips {
+    gap: 6px;
+  }
+  .hero__country-chip {
+    font-size: 11px;
+    padding: 4px 9px;
+  }
+  .hero__trust-sub {
+    font-size: 12px;
   }
   .hero__stats-container {
     grid-template-columns: 1fr;
     gap: 12px;
   }
   .hero__stat-card {
-    padding: 16px 18px;
+    padding: 14px 16px;
   }
 }
 

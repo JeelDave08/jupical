@@ -79,6 +79,18 @@
 .hv-ic svg { width: 1.15em; height: 1.15em; }
 
 @media (max-width: 900px) { .hv-stage { --w: min(92vw, 560px); } }
+@media (max-width: 600px) {
+  .hv-stage { --w: min(96vw, 420px); }
+  .hv-chip {
+    padding: .32em .8em .32em .32em;
+    font-size: max(10px, calc(var(--w) * .022));
+    gap: .4em;
+  }
+  .hv-ic {
+    width: 1.8em;
+    height: 1.8em;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .hv-cube, .hv-island, .hv-dots, .hv-base { animation: none; }
   .hv-cube { transform: rotateY(-30deg); }
