@@ -1,0 +1,375 @@
+/* ==========================================================================
+   HeroVisual — 3D Isometric SaaS ERP Ecosystem Visual
+   Built with pure CSS 3D, responsive SVG connections, and transparent PNG artwork
+   ========================================================================== */
+
+.heroVisual {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  aspect-ratio: 4 / 3;
+  margin-inline: auto;
+  user-select: none;
+  background: transparent;
+  isolation: isolate;
+}
+
+/* ==========================================================================
+   1. SVG CONNECTION LINES (DOTTED & ANIMATED GLOW)
+   ========================================================================== */
+.heroConnections {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.heroConnectionLine {
+  fill: none;
+  stroke: #0878f9;
+  stroke-width: 4.2;
+  stroke-linecap: round;
+  stroke-dasharray: 0 13;
+  animation: connectionFlow 2.4s linear infinite;
+}
+
+.heroConnectionEnd {
+  fill: #00f0ff;
+  stroke: #0878f9;
+  stroke-width: 1.8;
+  filter: drop-shadow(0 0 6px rgba(0, 240, 255, 0.95));
+}
+
+@keyframes connectionFlow {
+  to {
+    stroke-dashoffset: -26;
+  }
+}
+
+/* ==========================================================================
+   2. SIX ISOMETRIC INDUSTRY ISLANDS
+   ========================================================================== */
+.heroIsland {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 22px rgba(8, 120, 249, 0.08));
+  -webkit-user-drag: none;
+  animation: islandFloat 5.5s ease-in-out infinite;
+}
+
+.heroIslandEducation {
+  left: 36.5%;
+  top: 5.5%;
+  width: 27%;
+  animation-delay: 0s;
+}
+
+.heroIslandManufacturing {
+  left: 5%;
+  top: 17%;
+  width: 26.5%;
+  animation-delay: 0.7s;
+}
+
+.heroIslandConstruction {
+  left: 65%;
+  top: 17%;
+  width: 28%;
+  animation-delay: 1.2s;
+}
+
+.heroIslandIntegration {
+  left: 5%;
+  top: 52%;
+  width: 26.5%;
+  animation-delay: 2.4s;
+}
+
+.heroIslandInventory {
+  left: 66%;
+  top: 52%;
+  width: 28%;
+  animation-delay: 1.8s;
+}
+
+.heroIslandFinance {
+  left: 36.5%;
+  top: 67%;
+  width: 27%;
+  animation-delay: 3s;
+}
+
+@keyframes islandFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* ==========================================================================
+   3. RESPONSIVE ROUNDED LABEL CHIPS
+   ========================================================================== */
+.heroLabel {
+  position: absolute;
+  z-index: 6;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4.5px 12px 4.5px 5.5px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(8, 120, 249, 0.22);
+  border-radius: 999px;
+  box-shadow:
+    0 4px 16px rgba(8, 120, 249, 0.16),
+    0 0 12px rgba(8, 120, 249, 0.1);
+  color: #09295c;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-size: clamp(10.5px, 1.25vw, 13px);
+  font-weight: 700;
+  white-space: nowrap;
+  pointer-events: none;
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease;
+}
+
+.heroLabelIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: #0878f9;
+  color: #ffffff;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(8, 120, 249, 0.35);
+}
+
+.heroLabelText {
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+/* Specific pill positions matching the reference composition */
+.heroLabelEducation {
+  left: 50%;
+  top: 1.5%;
+  transform: translateX(-50%);
+}
+
+.heroLabelManufacturing {
+  left: 8%;
+  top: 13.5%;
+}
+
+.heroLabelConstruction {
+  left: 71%;
+  top: 13.5%;
+}
+
+.heroLabelIntegration {
+  left: 6%;
+  top: 49%;
+}
+
+.heroLabelInventory {
+  left: 77%;
+  top: 47.5%;
+}
+
+.heroLabelFinance {
+  left: 50%;
+  top: 91%;
+  transform: translateX(-50%);
+}
+
+/* ==========================================================================
+   4. CENTRAL GLOWING ROUND BASE
+   ========================================================================== */
+.heroBase {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  transform: translate(-50%, -50%);
+  width: 37%;
+  z-index: 2;
+  pointer-events: none;
+  object-fit: contain;
+  animation: basePulse 5s ease-in-out infinite;
+}
+
+@keyframes basePulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    filter: drop-shadow(0 0 14px rgba(8, 120, 249, 0.6));
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.025);
+    filter: drop-shadow(0 0 28px rgba(0, 210, 255, 0.85));
+  }
+}
+
+/* ==========================================================================
+   5. CENTRAL CSS 3D CUBE
+   ========================================================================== */
+.heroCubeScene {
+  --cube-size: clamp(100px, 19vw, 150px);
+  --half-size: calc(var(--cube-size) / 2);
+
+  position: absolute;
+  left: 50%;
+  top: 45.5%;
+  transform: translate(-50%, -50%);
+  width: var(--cube-size);
+  height: var(--cube-size);
+  perspective: 1200px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.heroCube {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: cubeRotate 14s linear infinite;
+}
+
+/* Initial angle tilted -18deg on X, -45deg on Y so Certified and Expert face the viewer */
+@keyframes cubeRotate {
+  from {
+    transform: rotateX(-18deg) rotateY(-45deg);
+  }
+  to {
+    transform: rotateX(-18deg) rotateY(315deg);
+  }
+}
+
+.cubeFace {
+  position: absolute;
+  inset: 0;
+  width: var(--cube-size);
+  height: var(--cube-size);
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #3d9bff 0%, #1680ff 45%, #0a58e6 100%);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  box-shadow:
+    0 0 8px rgba(30, 144, 255, 0.8),
+    0 0 24px rgba(30, 144, 255, 0.45),
+    inset 0 0 20px rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Inter, Arial, sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: clamp(14px, 2.1vw, 23px);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(5, 45, 120, 0.4);
+  backface-visibility: visible;
+  user-select: none;
+}
+
+/* Top Face: Glossy Light Surface with Logo */
+.cubeTop {
+  background: linear-gradient(135deg, #ffffff 0%, #e6f3ff 60%, #bddfff 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 0 14px rgba(30, 144, 255, 0.6),
+    inset 0 0 16px rgba(255, 255, 255, 0.9);
+  transform: rotateX(90deg) translateZ(var(--half-size));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cubeLogo {
+  width: 58%;
+  height: 58%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(8, 120, 249, 0.25));
+}
+
+/* 4 Vertical Faces */
+.cubeFront {
+  transform: rotateY(0deg) translateZ(var(--half-size));
+}
+
+.cubeRight {
+  transform: rotateY(90deg) translateZ(var(--half-size));
+}
+
+.cubeBack {
+  transform: rotateY(180deg) translateZ(var(--half-size));
+}
+
+.cubeLeft {
+  transform: rotateY(-90deg) translateZ(var(--half-size));
+}
+
+.cubeBottom {
+  background: #0747b8;
+  transform: rotateX(-90deg) translateZ(var(--half-size));
+  box-shadow: 0 0 25px rgba(8, 120, 249, 0.7);
+}
+
+.cubeWordLong {
+  font-size: clamp(10px, 1.6vw, 17px);
+}
+
+/* ==========================================================================
+   6. RESPONSIVE BREAKPOINTS
+   ========================================================================= */
+@media (max-width: 1024px) {
+  .heroVisual {
+    max-width: 620px;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroVisual {
+    max-width: 100%;
+  }
+
+  .heroLabel {
+    padding: 3px 8px 3px 4px;
+    gap: 4px;
+    font-size: 10px;
+  }
+
+  .heroLabelIcon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .heroLabelIcon svg {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* ==========================================================================
+   7. PREFERS-REDUCED-MOTION
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .heroCube,
+  .heroIsland,
+  .heroBase,
+  .heroConnectionLine {
+    animation: none !important;
+  }
+
+  .heroCube {
+    transform: rotateX(-18deg) rotateY(-45deg) !important;
+  }
+}
