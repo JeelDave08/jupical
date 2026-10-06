@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { margin: 0; background: #111; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+    #wrap { position: relative; display: inline-block; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+    img { display: block; width: 1024px; height: 442px; }
+    canvas { position: absolute; inset: 0; cursor: crosshair; }
+    #info { margin-top: 15px; background: rgba(0,0,0,0.8); padding: 12px 24px; border-radius: 8px; font-family: monospace; font-size: 16px; border: 1px solid #444; }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <img src="../public/section_base.png" id="img">
+    <canvas id="cv" width="1024" height="442"></canvas>
+  </div>
+  <div id="info">Hover to inspect coordinates. Click to plot path points.</div>
+  <button id="copy-btn" style="margin-top: 10px; padding: 8px 16px; cursor: pointer;">Log Points to Console</button>
+  <script>
+    const cv = document.getElementById('cv');
+    const ctx = cv.getContext('2d');
+    const info = document.getElementById('info');
+    const pts = [];
+    cv.addEventListener('mousemove', e => {
+      const rect = cv.getBoundingClientRect();
+      const x = Math.round(e.clientX - rect.left);
+      const y = Math.round(e.clientY - rect.top);
+      info.textContent = `X: ${x}, Y: ${y} | Points recorded: ${pts.length}`;
+    });
+    cv.addEventListener('click', e => {
+      const rect = cv.getBoundingClientRect();
+      const x = Math.round(e.clientX - rect.left);
+      const y = Math.round(e.clientY - rect.top);
+      pts.push([x, y]);
+      ctx.fillStyle = '#00ffff';
+      ctx.strokeStyle = '#0075ff';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.arc(x, y, 3, 0, Math.PI * 2);
+      ctx.fill();
+      if (pts.length > 1) {
+        ctx.beginPath();
+        ctx.moveTo(pts[pts.length - 2][0], pts[pts.length - 2][1]);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+      }
+    });
+    document.getElementById('copy-btn').addEventListener('click', () => {
+      console.log(JSON.stringify(pts));
+      alert(`Recorded ${pts.length} points. Check console.`);
+    });
+  </script>
+</body>
+</html>

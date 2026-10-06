@@ -1,0 +1,49 @@
+/* ============================================================
+   JOURNEY VISUAL — Timeline with animated rocket overlay
+   ============================================================ */
+
+/* Outer container — matches the image's square aspect ratio */
+.journey-visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;      /* image is square */
+  border-radius: 20px;
+  overflow: hidden;
+  background: #ffffff;
+  user-select: none;
+}
+
+/* ── Base image (unchanged, shows static rocket on launchpad) ── */
+.journey-visual__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;      /* keep full image visible, no crop */
+  border-radius: 20px;
+  pointer-events: none;
+  draggable: false;
+}
+
+/* ── SVG overlay sits on top of image, same bounding box ── */
+.journey-visual__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  overflow: visible;
+}
+
+/* ── Responsive sizing ── */
+@media (max-width: 900px) {
+  .journey-visual {
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .journey-visual {
+    border-radius: 10px;
+  }
+}
