@@ -1,4 +1,4 @@
-import HeroVisual from './HeroVisual';
+import HeroVisual from './HeroVisual/HeroVisual';
 import Clients from './Clients';
 import { useLanguage } from '../context/LanguageContext';
 import './Hero.css';
