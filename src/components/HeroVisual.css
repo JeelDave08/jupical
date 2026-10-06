@@ -1,7 +1,7 @@
 .hero-visual { display: flex; justify-content: center; font-family: inherit; }
 .hv-stage {
   --w: min(92vw, 760px);
-  --cube: calc(var(--w) * 0.17);
+  --cube: calc(var(--w) * 0.148);
   --half: calc(var(--cube) / 2);
   position: relative; width: var(--w); height: calc(var(--w) * 1086 / 1448);
 }
@@ -19,7 +19,7 @@
 .hv-lines { left: 0; top: 0; width: 100%; height: 100%; overflow: visible; }
 .hv-dots { stroke: #1e90ff; stroke-width: 7; stroke-linecap: round; stroke-dasharray: 0 17;
   filter: drop-shadow(0 0 4px #1e90ff); animation: hv-flow 1.6s linear infinite; }
-@keyframes hv-flow { to { stroke-dashoffset: -17; } }
+@keyframes hv-flow { to { stroke-dashoffset: 17; } }
 .hv-end { fill: #fff; stroke: #1e90ff; stroke-width: 3; filter: drop-shadow(0 0 6px #1e90ff); }
 
 .hv-island {
@@ -54,8 +54,8 @@
 /* moving shine */
 .hv-face::before { content: ""; position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.55) 50%, transparent 70%);
-  background-size: 250% 100%; background-position: 150% 0; animation: hv-shine 4.5s ease-in-out infinite; }
-@keyframes hv-shine { 0% { background-position: 150% 0; } 60%, 100% { background-position: -50% 0; } }
+  background-size: 250% 100%; background-position: -50% 0; animation: hv-shine 4.5s ease-in-out infinite; }
+@keyframes hv-shine { 0% { background-position: -50% 0; } 60%, 100% { background-position: 150% 0; } }
 /* small glowing bar under the word */
 .hv-face::after { content: ""; width: 24%; height: calc(var(--cube) * 0.02); border-radius: 99px;
   background: rgba(255, 255, 255, 0.95); box-shadow: 0 0 10px rgba(255, 255, 255, 0.95); }
