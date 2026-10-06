@@ -725,11 +725,11 @@ export default function Navbar() {
     <nav className={`navbar${scrolled ? ' navbar--scrolled' : ''}`} role="navigation" aria-label="Main navigation">
       <div className="navbar__inner container">
 
-        {/* Logo & Tagline */}
+        {/* Logo */}
         <a href="#" className="navbar__logo" id="nav-logo">
           <div className="navbar__logo-wrapper">
             <img src="/jupical-logo.png" alt="Jupical Technologies Logo" className="navbar__logo-img" />
-            <span className="navbar__tagline">Creates and Runs for better Business.</span>
+
           </div>
         </a>
 
