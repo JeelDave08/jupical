@@ -7,7 +7,7 @@ import Stats from './components/Stats';
 import CompanySection from './components/CompanySection';
 import Services from './components/Services';
 import BeforeAfter from './components/BeforeAfter';
-import GlobalEarthSection from './components/GlobalEarthSection';
+
 import Footer from './components/Footer';
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
         <Services />
         <CompanySection />
         <BeforeAfter />
-        <GlobalEarthSection />
+
       </main>
       <Footer />
     </ThemeProvider>
