@@ -1343,11 +1343,11 @@
   transform: scale(1.12);
 }
 
-/* Right 3 Columns */
+/* Right 3 Columns — now renders NavbarCompanyCards */
 .nav-resources-mega__columns {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 10px;
 }
 
 .nav-resources-col {

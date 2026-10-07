@@ -595,158 +595,57 @@ const connectorsData = {
   ],
 };
 
-/* ---- Resources Data Structure (Reference Image) ---- */
-const resourcesData = {
-  blogs: {
-    title: 'Blogs',
+/* ---- Resources Data Structure (3 Items Only) ---- */
+const resourcesData = [
+  {
+    id: 'blogs',
+    num: '01',
+    label: 'Blog',
     sub: 'Insights on ERP & Tech',
+    href: '/#blogs',
     accent: '#0075FF',
-    badgeBg: 'rgba(0, 117, 255, 0.1)',
-    badgeColor: '#0075FF',
-    lineGrad: 'linear-gradient(90deg, #0075FF 0%, #38BDF8 80%, transparent 100%)',
+    gradient: 'linear-gradient(135deg, #0075FF, #38BDF8)',
+    rgb: '0, 117, 255',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
       </svg>
     ),
-    items: [
-      {
-        id: 'latest-articles',
-        label: 'Latest Articles',
-        href: '#blogs',
-        icon: (
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0075FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-          </svg>
-        ),
-      },
-      {
-        id: 'expert-insights',
-        label: 'Expert Insights',
-        href: '#blogs',
-        icon: (
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0075FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M9 18h6"/><path d="M10 22h4"/>
-            <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-1 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.5 2.5 1.5 3.5.8.8 1.3 1.5 1.5 2.5"/>
-          </svg>
-        ),
-      },
-      {
-        id: 'tech-trends',
-        label: 'ERP & Tech Trends',
-        href: '#blogs',
-        icon: (
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0075FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
-          </svg>
-        ),
-      },
-    ],
-    footerLabel: 'Explore All Blogs',
-    footerHref: '/#blogs',
   },
-  caseStudies: {
-    title: 'Case Studies',
+  {
+    id: 'case-studies',
+    num: '02',
+    label: 'Case Studies',
     sub: 'Real-world success stories',
+    href: '/case-studies',
     accent: '#7C3AED',
-    badgeBg: 'rgba(124, 58, 237, 0.1)',
-    badgeColor: '#7C3AED',
-    lineGrad: 'linear-gradient(90deg, #7C3AED 0%, #A78BFA 80%, transparent 100%)',
+    gradient: 'linear-gradient(135deg, #7C3AED, #A78BFA)',
+    rgb: '124, 58, 237',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
       </svg>
     ),
-    items: [
-      {
-        id: 'customer-stories',
-        label: 'Customer Stories',
-        href: '/case-studies',
-        icon: (
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-          </svg>
-        ),
-      },
-      {
-        id: 'industry-solutions',
-        label: 'Industry Solutions',
-        href: '/case-studies',
-        icon: (
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/><path d="M6 12H4a2 2 0 0 0-2 2v8"/>
-            <path d="M18 9h2a2 2 0 0 1 2 2v11"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/>
-          </svg>
-        ),
-      },
-      {
-        id: 'implementation-journeys',
-        label: 'Implementation Journeys',
-        href: '/case-studies',
-        icon: (
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/>
-          </svg>
-        ),
-      },
-    ],
-    footerLabel: 'Explore All Case Studies',
-    footerHref: '/case-studies',
   },
-  successStories: {
-    title: 'Success Stories',
-    sub: 'Video testimonials',
+  {
+    id: 'success-stories',
+    num: '03',
+    label: 'Success Stories',
+    sub: 'Video testimonials & client reviews',
+    href: '/#success',
     accent: '#06B6D4',
-    badgeBg: 'rgba(6, 182, 212, 0.1)',
-    badgeColor: '#06B6D4',
-    lineGrad: 'linear-gradient(90deg, #06B6D4 0%, #67E8F9 80%, transparent 100%)',
+    gradient: 'linear-gradient(135deg, #06B6D4, #67E8F9)',
+    rgb: '6, 182, 212',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+        <polygon points="23 7 16 12 23 17 23 7" />
+        <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
       </svg>
     ),
-    items: [
-      {
-        id: 'video-testimonials',
-        label: 'Video Testimonials',
-        href: '/#success',
-        icon: (
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>
-          </svg>
-        ),
-      },
-      {
-        id: 'client-experiences',
-        label: 'Client Experiences',
-        href: '/#success',
-        icon: (
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
-          </svg>
-        ),
-      },
-      {
-        id: 'success-highlights',
-        label: 'Success Highlights',
-        href: '/#success',
-        icon: (
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
-            <path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
-            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>
-          </svg>
-        ),
-      },
-    ],
-    footerLabel: 'Explore All Success Stories',
-    footerHref: '/#success',
   },
-};
+];
 
 const navItems = [
   { label: 'Company', href: null, isCompany: true, icon: <CompanyNavIcon /> },
@@ -1498,124 +1397,15 @@ export default function Navbar({ activePage = null }) {
                         </div>
                       </div>
 
-                      {/* RIGHT 3 COLUMNS: BLOGS, CASE STUDIES, SUCCESS STORIES */}
+                      {/* RIGHT 3 COLUMNS: ONLY 3 NAMES (Blog, Case Studies, Success Stories) */}
                       <div className="nav-resources-mega__columns">
-                        {/* Column 1: Blogs */}
-                        <div className="nav-resources-col">
-                          <div className="nav-resources-col__header">
-                            <div className="nav-resources-col__badge-icon" style={{ background: resourcesData.blogs.badgeBg, color: resourcesData.blogs.badgeColor }}>
-                              {resourcesData.blogs.icon}
-                            </div>
-                            <div className="nav-resources-col__title-wrapper">
-                              <h4 className="nav-resources-col__title">{resourcesData.blogs.title}</h4>
-                              <p className="nav-resources-col__sub">{resourcesData.blogs.sub}</p>
-                            </div>
-                          </div>
-                          <div className="nav-resources-col__indicator-line" style={{ background: resourcesData.blogs.lineGrad }} />
-
-                          <div className="nav-resources-col__list">
-                            {resourcesData.blogs.items.map((card) => (
-                              <a key={card.id} href={card.href} className="nav-resource-card" onClick={() => setOpenDropdown(null)}>
-                                <div className="nav-resource-card__left">
-                                  <div className="nav-resource-card__icon">
-                                    {card.icon}
-                                  </div>
-                                  <span className="nav-resource-card__label">{card.label}</span>
-                                </div>
-                                <div className="nav-resource-card__arrow">
-                                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                    <polyline points="9 18 15 12 9 6"/>
-                                  </svg>
-                                </div>
-                              </a>
-                            ))}
-                          </div>
-
-                          <a href={resourcesData.blogs.footerHref} className="nav-resources-col__footer-link" style={{ color: resourcesData.blogs.accent }} onClick={() => setOpenDropdown(null)}>
-                            <span>{resourcesData.blogs.footerLabel}</span>
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-                            </svg>
-                          </a>
-                        </div>
-
-                        {/* Column 2: Case Studies */}
-                        <div className="nav-resources-col">
-                          <div className="nav-resources-col__header">
-                            <div className="nav-resources-col__badge-icon" style={{ background: resourcesData.caseStudies.badgeBg, color: resourcesData.caseStudies.badgeColor }}>
-                              {resourcesData.caseStudies.icon}
-                            </div>
-                            <div className="nav-resources-col__title-wrapper">
-                              <h4 className="nav-resources-col__title">{resourcesData.caseStudies.title}</h4>
-                              <p className="nav-resources-col__sub">{resourcesData.caseStudies.sub}</p>
-                            </div>
-                          </div>
-                          <div className="nav-resources-col__indicator-line" style={{ background: resourcesData.caseStudies.lineGrad }} />
-
-                          <div className="nav-resources-col__list">
-                            {resourcesData.caseStudies.items.map((card) => (
-                              <a key={card.id} href={card.href} className="nav-resource-card" onClick={() => setOpenDropdown(null)}>
-                                <div className="nav-resource-card__left">
-                                  <div className="nav-resource-card__icon">
-                                    {card.icon}
-                                  </div>
-                                  <span className="nav-resource-card__label">{card.label}</span>
-                                </div>
-                                <div className="nav-resource-card__arrow">
-                                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                    <polyline points="9 18 15 12 9 6"/>
-                                  </svg>
-                                </div>
-                              </a>
-                            ))}
-                          </div>
-
-                          <a href={resourcesData.caseStudies.footerHref} className="nav-resources-col__footer-link" style={{ color: resourcesData.caseStudies.accent }} onClick={() => setOpenDropdown(null)}>
-                            <span>{resourcesData.caseStudies.footerLabel}</span>
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-                            </svg>
-                          </a>
-                        </div>
-
-                        {/* Column 3: Success Stories */}
-                        <div className="nav-resources-col">
-                          <div className="nav-resources-col__header">
-                            <div className="nav-resources-col__badge-icon" style={{ background: resourcesData.successStories.badgeBg, color: resourcesData.successStories.badgeColor }}>
-                              {resourcesData.successStories.icon}
-                            </div>
-                            <div className="nav-resources-col__title-wrapper">
-                              <h4 className="nav-resources-col__title">{resourcesData.successStories.title}</h4>
-                              <p className="nav-resources-col__sub">{resourcesData.successStories.sub}</p>
-                            </div>
-                          </div>
-                          <div className="nav-resources-col__indicator-line" style={{ background: resourcesData.successStories.lineGrad }} />
-
-                          <div className="nav-resources-col__list">
-                            {resourcesData.successStories.items.map((card) => (
-                              <a key={card.id} href={card.href} className="nav-resource-card" onClick={() => setOpenDropdown(null)}>
-                                <div className="nav-resource-card__left">
-                                  <div className="nav-resource-card__icon">
-                                    {card.icon}
-                                  </div>
-                                  <span className="nav-resource-card__label">{card.label}</span>
-                                </div>
-                                <div className="nav-resource-card__arrow">
-                                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                    <polyline points="9 18 15 12 9 6"/>
-                                  </svg>
-                                </div>
-                              </a>
-                            ))}
-                          </div>
-
-                          <a href={resourcesData.successStories.footerHref} className="nav-resources-col__footer-link" style={{ color: resourcesData.successStories.accent }} onClick={() => setOpenDropdown(null)}>
-                            <span>{resourcesData.successStories.footerLabel}</span>
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-                            </svg>
-                          </a>
-                        </div>
+                        {resourcesData.map((res) => (
+                          <NavbarCompanyCard
+                            key={res.id}
+                            item={res}
+                            onClose={() => setOpenDropdown(null)}
+                          />
+                        ))}
                       </div>
                     </div>
 
@@ -1716,7 +1506,20 @@ export default function Navbar({ activePage = null }) {
             ))}
           </div>
 
-          {navItems.filter(i => !i.isCompany && !i.isOdooMega && !i.isConnectorsMega).map((item) => (
+          {/* Mobile Resources Group */}
+          <div className="navbar__mobile-group">
+            <span className="navbar__mobile-heading">Resources</span>
+            {resourcesData.map((item) => (
+              <Link key={item.id} to={item.href.startsWith('/') ? item.href : `/${item.href}`} className="navbar__mobile-link navbar__mobile-link--company" onClick={() => setMobileOpen(false)}>
+                <div className="mobile-text">
+                  <span className="mobile-title">{item.label}</span>
+                  <span className="mobile-sub">{item.sub}</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {navItems.filter(i => !i.isCompany && !i.isOdooMega && !i.isConnectorsMega && !i.isResourcesMega).map((item) => (
             <div key={item.label} className="navbar__mobile-group">
               <span className="navbar__mobile-heading">{item.label}</span>
               {item.dropdown?.map((d) => (
