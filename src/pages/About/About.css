@@ -24,7 +24,7 @@
   color: var(--ink);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.65;
-  overflow-x: hidden;
+  overflow-x: clip;
   position: relative;
   min-height: 100vh;
 }
@@ -233,7 +233,9 @@
   display: flex;
   align-items: center;
   background: radial-gradient(80% 65% at 50% 30%, var(--bg2) 0%, var(--bg) 100%);
-  overflow: hidden;
+  /* overflow: clip keeps the canvas contained but does NOT clip fixed/absolute
+     descendants from outside this element (like the Navbar dropdown) */
+  overflow: clip;
   padding-top: calc(var(--nav-height, 72px) + 30px);
   border-bottom: 1px solid var(--line);
 }

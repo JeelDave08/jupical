@@ -399,6 +399,20 @@
   z-index: 1000;
 }
 
+.navbar__dropdown::-webkit-scrollbar {
+  width: 5px;
+}
+.navbar__dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+.navbar__dropdown::-webkit-scrollbar-thumb {
+  background: rgba(0, 117, 255, 0.2);
+  border-radius: 999px;
+}
+.navbar__dropdown::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 117, 255, 0.4);
+}
+
 .navbar__dropdown--open {
   opacity: 1;
   visibility: visible;
@@ -431,6 +445,10 @@
    ============================================ */
 .navbar__dropdown--company {
   min-width: 600px;
+  max-width: 95vw;
+  max-height: calc(100vh - 90px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 20px 50px rgba(11, 31, 51, 0.14), 0 4px 16px rgba(0, 0, 0, 0.06);
@@ -557,10 +575,13 @@
    PREMIUM ODOO ERPs MEGA DROPDOWN MENU
    ============================================ */
 .navbar__dropdown--odoo {
-  width: 820px;
-  max-width: 90vw;
-  padding: 32px 36px 24px;
-  border-radius: 24px;
+  width: min(840px, calc(100vw - 32px));
+  max-width: 840px;
+  max-height: calc(100vh - 85px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 18px 22px 14px;
+  border-radius: 20px;
   background: linear-gradient(180deg, #FAFCFF 0%, #F4F8FE 100%);
   border: 1px solid rgba(0, 117, 255, 0.16);
   box-shadow: 
@@ -568,13 +589,13 @@
     0 8px 24px -4px rgba(15, 23, 42, 0.06),
     inset 0 1px 1px #ffffff;
   left: 50%;
-  transform: translateX(-50%) translateY(-12px) scale(0.98);
+  transform: translateX(-50%) translateY(-8px) scale(0.98);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 350ms cubic-bezier(0.16, 1, 0.3, 1), transform 350ms cubic-bezier(0.16, 1, 0.3, 1), visibility 350ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 280ms cubic-bezier(0.16, 1, 0.3, 1), transform 280ms cubic-bezier(0.16, 1, 0.3, 1), visibility 280ms cubic-bezier(0.16, 1, 0.3, 1);
   position: absolute;
-  overflow: hidden;
+  box-sizing: border-box;
   z-index: 1000;
 }
 
@@ -585,35 +606,35 @@
   transform: translateX(-50%) translateY(0) scale(1);
 }
 
-.nav-odoo-dropdown__header { position: relative; z-index: 1; text-align: center; margin-bottom: 24px; }
-.nav-odoo-dropdown__badge { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 0.12em; color: #0075FF; margin-bottom: 8px; text-transform: uppercase; }
-.nav-odoo-dropdown__title { font-size: 24px; font-weight: 900; color: #0F172A; letter-spacing: -0.02em; margin-bottom: 6px; }
+.nav-odoo-dropdown__header { position: relative; z-index: 1; text-align: center; margin-bottom: 12px; }
+.nav-odoo-dropdown__badge { display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.12em; color: #0075FF; margin-bottom: 3px; text-transform: uppercase; }
+.nav-odoo-dropdown__title { font-size: 19px; font-weight: 900; color: #0F172A; letter-spacing: -0.02em; margin-bottom: 3px; }
 .nav-odoo-dropdown__title-blue { color: #0075FF; background: linear-gradient(90deg, #0075FF, #8B5CF6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.nav-odoo-dropdown__sub { font-size: 13.5px; color: #64748B; max-width: 520px; margin: 0 auto; }
-.nav-odoo-dropdown__body { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 40px 1fr; align-items: center; gap: 0; margin-bottom: 20px; }
-.nav-odoo-dropdown__column { display: flex; flex-direction: column; gap: 12px; }
-.nav-odoo-dropdown__divider { position: relative; width: 40px; height: 100%; min-height: 280px; display: flex; align-items: center; justify-content: center; }
-.nav-odoo-dropdown__divider-svg { width: 20px; height: 100%; }
+.nav-odoo-dropdown__sub { font-size: 12px; color: #64748B; max-width: 480px; margin: 0 auto; line-height: 1.35; }
+.nav-odoo-dropdown__body { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr); align-items: center; gap: 0; margin-bottom: 12px; width: 100%; box-sizing: border-box; }
+.nav-odoo-dropdown__column { display: flex; flex-direction: column; gap: 8px; min-width: 0; width: 100%; box-sizing: border-box; }
+.nav-odoo-dropdown__divider { position: relative; width: 28px; height: 100%; min-height: 200px; display: flex; align-items: center; justify-content: center; }
+.nav-odoo-dropdown__divider-svg { width: 16px; height: 100%; }
 .nav-odoo-svg-dot { filter: drop-shadow(0 0 6px currentColor); }
 .nav-odoo-svg-dot--1 { filter: drop-shadow(0 0 8px #0075FF); }
 .nav-odoo-svg-dot--2 { filter: drop-shadow(0 0 8px #10B981); }
 .nav-odoo-svg-dot--3 { filter: drop-shadow(0 0 8px #8B5CF6); }
 
-.nav-odoo-card { display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: #ffffff; border: 1px solid rgba(0, 117, 255, 0.1); border-radius: 18px; box-shadow: 0 4px 14px rgba(0, 117, 255, 0.04); text-decoration: none; transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden; }
-.nav-odoo-card:hover { transform: translateY(-3px); border-color: rgba(0, 117, 255, 0.35); box-shadow: 0 12px 28px -4px rgba(0, 117, 255, 0.15), 0 4px 12px rgba(0, 0, 0, 0.03); background: #ffffff; }
-.nav-odoo-card__icon { width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #ffffff; flex-shrink: 0; box-shadow: 0 4px 12px rgba(0, 117, 255, 0.2); transition: transform 250ms ease; }
+.nav-odoo-card { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #ffffff; border: 1px solid rgba(0, 117, 255, 0.1); border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 117, 255, 0.04); text-decoration: none; transition: all 220ms cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden; min-width: 0; width: 100%; box-sizing: border-box; }
+.nav-odoo-card:hover { transform: translateY(-2px); border-color: rgba(0, 117, 255, 0.35); box-shadow: 0 6px 18px -3px rgba(0, 117, 255, 0.14), 0 2px 6px rgba(0, 0, 0, 0.03); background: #ffffff; }
+.nav-odoo-card__icon { width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #ffffff; flex-shrink: 0; box-shadow: 0 3px 8px rgba(0, 117, 255, 0.2); transition: transform 220ms ease; }
 .nav-odoo-card:hover .nav-odoo-card__icon { transform: scale(1.06) translateX(2px); }
-.nav-odoo-card__info { flex: 1; min-width: 0; }
-.nav-odoo-card__header { display: flex; align-items: center; gap: 8px; margin-bottom: 2px; }
-.nav-odoo-card__num { font-size: 11px; font-weight: 800; font-family: var(--font-mono, monospace); color: #94A3B8; letter-spacing: 0.05em; }
-.nav-odoo-card__title { font-size: 14px; font-weight: 800; color: #0F172A; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: color 200ms ease; }
+.nav-odoo-card__info { flex: 1 1 auto; min-width: 0; overflow: hidden; }
+.nav-odoo-card__header { display: flex; align-items: center; gap: 5px; margin-bottom: 2px; min-width: 0; }
+.nav-odoo-card__num { font-size: 10px; font-weight: 800; font-family: var(--font-mono, monospace); color: #94A3B8; letter-spacing: 0.04em; flex-shrink: 0; }
+.nav-odoo-card__title { font-size: 13px; font-weight: 800; color: #0F172A; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; transition: color 200ms ease; }
 .nav-odoo-card:hover .nav-odoo-card__title { color: #0075FF; }
-.nav-odoo-card__sub { font-size: 11.5px; color: #64748B; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.nav-odoo-card__arrow-btn { width: 28px; height: 28px; border-radius: 50%; border: 1px solid #E2E8F0; display: flex; align-items: center; justify-content: center; color: #94A3B8; flex-shrink: 0; transition: all 250ms ease; }
-.nav-odoo-card:hover .nav-odoo-card__arrow-btn { border-color: #0075FF; background: #0075FF; color: #ffffff; transform: translateX(3px); box-shadow: 0 4px 10px rgba(0, 117, 255, 0.3); }
+.nav-odoo-card__sub { font-size: 11px; color: #64748B; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.25; margin: 0; }
+.nav-odoo-card__arrow-btn { width: 24px; height: 24px; border-radius: 50%; border: 1px solid #E2E8F0; display: flex; align-items: center; justify-content: center; color: #94A3B8; flex-shrink: 0; margin-left: auto; transition: all 220ms ease; }
+.nav-odoo-card:hover .nav-odoo-card__arrow-btn { border-color: #0075FF; background: #0075FF; color: #ffffff; transform: translateX(2px); box-shadow: 0 3px 8px rgba(0, 117, 255, 0.3); }
 
-.nav-odoo-dropdown__footer { position: relative; z-index: 1; border-top: 1px solid rgba(0, 117, 255, 0.1); padding-top: 16px; text-align: center; }
-.nav-odoo-dropdown__footer-link { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 800; color: #0075FF; text-decoration: none; transition: all 200ms ease; padding: 6px 14px; border-radius: 20px; }
+.nav-odoo-dropdown__footer { position: relative; z-index: 1; border-top: 1px solid rgba(0, 117, 255, 0.1); padding-top: 10px; text-align: center; }
+.nav-odoo-dropdown__footer-link { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 800; color: #0075FF; text-decoration: none; transition: all 200ms ease; padding: 4px 12px; border-radius: 20px; }
 .nav-odoo-dropdown__footer-link:hover { background: rgba(0, 117, 255, 0.08); transform: translateX(2px); }
 
 /* ============================================
@@ -1085,8 +1106,11 @@
 .navbar__dropdown--resources {
   width: 1040px;
   max-width: 95vw;
-  padding: 28px 32px 20px;
-  border-radius: 28px;
+  max-height: calc(100vh - 90px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 24px 30px 18px;
+  border-radius: 24px;
   background: linear-gradient(180deg, #FFFFFF 0%, #FAFCFF 100%);
   border: 1px solid rgba(0, 117, 255, 0.18);
   box-shadow: 
@@ -1101,7 +1125,6 @@
   pointer-events: none;
   transition: opacity 350ms cubic-bezier(0.16, 1, 0.3, 1), transform 350ms cubic-bezier(0.16, 1, 0.3, 1), visibility 350ms cubic-bezier(0.16, 1, 0.3, 1);
   position: absolute;
-  overflow: hidden;
   z-index: 1000;
 }
 

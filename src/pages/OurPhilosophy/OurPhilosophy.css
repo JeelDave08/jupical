@@ -50,7 +50,9 @@
   display: grid;
   place-items: center;
   text-align: center;
-  overflow: hidden;
+  /* overflow: clip keeps decorative canvas/orbs contained but does NOT clip
+     the fixed Navbar's dropdown menus (unlike overflow: hidden) */
+  overflow: clip;
   background: radial-gradient(70% 60% at 50% 45%, #EAF3FF, #fff 75%);
   /* Leave room for fixed navbar (~72px) */
   padding-top: var(--nav-height, 72px);

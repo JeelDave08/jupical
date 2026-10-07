@@ -8,7 +8,10 @@
   padding-top: calc(var(--nav-height, 80px) + 10px);
   background: var(--bg-primary, #ffffff);
   color: var(--text-primary, #0f172a);
-  overflow: hidden;
+  /* overflow: clip is identical to hidden visually but does NOT
+     clip position:fixed/absolute children from outer stacking contexts,
+     so the Navbar fixed-position dropdown renders fully without being cut */
+  overflow: clip;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -21,7 +24,7 @@
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  overflow: hidden;
+  overflow: clip;
 }
 
 .hero__glow {
