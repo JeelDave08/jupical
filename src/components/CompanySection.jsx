@@ -27,7 +27,7 @@ const companyCards = [
     accentRgb: '124, 58, 237',
     iconGradient: 'linear-gradient(135deg, #7C3AED, #9F67FF)',
     shadowColor: 'rgba(124, 58, 237, 0.25)',
-    href: '#why',
+    href: '/#why',
     iconType: 'target',
   },
   {
@@ -40,7 +40,7 @@ const companyCards = [
     accentRgb: '15, 159, 154',
     iconGradient: 'linear-gradient(135deg, #0F9F9A, #22C7BE)',
     shadowColor: 'rgba(15, 159, 154, 0.25)',
-    href: '#clients',
+    href: '/#clients',
     iconType: 'clients',
   },
   {
@@ -66,7 +66,7 @@ const companyCards = [
     accentRgb: '249, 115, 22',
     iconGradient: 'linear-gradient(135deg, #F97316, #FB923C)',
     shadowColor: 'rgba(249, 115, 22, 0.25)',
-    href: '#blogs',
+    href: '/#blogs',
     iconType: 'blog',
   },
   {
@@ -79,7 +79,7 @@ const companyCards = [
     accentRgb: '0, 87, 255',
     iconGradient: 'linear-gradient(135deg, #0057FF, #3B82F6)',
     shadowColor: 'rgba(0, 87, 255, 0.25)',
-    href: '#cases',
+    href: '/case-studies',
     iconType: 'caseStudies',
   },
 ];

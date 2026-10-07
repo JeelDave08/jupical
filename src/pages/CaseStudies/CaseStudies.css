@@ -1,0 +1,553 @@
+/* Scope for Case Studies Page */
+.cs-page {
+  --ink: #0B2A6B;
+  --body: #4B5567;
+  --blue: #0A6CFF;
+  --pill: #EAF3FF;
+  --line: #D6E4FA;
+  
+  background-color: #F7FAFF;
+  color: var(--body);
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.cs-wrap {
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* PART A: Compact Hero */
+.cs-hero {
+  padding: 3rem 0 2.6rem;
+  border-bottom: 1px solid var(--line);
+  background: radial-gradient(50% 90% at 100% 0, #D5E7FF, transparent 70%), #fff;
+}
+
+.cs-hero .cs-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.cs-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: var(--pill);
+  border: 1px solid var(--line);
+  color: var(--blue);
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+.cs-tag i {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 0 0.25rem rgba(10, 108, 255, 0.18);
+}
+
+.cs-hero h1 {
+  margin: 1rem 0 0;
+  color: var(--ink);
+  font: 800 clamp(2.1rem, 4vw, 3.4rem)/1.04 "Bricolage Grotesque", Inter, sans-serif;
+  letter-spacing: -0.04em;
+}
+
+.cs-hero h1 em {
+  display: block;
+  font-style: normal;
+  color: var(--blue);
+}
+
+.cs-hero .cs-lead {
+  margin: 1.1rem 0 0;
+  max-width: 33rem;
+  font-size: 1.04rem;
+  line-height: 1.55;
+  color: var(--body);
+}
+
+.cs-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.3rem;
+}
+
+.cs-btn {
+  display: inline-block;
+  padding: 0.75rem 1.7rem;
+  border-radius: 999px;
+  background: var(--blue);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 10px 26px rgba(10, 108, 255, 0.28);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cs-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(10, 108, 255, 0.38);
+}
+
+.cs-flow {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin: 1.8rem 0 0;
+  padding: 0;
+  list-style: none;
+  max-width: 36rem;
+}
+
+.cs-flow::before,
+.cs-flow::after {
+  content: "";
+  position: absolute;
+  left: calc(100% / 12);
+  right: calc(100% / 12);
+  top: 0.42rem;
+  height: 2px;
+  background: var(--line);
+}
+
+.cs-flow::after {
+  background: var(--blue);
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: cs-draw 1.6s 0.5s ease-out forwards;
+}
+
+.cs-flow li {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.cs-flow li::before {
+  content: "";
+  display: block;
+  width: 0.9rem;
+  height: 0.9rem;
+  margin: 0 auto 0.45rem;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--line);
+  animation: cs-lit 0.3s forwards;
+  animation-delay: calc(0.5s + var(--i) * 0.32s);
+}
+
+@keyframes cs-draw {
+  to { transform: scaleX(1); }
+}
+
+@keyframes cs-lit {
+  to {
+    background: var(--blue);
+    border-color: var(--blue);
+    box-shadow: 0 0 0 0.3rem rgba(10, 108, 255, 0.18);
+  }
+}
+
+.cs-side .cs-big {
+  margin: 0 0 1rem;
+  font: 700 clamp(1.15rem, 1.8vw, 1.5rem)/1.28 "Bricolage Grotesque", Inter, sans-serif;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  padding-left: 1.1rem;
+  border-left: 4px solid var(--blue);
+}
+
+.cs-side p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--body);
+}
+
+.cs-side p + p {
+  margin-top: 0.7rem;
+}
+
+@media (max-width: 62rem) {
+  .cs-hero .cs-wrap {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 40rem) {
+  .cs-hero {
+    padding: 2.2rem 0 2rem;
+  }
+  .cs-flow {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 0.9rem;
+  }
+  .cs-flow::before,
+  .cs-flow::after {
+    display: none;
+  }
+  .cs-flow li::before {
+    animation: none;
+    background: var(--blue);
+    border-color: var(--blue);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-flow::after {
+    animation: none;
+    transform: none;
+  }
+  .cs-flow li::before {
+    animation: none;
+    background: var(--blue);
+    border-color: var(--blue);
+  }
+}
+
+/* PART B: Filter Bar & Cards Grid */
+.cs-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(247, 250, 255, 0.94);
+  backdrop-filter: blur(10px);
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.cs-bar .cs-wrap {
+  display: flex;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.cs-chip {
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  font: 600 0.93rem 'Inter', sans-serif;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+}
+
+.cs-chip:hover {
+  border-color: var(--blue);
+}
+
+.cs-chip.active,
+.cs-chip[aria-pressed="true"] {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+
+.cs-count {
+  margin-left: auto;
+  font-weight: 700;
+  color: var(--blue);
+  font-size: 0.95rem;
+}
+
+.cs-main {
+  padding: 2.5rem 0 5rem;
+}
+
+.cs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.cs-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: #fff;
+  overflow: hidden;
+  text-align: left;
+  font: inherit;
+  color: var(--body);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.cs-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 44px rgba(10, 108, 255, 0.16);
+  border-color: #9CC4FF;
+}
+
+.cs-im {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.cs-im img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s;
+}
+
+.cs-card:hover .cs-im img {
+  transform: scale(1.07);
+}
+
+.cs-cat-pill {
+  position: absolute;
+  left: 0.9rem;
+  top: 0.9rem;
+  z-index: 2;
+  padding: 0.28rem 0.75rem;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 0.78rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cs-card-num {
+  position: absolute;
+  right: 0.9rem;
+  bottom: 0.7rem;
+  z-index: 2;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Branded Placeholder when no image or image error */
+.cs-ph {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #0A3FBF, #0A6CFF 70%, #4DA3FF);
+  overflow: hidden;
+}
+
+.cs-ph::before {
+  content: "";
+  position: absolute;
+  right: -3rem;
+  top: -3rem;
+  width: 11rem;
+  height: 11rem;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 0 1.6rem rgba(255, 255, 255, 0.07);
+}
+
+.cs-ph strong {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-family: "Bricolage Grotesque", Inter, sans-serif;
+  font-size: 1.55rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  max-width: 85%;
+}
+
+.cs-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 1.35rem 1.4rem 1.4rem;
+  flex: 1;
+}
+
+.cs-card h3 {
+  color: var(--ink);
+  font-size: 1.18rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.cs-card p {
+  margin: 0;
+  font-size: 0.97rem;
+  line-height: 1.5;
+  color: var(--body);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cs-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.cs-foot span {
+  color: var(--ink);
+}
+
+.cs-foot b {
+  color: var(--blue);
+}
+
+.cs-card:hover .cs-foot b {
+  text-decoration: underline;
+}
+
+/* Detail Popup Modal */
+.cs-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(6, 28, 100, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: cs-fade-in 0.2s ease-out;
+}
+
+@keyframes cs-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.cs-modal-content {
+  position: relative;
+  border-radius: 26px;
+  width: min(42rem, 100%);
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(6, 28, 100, 0.35);
+  animation: cs-pop-in 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes cs-pop-in {
+  from { transform: scale(0.94); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.cs-modal-content .cs-im {
+  aspect-ratio: 16 / 8;
+}
+
+.cs-modal-close {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  z-index: 10;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--blue);
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.cs-modal-close:hover {
+  transform: scale(1.1);
+  background: #EAF3FF;
+}
+
+.cs-db {
+  padding: 1.6rem 2rem 2rem;
+}
+
+.cs-db h3 {
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 0;
+}
+
+.cs-db p {
+  margin: 1rem 0 0;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--body);
+}
+
+.cs-meta {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+
+.cs-meta span {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: var(--pill);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 62rem) {
+  .cs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 40rem) {
+  .cs-grid {
+    grid-template-columns: 1fr;
+  }
+  .cs-count {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-card,
+  .cs-im img {
+    transition: none;
+  }
+  .cs-card:hover {
+    transform: none;
+  }
+}

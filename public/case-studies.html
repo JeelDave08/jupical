@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light only">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jupical – Case Studies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--ink:#0B2A6B;--body:#4B5567;--blue:#0A6CFF;--pill:#EAF3FF;--line:#D6E4FA;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:#F7FAFF;color:var(--body);font:400 1.0625rem/1.6 Inter,"Segoe UI",Arial,sans-serif}
+.wrap{max-width:78rem;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{color:var(--ink);margin:0;letter-spacing:-.03em}
+
+/* PART A - Hero */
+.hero{padding:3rem 0 2.6rem;border-bottom:1px solid var(--line);background:radial-gradient(50% 90% at 100% 0,#D5E7FF,transparent 70%),#fff}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);gap:3.5rem;align-items:center}
+.tag{display:inline-flex;align-items:center;gap:.55rem;padding:.35rem .9rem;border-radius:999px;background:var(--pill);border:1px solid var(--line);color:var(--blue);font-weight:600;font-size:.88rem}
+.tag i{width:.5rem;height:.5rem;border-radius:50%;background:var(--blue);box-shadow:0 0 0 .25rem rgba(10,108,255,.18)}
+.hero h1{margin:1rem 0 0;color:var(--ink);font:800 clamp(2.1rem,4vw,3.4rem)/1.04 "Bricolage Grotesque",Inter,sans-serif;letter-spacing:-.04em}
+.hero h1 em{display:block;font-style:normal;color:var(--blue)}
+.hero .lead{margin:1.1rem 0 0;max-width:33rem;font-size:1.04rem;line-height:1.55}
+.cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.3rem}
+.btn{display:inline-block;padding:.75rem 1.7rem;border-radius:999px;background:var(--blue);color:#fff;font-weight:600;text-decoration:none;box-shadow:0 10px 26px rgba(10,108,255,.28)}
+.flow{position:relative;display:grid;grid-template-columns:repeat(6,1fr);margin:1.8rem 0 0;padding:0;list-style:none;max-width:36rem}
+.flow::before,.flow::after{content:"";position:absolute;left:calc(100%/12);right:calc(100%/12);top:.42rem;height:2px;background:var(--line)}
+.flow::after{background:var(--blue);transform-origin:left;transform:scaleX(0);animation:draw 1.6s .5s ease-out forwards}
+.flow li{position:relative;z-index:1;text-align:center;font-size:.8rem;font-weight:600;color:var(--ink)}
+.flow li::before{content:"";display:block;width:.9rem;height:.9rem;margin:0 auto .45rem;border-radius:50%;background:#fff;border:2px solid var(--line);animation:lit .3s forwards;animation-delay:calc(.5s + var(--i)*.32s)}
+@keyframes draw{to{transform:scaleX(1)}}
+@keyframes lit{to{background:var(--blue);border-color:var(--blue);box-shadow:0 0 0 .3rem rgba(10,108,255,.18)}}
+.side .big{margin:0 0 1rem;font:700 clamp(1.15rem,1.8vw,1.5rem)/1.28 "Bricolage Grotesque",Inter,sans-serif;letter-spacing:-.02em;color:var(--ink);padding-left:1.1rem;border-left:4px solid var(--blue)}
+.side p{margin:0;font-size:.95rem;line-height:1.55}.side p+p{margin-top:.7rem}
+@media (max-width:62rem){.hero .wrap{grid-template-columns:1fr;gap:2rem}}
+@media (max-width:40rem){.hero{padding:2.2rem 0 2rem}.flow{grid-template-columns:repeat(3,1fr);row-gap:.9rem}.flow::before,.flow::after{display:none}.flow li::before{animation:none;background:var(--blue);border-color:var(--blue)}}
+@media (prefers-reduced-motion:reduce){.flow::after{animation:none;transform:none}.flow li::before{animation:none;background:var(--blue);border-color:var(--blue)}}
+
+/* Filter & Grid */
+.bar{position:sticky;top:0;z-index:3;background:rgba(247,250,255,.94);backdrop-filter:blur(10px);padding:.9rem 0;border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;gap:.55rem;flex-wrap:wrap;align-items:center}
+.chip{padding:.5rem 1.1rem;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--ink);font:600 .93rem Inter,sans-serif;cursor:pointer;transition:.2s}
+.chip:hover{border-color:var(--blue)}.chip[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.count{margin-left:auto;font-weight:700;color:var(--blue)}
+main{padding:2.5rem 0 5rem}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}
+.card{display:flex;flex-direction:column;padding:0;border:1px solid var(--line);border-radius:22px;background:#fff;overflow:hidden;text-align:left;font:inherit;color:var(--body);cursor:pointer;transition:transform .3s,box-shadow .3s,border-color .3s}
+.card[hidden]{display:none}
+.card:hover{transform:translateY(-5px);box-shadow:0 22px 44px rgba(10,108,255,.16);border-color:#9CC4FF}
+.im{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--ink)}
+.im img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.card:hover .im img{transform:scale(1.07)}
+.im .c{position:absolute;left:.9rem;top:.9rem;z-index:2;padding:.28rem .75rem;border-radius:999px;background:#fff;color:var(--blue);font-weight:700;font-size:.78rem;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.im .n{position:absolute;right:.9rem;bottom:.7rem;z-index:2;color:#fff;font-weight:800;font-size:1.1rem;letter-spacing:.02em;text-shadow:0 1px 3px rgba(0,0,0,.4)}
+.ph{position:absolute;inset:0;display:flex;align-items:flex-end;padding:1.25rem;background:linear-gradient(135deg,#0A3FBF,#0A6CFF 70%,#4DA3FF);overflow:hidden}
+.ph::before{content:"";position:absolute;right:-3rem;top:-3rem;width:11rem;height:11rem;border-radius:50%;border:2px solid rgba(255,255,255,.25);box-shadow:0 0 0 1.6rem rgba(255,255,255,.07)}
+.ph strong{position:relative;z-index:1;color:#fff;font-family:"Bricolage Grotesque",Inter,sans-serif;font-size:1.55rem;font-weight:800;line-height:1.1;letter-spacing:-.03em;max-width:85%}
+.body{display:flex;flex-direction:column;gap:.7rem;padding:1.35rem 1.4rem 1.4rem;flex:1}
+.card h3{font-size:1.18rem;font-weight:700;line-height:1.25}
+.card p{margin:0;font-size:.97rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:.5rem;margin-top:auto;padding-top:.9rem;border-top:1px solid var(--line);font-size:.88rem;font-weight:600}
+.foot span{color:var(--ink)}.foot b{color:var(--blue)}
+.card:hover .foot b{text-decoration:underline}
+dialog{border:0;padding:0;border-radius:26px;width:min(42rem,calc(100% - 2rem));overflow:hidden;box-shadow:0 30px 80px rgba(6,28,100,.35)}
+dialog::backdrop{background:rgba(6,28,100,.55);backdrop-filter:blur(4px)}
+dialog .im{aspect-ratio:16/8}.db{padding:1.6rem 2rem 2rem}.db h3{font-size:1.65rem;font-weight:800;line-height:1.2}.db p{margin:1rem 0 0;display:block}
+.meta{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.25rem}.meta span{padding:.4rem .9rem;border-radius:999px;background:var(--pill);color:var(--ink);font-weight:600;font-size:.9rem}
+.x{position:absolute;right:1rem;top:1rem;z-index:3;width:2.4rem;height:2.4rem;border:0;border-radius:50%;background:#fff;color:var(--blue);font-size:1.3rem;font-weight:700;cursor:pointer}
+a:focus-visible,button:focus-visible{outline:3px solid #7FB2FF;outline-offset:3px}
+@media (max-width:62rem){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:40rem){.grid{grid-template-columns:1fr}.count{margin-left:0;width:100%}}
+@media (prefers-reduced-motion:reduce){.card,.im img{transition:none}.card:hover{transform:none}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div>
+    <span class="tag"><i></i>Customer Success Stories</span>
+    <h1>Real Businesses. Real Challenges.<em>Real Business Transformation.</em></h1>
+    <p class="lead">Discover how Jupical helps businesses streamline operations, automate workflows and build scalable digital systems through expertly implemented Odoo and Open Source ERP solutions.</p>
+    <div class="cta"><a class="btn" href="#contact">Connect</a></div>
+    <ul class="flow" aria-label="Departments connected in one Odoo system">
+      <li style="--i:0">Sales</li><li style="--i:1">Purchase</li><li style="--i:2">Inventory</li>
+      <li style="--i:3">Manufacturing</li><li style="--i:4">Finance</li><li style="--i:5">HR</li>
+    </ul>
+  </div>
+  <aside class="side">
+    <p class="big">Every business operates differently. Standard software alone cannot always address industry-specific processes, reporting requirements and operational challenges.</p>
+    <p>At Jupical, we begin by understanding how each organization works from sales, procurement and inventory to manufacturing, finance, human resources and customer service. We then configure and customize Odoo to create an integrated ERP environment aligned with the organization's processes and growth objectives.</p>
+    <p>Our experience across Odoo Community and Enterprise, Flutter and MERN stack enables us to deliver solutions that reduce manual work, connect departments, improve decision-making and support long-term business growth.</p>
+    <p>Explore our customer success stories to see how organizations across industries have transformed their operations with Jupical.</p>
+  </aside>
+</div></header>
+
+<div class="bar"><div class="wrap" id="chips" role="group" aria-label="Filter case studies"></div></div>
+<main><div class="wrap"><div class="grid" id="grid"></div></div></main>
+
+<dialog id="dlg" aria-labelledby="dt"><button class="x" aria-label="Close" id="cl">×</button>
+<div class="im" id="dh"></div><div class="db"><h3 id="dt"></h3><p id="dd"></p><div class="meta" id="dm"></div></div></dialog>
+
+<script>
+const MF='Manufacturing',FN='Finance',TR='Trade & Retail',SV='Services',EC='Energy & Construction',ED='Education';
+const D=[
+[MF,'Paints - Manufacturing in odoo','Jupical implemented a customized Odoo ERP solution for Paints Manufacturing, introducing dual units of measure and streamlining inventory and manufacturing operations. The solution improved material tracking, stock accuracy, production control and overall operational visibility.','Odoo ERP',''],
+[SV,'Travel Solutions in odoo','Jupical successfully implemented a customized Odoo Community ERP for Travel Company, supporting 40+ users with CRM and travel business operations.','Odoo Community','40+ users'],
+[MF,'Transforming Contract Manufacturing with an Integrated ERP','Discover how an integrated ERP solution streamlined production, inventory, procurement, quality, costing, and financial operations providing complete visibility across the contract manufacturing lifecycle.','Integrated ERP',''],
+[MF,'Ladder Manufacturing ERP in Odoo','Jupical implemented a customized Odoo Community ERP with a distributor mobile app for All Ford, empowering 30+ users in ladder manufacturing.','Odoo Community','30+ users'],
+[TR,'Hardware Khazana - Hardware Store','Jupical implemented standard Odoo Enterprise CRM for Hardware Khazana, enabling efficient sales and customer management for 3 active users.','Odoo Enterprise','3 users'],
+[MF,'FMCG Manufacturing ERP in Odoo','Jupical implemented a customized Odoo Community ERP and distributor mobile app for Rhoads Beverages, supporting 50+ ERP users and 200+ distributors.','Odoo Community','50+ users'],
+[ED,'Education Academy','Jupical implemented an Odoo Community 19 ERP for Education Institute End to End Operations with Web and Mobile Application useful for schools and colleges.','Odoo Community 19',''],
+[MF,'Brass Parts Manufacturer','Jupical implemented an Odoo Community 19 ERP for Brass manufacturing company in Jamnagar, automating manufacturing, multi-company operations, inventory, and reports for 45 users.','Odoo Community 19','45 users'],
+[FN,'Semi Public - Financial Services','Jupical implemented an Odoo Community 19 loan management system for Public company Malaysia, automating applications to disbursement for 100+ users.','Odoo Community 19','100+ users'],
+[EC,'Citaglobal - Energy Solution Provider','Jupical implemented an Odoo Community ERP for public sector in Malaysia, integrating CRM, Accounts, Purchase, and a customized website to match their operation workflow for 50+ users.','Odoo Community','50+ users'],
+[TR,'Rotoriko - Lifting Equipment Trader','Jupical implemented an Odoo Enterprise 18 ERP for Rotoriko, integrating operations for a lifting equipment manufacturer and trader for 14+ users.','Odoo Enterprise 18','14+ users'],
+[MF,'Heben Crane - Manufacturing','Jupical implemented an Odoo Enterprise 19 CRM for Heben Crane, delivering streamlined sales and customer management for 10+ users.','Odoo Enterprise 19','10+ users'],
+[SV,'One Green Arrow Manpower Corp.','To simplify HR and payroll operations, automate attendance, leave and payroll processing, ensure mandatory compliance, reduce manual work and errors, and centralize employee management in one integrated system.','Odoo ERP',''],
+[MF,'Millennium - Defence and Auto Parts Manufacturer','Jupical implemented an Odoo Community ERP for Millennium Forging, integrating CRM, purchase, manufacturing, and inventory for 10+ active users.','Odoo Community','10+ users'],
+[MF,'Powerpace - Battery Manufacturer','Jupical implemented a customized Odoo Community ERP for Powerpace Energy, automating CRM, sales, purchase, manufacturing, and inventory for 10 users.','Odoo Community','10 users'],
+[TR,'Indus Aushadhi - Export Business','Jupical implemented a customized Odoo Community ERP for Indus Aushadhi, with CRM, sales, procurement, and export operations for 30+ users.','Odoo Community','30+ users'],
+[SV,'Procom - Entertainment Technology Solutions Provider','Jupical has partnered with Procom Middle East since 2016, delivering Odoo Community ERP from v9 to v18 for 120+ active users.','Odoo Community','120+ users'],
+[FN,'SRN Integrated - Financial Services','Jupical implemented an Odoo Enterprise 18 financial ERP for SRN Lending, streamlining lending and finance operations for 15 active users.','Odoo Enterprise 18','15 users'],
+[MF,'Shivansh - Packaging Solutions','Jupical implemented a customized Odoo Community ERP and a custom website for Shivansh Industries, a silica gel manufacturer, supporting 10+ active users.','Odoo Community','10+ users'],
+[MF,'SRP Crane Controls (India) manufacturer','Jupical implemented an Odoo Enterprise ERP for SRP Crane Controls (India), connecting CRM, HR and Payroll for 25+ users across a 5-city network.','Odoo Enterprise','25+ users'],
+[EC,'Al Emara Construction - Commercial Construction','Jupical implemented a custom Odoo 16 Community construction ERP for Al Emara Construction in Qatar, automating progressive billing, advance payments, retention, asset depreciation, and attendance-based labour costing.','Odoo 16 Community','']];
+
+const IMG = D.map(d => d[5] || '');
+
+function getClientName(title) {
+  if (!title) return '';
+  const parts = title.split(' - ');
+  return parts[0].replace(/ manufacturer$/i, '').trim();
+}
+
+const $=i=>document.getElementById(i),grid=$('grid'),dlg=$('dlg');
+const media=i=>{
+  const d=D[i];
+  const clientName = getClientName(d[1]);
+  if (IMG[i] && IMG[i].length > 0) {
+    return '<img src="'+IMG[i]+'" alt="'+d[1]+'" onerror="this.parentElement.innerHTML=\'<div class=\\\x22ph\\\x22><strong>'+clientName+'</strong></div><span class=\\\x22c\\\x22>'+d[0]+'</span><span class=\\\x22n\\\x22>'+String(i+1).padStart(2,'0')+'</span>\'">';
+  }
+  return '<div class="ph"><strong>'+clientName+'</strong></div>';
+};
+
+D.forEach((d,i)=>{
+  const c=document.createElement('button');
+  c.className='card';
+  c.dataset.c=d[0];
+  c.innerHTML='<div class="im">'+media(i)+'<span class="c">'+d[0]+'</span><span class="n">'+String(i+1).padStart(2,'0')+'</span></div><div class="body"><h3>'+d[1]+'</h3><p>'+d[2]+'</p><div class="foot"><span>'+d[3]+(d[4]?' • '+d[4]:'')+'</span><b>View details</b></div></div>';
+  c.onclick=()=>{
+    $('dh').innerHTML=media(i)+'<span class="c">'+d[0]+'</span>';
+    $('dt').textContent=d[1];
+    $('dd').textContent=d[2];
+    $('dm').innerHTML='<span>'+d[3]+'</span>'+(d[4]?'<span>'+d[4]+'</span>':'');
+    dlg.showModal();
+  };
+  grid.appendChild(c);
+});
+
+$('cl').onclick=()=>dlg.close();
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+
+const chips=$('chips'),cats=['All',...new Set(D.map(d=>d[0]))],cnt=document.createElement('span');
+cnt.className='count';
+cnt.setAttribute('aria-live','polite');
+
+cats.forEach((n,i)=>{
+  const b=document.createElement('button');
+  b.className='chip';
+  b.textContent=n;
+  b.setAttribute('aria-pressed',i===0);
+  b.onclick=()=>{
+    [...chips.querySelectorAll('.chip')].forEach(x=>x.setAttribute('aria-pressed',x===b));
+    let k=0;
+    [...grid.children].forEach(c=>{
+      const s=n==='All'||c.dataset.c===n;
+      c.hidden=!s;
+      if(s)k++;
+    });
+    cnt.textContent=k+' case studies';
+  };
+  chips.appendChild(b);
+});
+chips.appendChild(cnt);
+cnt.textContent=D.length+' case studies';
+</script>
+</body>
+</html>

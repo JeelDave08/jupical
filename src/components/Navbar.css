@@ -95,6 +95,13 @@
   text-decoration: none;
 }
 
+/* Button variant of navbar__link (replaces <a> for items that are toggle-only) */
+.navbar__link--btn {
+  appearance: none;
+  -webkit-appearance: none;
+  outline-offset: 2px;
+}
+
 .navbar__link::after {
   content: '';
   position: absolute;

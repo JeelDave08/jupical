@@ -1,5 +1,5 @@
-import './index.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
 import Navbar from './components/Navbar';
@@ -12,6 +12,27 @@ import JupicalJourney from './components/JupicalJourney';
 import Footer from './components/Footer';
 import OurPhilosophyPage from './pages/OurPhilosophy/OurPhilosophyPage';
 import About from './pages/About/About';
+import CaseStudies from './pages/CaseStudies/CaseStudies';
+
+function ScrollToHashManager() {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const id = hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 80);
+      }
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }, [pathname, hash]);
+
+  return null;
+}
 
 /** Home page — all original sections */
 function HomePage() {
@@ -36,11 +57,14 @@ function App() {
     <LanguageProvider>
       <ThemeProvider>
         <BrowserRouter>
+          <ScrollToHashManager />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/our-philosophy" element={<OurPhilosophyPage />} />
             <Route path="/about" element={<About />} />
             <Route path="/about-us" element={<About />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/cases" element={<CaseStudies />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

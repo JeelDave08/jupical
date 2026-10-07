@@ -340,7 +340,7 @@ const companyDropdownItems = [
     num: '02',
     label: 'Why Jupical',
     sub: 'Your Growth, Our Mission',
-    href: '#why',
+    href: '/#why',
     accent: '#7C3AED',
     gradient: 'linear-gradient(135deg, #7C3AED, #9F67FF)',
     rgb: '124, 58, 237',
@@ -356,7 +356,7 @@ const companyDropdownItems = [
     num: '03',
     label: 'Our Clients',
     sub: 'Trusted by Growing Businesses',
-    href: '#clients',
+    href: '/#clients',
     accent: '#0F9F9A',
     gradient: 'linear-gradient(135deg, #0F9F9A, #22C7BE)',
     rgb: '15, 159, 154',
@@ -387,7 +387,7 @@ const companyDropdownItems = [
     num: '05',
     label: 'Blog',
     sub: 'Ideas, Trends & Technology',
-    href: '#blogs',
+    href: '/#blogs',
     accent: '#F97316',
     gradient: 'linear-gradient(135deg, #F97316, #FB923C)',
     rgb: '249, 115, 22',
@@ -402,7 +402,7 @@ const companyDropdownItems = [
     num: '06',
     label: 'Case Studies',
     sub: 'Success Stories.',
-    href: '#cases',
+    href: '/case-studies',
     accent: '#0057FF',
     gradient: 'linear-gradient(135deg, #0057FF, #3B82F6)',
     rgb: '0, 87, 255',
@@ -625,7 +625,7 @@ const resourcesData = {
       },
     ],
     footerLabel: 'Explore All Blogs',
-    footerHref: '#blogs',
+    footerHref: '/#blogs',
   },
   caseStudies: {
     title: 'Case Studies',
@@ -644,7 +644,7 @@ const resourcesData = {
       {
         id: 'customer-stories',
         label: 'Customer Stories',
-        href: '#case-studies',
+        href: '/case-studies',
         icon: (
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
@@ -655,7 +655,7 @@ const resourcesData = {
       {
         id: 'industry-solutions',
         label: 'Industry Solutions',
-        href: '#case-studies',
+        href: '/case-studies',
         icon: (
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/><path d="M6 12H4a2 2 0 0 0-2 2v8"/>
@@ -666,7 +666,7 @@ const resourcesData = {
       {
         id: 'implementation-journeys',
         label: 'Implementation Journeys',
-        href: '#case-studies',
+        href: '/case-studies',
         icon: (
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/>
@@ -675,7 +675,7 @@ const resourcesData = {
       },
     ],
     footerLabel: 'Explore All Case Studies',
-    footerHref: '#case-studies',
+    footerHref: '/case-studies',
   },
   successStories: {
     title: 'Success Stories',
@@ -693,7 +693,7 @@ const resourcesData = {
       {
         id: 'video-testimonials',
         label: 'Video Testimonials',
-        href: '#success',
+        href: '/#success',
         icon: (
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>
@@ -703,7 +703,7 @@ const resourcesData = {
       {
         id: 'client-experiences',
         label: 'Client Experiences',
-        href: '#success',
+        href: '/#success',
         icon: (
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
@@ -713,7 +713,7 @@ const resourcesData = {
       {
         id: 'success-highlights',
         label: 'Success Highlights',
-        href: '#success',
+        href: '/#success',
         icon: (
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
@@ -724,15 +724,15 @@ const resourcesData = {
       },
     ],
     footerLabel: 'Explore All Success Stories',
-    footerHref: '#success',
+    footerHref: '/#success',
   },
 };
 
 const navItems = [
-  { label: 'Company', href: '#company', isCompany: true, icon: <CompanyNavIcon /> },
-  { label: 'Odoo ERPs', href: '#odoo-erps', isOdooMega: true, icon: <ErpNetworkIcon /> },
-  { label: 'Odoo Connectors', href: '#connectors', isConnectorsMega: true, icon: <ConnectorsNavIcon /> },
-  { label: 'Resources', href: '#resources', isResourcesMega: true, icon: <ResourcesNavIcon /> },
+  { label: 'Company', href: null, isCompany: true, icon: <CompanyNavIcon /> },
+  { label: 'Odoo ERPs', href: null, isOdooMega: true, icon: <ErpNetworkIcon /> },
+  { label: 'Odoo Connectors', href: null, isConnectorsMega: true, icon: <ConnectorsNavIcon /> },
+  { label: 'Resources', href: null, isResourcesMega: true, icon: <ResourcesNavIcon /> },
 ];
 
 function SunIcon() {
@@ -889,8 +889,11 @@ export default function Navbar({ activePage = null }) {
   const [scrolled, setScrolled] = useState(false);
   const [activeItem, setActiveItem] = useState(activePage);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [companyOpen, setCompanyOpen] = useState(false);
   const [hoveredConnector, setHoveredConnector] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const navRef = useRef(null);
+  const hoverCloseTimer = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -898,8 +901,35 @@ export default function Navbar({ activePage = null }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  /* Close Company menu when clicking outside the navbar */
+  useEffect(() => {
+    if (!companyOpen) return;
+    const handleClickOutside = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setCompanyOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [companyOpen]);
+
+  /* Hover helpers for non-Company menus — with delay to avoid flicker */
+  const handleHoverOpen = (label) => {
+    if (hoverCloseTimer.current) {
+      clearTimeout(hoverCloseTimer.current);
+      hoverCloseTimer.current = null;
+    }
+    setOpenDropdown(label);
+  };
+
+  const handleHoverClose = () => {
+    hoverCloseTimer.current = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 120);
+  };
+
   return (
-    <nav className={`navbar${scrolled ? ' navbar--scrolled' : ''}`} role="navigation" aria-label="Main navigation">
+    <nav ref={navRef} className={`navbar${scrolled ? ' navbar--scrolled' : ''}`} role="navigation" aria-label="Main navigation">
       <div className="navbar__inner container">
 
         {/* Logo */}
@@ -912,22 +942,36 @@ export default function Navbar({ activePage = null }) {
 
         {/* Desktop Nav Links */}
         <ul className="navbar__links" role="menubar">
-          {navItems.map((item) => (
+          {navItems.map((item) => {
+            const isThisCompany = item.isCompany;
+            const isOpen = isThisCompany ? companyOpen : openDropdown === item.label;
+
+            const liProps = isThisCompany
+              ? {} /* Company: no hover handlers */
+              : {
+                  onMouseEnter: () => handleHoverOpen(item.label),
+                  onMouseLeave: handleHoverClose,
+                };
+
+            return (
             <li
               key={item.label}
               className={`navbar__item ${item.isCompany ? 'navbar__item--company' : ''} ${item.isOdooMega ? 'navbar__item--odoo' : ''} ${item.isConnectorsMega ? 'navbar__item--connectors' : ''}`}
               role="none"
-              onMouseEnter={() => setOpenDropdown(item.label)}
-              onMouseLeave={() => setOpenDropdown(null)}
+              {...liProps}
             >
-              <a
-                href={item.href}
+              <button
                 id={`nav-${item.label.toLowerCase().replace(/\s/g, '-')}`}
                 role="menuitem"
                 aria-haspopup="true"
-                aria-expanded={openDropdown === item.label}
-                className={`navbar__link${activeItem === item.label ? ' navbar__link--active' : ''}`}
-                onClick={() => setActiveItem(item.label)}
+                aria-expanded={isOpen}
+                className={`navbar__link navbar__link--btn${activeItem === item.label ? ' navbar__link--active' : ''}`}
+                onClick={() => {
+                  setActiveItem(item.label);
+                  if (isThisCompany) {
+                    setCompanyOpen(prev => !prev);
+                  }
+                }}
               >
                 {item.icon}
                 <span>{t(item.label)}</span>
@@ -935,10 +979,10 @@ export default function Navbar({ activePage = null }) {
                 <svg className="navbar__chevron" width="10" height="10" viewBox="0 0 12 12" fill="none">
                   <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-              </a>
+              </button>
 
-              {/* Mega-Dropdowns & Standard Dropdowns rendered ONLY when openDropdown matches */}
-              {openDropdown === item.label ? (
+              {/* Mega-Dropdowns & Standard Dropdowns rendered ONLY when open */}
+              {isOpen ? (
                 item.isCompany ? (
                   <div
                     className="navbar__dropdown navbar__dropdown--company navbar__dropdown--open"
@@ -953,7 +997,7 @@ export default function Navbar({ activePage = null }) {
                         <NavbarCompanyCard
                           key={cItem.num}
                           item={cItem}
-                          onClose={() => setOpenDropdown(null)}
+                          onClose={() => setCompanyOpen(false)}
                         />
                       ))}
                     </div>
@@ -1569,26 +1613,27 @@ export default function Navbar({ activePage = null }) {
                         </div>
                       </div>
 
-                      <a href="#resources" className="nav-resources-footer__btn" onClick={() => setOpenDropdown(null)}>
+                      <Link to="/#resources" className="nav-resources-footer__btn" onClick={() => setOpenDropdown(null)}>
                         <span>View All Resources</span>
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                           <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
                         </svg>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 ) : null
               ) : null}
             </li>
-          ))}
+            );
+          })}
         </ul>
 
         {/* Right Controls — Contact Us CTA */}
         <div className="navbar__cta">
-          <a href="#contact" id="nav-contact-btn" className="btn-primary navbar__contact-btn">
+          <Link to="/#contact" id="nav-contact-btn" className="btn-primary navbar__contact-btn">
             <ContactNavIcon />
             <span>{t('Contact Us')}</span>
-          </a>
+          </Link>
           <LanguageDropdown />
           <button
             className={`navbar__hamburger${mobileOpen ? ' navbar__hamburger--open' : ''}`}
@@ -1607,7 +1652,6 @@ export default function Navbar({ activePage = null }) {
           <div className="navbar__mobile-group">
                   <span className="navbar__mobile-heading">{t('Company')}</span>
             {companyDropdownItems.map((c) => {
-              const isRouter = c.href && c.href.startsWith('/');
               const mobileContent = (
                 <>
                   <span className="mobile-num" style={{ color: c.accent }}>{c.num}</span>
@@ -1617,14 +1661,10 @@ export default function Navbar({ activePage = null }) {
                   </div>
                 </>
               );
-              return isRouter ? (
+              return (
                 <Link key={c.label} to={c.href} className="navbar__mobile-link navbar__mobile-link--company" onClick={() => setMobileOpen(false)}>
                   {mobileContent}
                 </Link>
-              ) : (
-                <a key={c.label} href={c.href} className="navbar__mobile-link navbar__mobile-link--company" onClick={() => setMobileOpen(false)}>
-                  {mobileContent}
-                </a>
               );
             })}
           </div>
@@ -1633,13 +1673,13 @@ export default function Navbar({ activePage = null }) {
           <div className="navbar__mobile-group">
             <span className="navbar__mobile-heading">Odoo ERP Solutions</span>
             {[...odooErpItemsLeft, ...odooErpItemsRight].map((item) => (
-              <a key={item.num} href={item.href} className="navbar__mobile-link navbar__mobile-link--company" onClick={() => setMobileOpen(false)}>
+              <Link key={item.num} to={item.href ? (item.href.startsWith('/') ? item.href : `/${item.href}`) : '/#services'} className="navbar__mobile-link navbar__mobile-link--company" onClick={() => setMobileOpen(false)}>
                 <span className="mobile-num" style={{ color: '#0075FF' }}>{item.num}</span>
                 <div className="mobile-text">
                   <span className="mobile-title">{item.label}</span>
                   <span className="mobile-sub">{item.sub}</span>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -1647,12 +1687,12 @@ export default function Navbar({ activePage = null }) {
           <div className="navbar__mobile-group">
             <span className="navbar__mobile-heading">Odoo Connectors</span>
             {[...connectorsData.ecommerce, ...connectorsData.accounting, ...connectorsData.hr, ...connectorsData.payment, ...connectorsData.inventory, ...connectorsData.crm, ...connectorsData.communication].map((item) => (
-              <a key={item.id} href={item.href} className="navbar__mobile-link navbar__mobile-link--company" onClick={() => setMobileOpen(false)}>
+              <Link key={item.id} to={item.href ? (item.href.startsWith('/') ? item.href : `/${item.href}`) : '/#connectors'} className="navbar__mobile-link navbar__mobile-link--company" onClick={() => setMobileOpen(false)}>
                 <div className="mobile-text">
                   <span className="mobile-title">{item.name}</span>
                   <span className="mobile-sub">{item.sub}</span>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -1660,19 +1700,19 @@ export default function Navbar({ activePage = null }) {
             <div key={item.label} className="navbar__mobile-group">
               <span className="navbar__mobile-heading">{item.label}</span>
               {item.dropdown?.map((d) => (
-                <a key={d.label} href={d.href} className="navbar__mobile-link" onClick={() => setMobileOpen(false)}>
+                <Link key={d.label} to={d.href ? (d.href.startsWith('/') ? d.href : `/${d.href}`) : '/'} className="navbar__mobile-link" onClick={() => setMobileOpen(false)}>
                   {d.label}
-                </a>
+                </Link>
               ))}
             </div>
           ))}
 
           <div className="navbar__mobile-footer">
             <ThemeToggle />
-            <a href="#contact" className="btn-primary" onClick={() => setMobileOpen(false)}>
+            <Link to="/#contact" className="btn-primary" onClick={() => setMobileOpen(false)}>
               <ContactNavIcon />
               <span>Contact Us</span>
-            </a>
+            </Link>
           </div>
         </div>
       )}
