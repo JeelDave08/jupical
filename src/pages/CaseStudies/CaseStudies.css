@@ -293,6 +293,7 @@
   text-align: left;
   font: inherit;
   color: var(--body);
+  text-decoration: none;
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
   /* So scroll-to-card anchors clear both the navbar and the sticky filter bar */
