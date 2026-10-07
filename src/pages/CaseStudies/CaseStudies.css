@@ -20,7 +20,10 @@
 
 /* PART A: Compact Hero */
 .cs-hero {
-  padding: 3rem 0 2.6rem;
+  /* padding-top = fixed navbar (--nav-height) + comfortable gap (2rem)
+     This matches the convention used in About.css and OurPhilosophy.css.
+     --nav-height is 72px on all breakpoints (defined in index.css :root). */
+  padding: calc(var(--nav-height, 72px) + 2rem) 0 2.6rem;
   border-bottom: 1px solid var(--line);
   background: radial-gradient(50% 90% at 100% 0, #D5E7FF, transparent 70%), #fff;
 }
@@ -189,7 +192,8 @@
 
 @media (max-width: 40rem) {
   .cs-hero {
-    padding: 2.2rem 0 2rem;
+    /* On mobile the navbar is also 72px (--nav-height), keep the same formula */
+    padding: calc(var(--nav-height, 72px) + 1.5rem) 0 1.8rem;
   }
   .cs-flow {
     grid-template-columns: repeat(3, 1fr);
@@ -221,12 +225,15 @@
 /* PART B: Filter Bar & Cards Grid */
 .cs-bar {
   position: sticky;
-  top: 0;
+  /* Stick just below the fixed navbar so the bar is never hidden underneath it */
+  top: var(--nav-height, 72px);
   z-index: 10;
   background: rgba(247, 250, 255, 0.94);
   backdrop-filter: blur(10px);
   padding: 0.9rem 0;
   border-bottom: 1px solid var(--line);
+  /* Ensure anchor scrolling (e.g. via URL hash) lands below the navbar */
+  scroll-margin-top: var(--nav-height, 72px);
 }
 
 .cs-bar .cs-wrap {
@@ -288,6 +295,8 @@
   color: var(--body);
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  /* So scroll-to-card anchors clear both the navbar and the sticky filter bar */
+  scroll-margin-top: calc(var(--nav-height, 72px) + 60px);
 }
 
 .cs-card:hover {
