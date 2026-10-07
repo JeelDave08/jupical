@@ -65,8 +65,8 @@ export default function Footer() {
               </div>
               <div className="footer__contact-info">
                 <a href="mailto:info@jupical.io" className="footer__contact-link">info@jupical.io</a>
-                <span className="contact-divider">•</span>
-                <a href="tel:+919327155568" className="footer__contact-link">+91 93271 55568</a>
+
+
               </div>
             </div>
           </div>
