@@ -1,4 +1,5 @@
 import './index.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
 import Navbar from './components/Navbar';
@@ -8,13 +9,13 @@ import CompanySection from './components/CompanySection';
 import Services from './components/Services';
 import BeforeAfter from './components/BeforeAfter';
 import JupicalJourney from './components/JupicalJourney';
-
 import Footer from './components/Footer';
+import OurPhilosophyPage from './pages/OurPhilosophy/OurPhilosophyPage';
 
-function App() {
+/** Home page — all original sections */
+function HomePage() {
   return (
-    <LanguageProvider>
-    <ThemeProvider>
+    <>
       <Navbar />
       <main id="main-content">
         <Hero />
@@ -25,7 +26,21 @@ function App() {
         <JupicalJourney />
       </main>
       <Footer />
-    </ThemeProvider>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <LanguageProvider>
+      <ThemeProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/our-philosophy" element={<OurPhilosophyPage />} />
+          </Routes>
+        </BrowserRouter>
+      </ThemeProvider>
     </LanguageProvider>
   );
 }

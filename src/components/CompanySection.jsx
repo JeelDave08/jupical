@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import './CompanySection.css';
 
@@ -52,7 +53,7 @@ const companyCards = [
     accentRgb: '245, 158, 11',
     iconGradient: 'linear-gradient(135deg, #F59E0B, #FBBF24)',
     shadowColor: 'rgba(245, 158, 11, 0.25)',
-    href: '#philosophy',
+    href: '/our-philosophy',
     iconType: 'philosophy',
   },
   {
@@ -227,24 +228,27 @@ function CompanyCard({ card, index, isVisible, t }) {
     cardRef.current.style.setProperty('--mouse-y', `${y}px`);
   };
 
-  return (
-    <a
-      href={card.href}
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      id={`company-card-${card.id}`}
-      className={`company-card ${card.id === 'why' ? 'company-card--featured' : ''} ${
-        isVisible ? 'company-card--visible' : ''
-      }`}
-      style={{
-        '--card-accent': card.accentColor,
-        '--card-accent-soft': card.accentSoft,
-        '--card-accent-rgb': card.accentRgb,
-        '--card-gradient': card.iconGradient,
-        '--card-shadow': card.shadowColor,
-        transitionDelay: `${index * 100}ms`,
-      }}
-    >
+  const isRouterLink = card.href && card.href.startsWith('/');
+
+  const cardProps = {
+    ref: cardRef,
+    onMouseMove: handleMouseMove,
+    id: `company-card-${card.id}`,
+    className: `company-card ${card.id === 'why' ? 'company-card--featured' : ''} ${
+      isVisible ? 'company-card--visible' : ''
+    }`,
+    style: {
+      '--card-accent': card.accentColor,
+      '--card-accent-soft': card.accentSoft,
+      '--card-accent-rgb': card.accentRgb,
+      '--card-gradient': card.iconGradient,
+      '--card-shadow': card.shadowColor,
+      transitionDelay: `${index * 100}ms`,
+    },
+  };
+
+  const cardInner = (
+    <>
       {/* Animated Border Traveling Highlight */}
       <div className="company-card__border-glow" aria-hidden="true" />
 
@@ -277,6 +281,20 @@ function CompanyCard({ card, index, isVisible, t }) {
           </svg>
         </div>
       </div>
+    </>
+  );
+
+  if (isRouterLink) {
+    return (
+      <Link to={card.href} {...cardProps}>
+        {cardInner}
+      </Link>
+    );
+  }
+
+  return (
+    <a href={card.href} {...cardProps}>
+      {cardInner}
     </a>
   );
 }

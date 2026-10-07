@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import LanguageDropdown from './LanguageDropdown';
@@ -371,7 +372,7 @@ const companyDropdownItems = [
     num: '04',
     label: 'Our Philosophy',
     sub: 'Simplicity. Scalability. Success.',
-    href: '#philosophy',
+    href: '/our-philosophy',
     accent: '#F59E0B',
     gradient: 'linear-gradient(135deg, #F59E0B, #FBBF24)',
     rgb: '245, 158, 11',
@@ -790,19 +791,22 @@ function NavbarCompanyCard({ item, onClose }) {
     cardRef.current.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
   };
 
-  return (
-    <a
-      href={item.href}
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onClick={onClose}
-      className="nav-company-card"
-      style={{
-        '--nav-card-accent': item.accent,
-        '--nav-card-gradient': item.gradient,
-        '--nav-card-rgb': item.rgb,
-      }}
-    >
+  /* Use router Link for in-app paths (start with /), plain <a> for anchors */
+  const isRouterPath = item.href && item.href.startsWith('/');
+  const sharedProps = {
+    ref: cardRef,
+    onMouseMove: handleMouseMove,
+    onClick: onClose,
+    className: 'nav-company-card',
+    style: {
+      '--nav-card-accent': item.accent,
+      '--nav-card-gradient': item.gradient,
+      '--nav-card-rgb': item.rgb,
+    },
+  };
+
+  const cardContent = (
+    <>
       <div className="nav-company-card__spotlight" aria-hidden="true" />
       <div className="nav-company-card__top">
         <div className="nav-company-card__icon" style={{ background: item.gradient }}>
@@ -820,7 +824,13 @@ function NavbarCompanyCard({ item, onClose }) {
         </div>
         <span className="nav-company-card__sub">{item.sub}</span>
       </div>
-    </a>
+    </>
+  );
+
+  return isRouterPath ? (
+    <Link to={item.href} {...sharedProps}>{cardContent}</Link>
+  ) : (
+    <a href={item.href} {...sharedProps}>{cardContent}</a>
   );
 }
 
@@ -874,10 +884,10 @@ function ConnectorCardItem({ item, hoveredId, onHover, onClose }) {
   );
 }
 
-export default function Navbar() {
+export default function Navbar({ activePage = null }) {
   const { t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
-  const [activeItem, setActiveItem] = useState(null);
+  const [activeItem, setActiveItem] = useState(activePage);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [hoveredConnector, setHoveredConnector] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -893,12 +903,12 @@ export default function Navbar() {
       <div className="navbar__inner container">
 
         {/* Logo */}
-        <a href="#" className="navbar__logo" id="nav-logo">
+        <Link to="/" className="navbar__logo" id="nav-logo">
           <div className="navbar__logo-wrapper">
             <img src="/jupical-logo.png" alt="Jupical Technologies Logo" className="navbar__logo-img" />
 
           </div>
-        </a>
+        </Link>
 
         {/* Desktop Nav Links */}
         <ul className="navbar__links" role="menubar">
@@ -1596,15 +1606,27 @@ export default function Navbar() {
         <div className="navbar__mobile navbar__mobile--open">
           <div className="navbar__mobile-group">
                   <span className="navbar__mobile-heading">{t('Company')}</span>
-            {companyDropdownItems.map((c) => (
-              <a key={c.label} href={c.href} className="navbar__mobile-link navbar__mobile-link--company" onClick={() => setMobileOpen(false)}>
-                <span className="mobile-num" style={{ color: c.accent }}>{c.num}</span>
-                <div className="mobile-text">
-                  <span className="mobile-title">{c.label}</span>
-                  <span className="mobile-sub">{c.sub}</span>
-                </div>
-              </a>
-            ))}
+            {companyDropdownItems.map((c) => {
+              const isRouter = c.href && c.href.startsWith('/');
+              const mobileContent = (
+                <>
+                  <span className="mobile-num" style={{ color: c.accent }}>{c.num}</span>
+                  <div className="mobile-text">
+                    <span className="mobile-title">{c.label}</span>
+                    <span className="mobile-sub">{c.sub}</span>
+                  </div>
+                </>
+              );
+              return isRouter ? (
+                <Link key={c.label} to={c.href} className="navbar__mobile-link navbar__mobile-link--company" onClick={() => setMobileOpen(false)}>
+                  {mobileContent}
+                </Link>
+              ) : (
+                <a key={c.label} href={c.href} className="navbar__mobile-link navbar__mobile-link--company" onClick={() => setMobileOpen(false)}>
+                  {mobileContent}
+                </a>
+              );
+            })}
           </div>
 
           {/* Mobile Odoo ERPs Group */}
