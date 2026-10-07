@@ -27,7 +27,7 @@ const companyCards = [
     accentRgb: '124, 58, 237',
     iconGradient: 'linear-gradient(135deg, #7C3AED, #9F67FF)',
     shadowColor: 'rgba(124, 58, 237, 0.25)',
-    href: '/#why',
+    href: '/why-jupical',
     iconType: 'target',
   },
   {
@@ -40,7 +40,7 @@ const companyCards = [
     accentRgb: '15, 159, 154',
     iconGradient: 'linear-gradient(135deg, #0F9F9A, #22C7BE)',
     shadowColor: 'rgba(15, 159, 154, 0.25)',
-    href: '/#clients',
+    href: '/our-clients',
     iconType: 'clients',
   },
   {

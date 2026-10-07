@@ -1,0 +1,549 @@
+/* =======================================================
+   OurClients.css — Our Clients page
+   ALL rules scoped under .cp-page. No global selectors.
+   Palette: white + blues only (#0B2A6B, #0A6CFF, #EAF3FF, #D6E4FA, #4B5567).
+   color-scheme: light only.
+   ======================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ── Design tokens & base ───────────────────────────────── */
+.cp-page {
+  --ink:  #0B2A6B;
+  --blue: #0A6CFF;
+  --soft: #EAF3FF;
+  --line: #D6E4FA;
+  --mut:  #4B5567;
+  color-scheme: light;
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+  color: var(--mut);
+  font: 400 1rem/1.6 Inter, system-ui, sans-serif;
+  background: #ffffff;
+}
+
+.cp-page *,
+.cp-page *::before,
+.cp-page *::after {
+  box-sizing: border-box;
+}
+
+/* Reset headings/paragraphs only inside this page */
+.cp-page h1,
+.cp-page h2,
+.cp-page h3,
+.cp-page p,
+.cp-page ul {
+  margin: 0;
+  padding: 0;
+}
+
+.cp-page img {
+  display: block;
+}
+
+.cp-wrap {
+  max-width: 74rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ── HERO ────────────────────────────────────────────────── */
+/*
+  Navbar is fixed at 85px (--nav-height).
+  We add 85px + 2rem (32px) = 117px ≈ 7.5rem top padding
+  so the "Our Clients" tag clears the navbar with ~2rem of breathing room.
+*/
+.cp-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: 2rem;
+  align-items: center;
+  padding: 7.5rem 0 3rem;
+}
+
+.cp-copy {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+}
+
+.cp-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  padding: .35rem .9rem;
+  border-radius: 999px;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  color: var(--blue);
+  font-weight: 600;
+  font-size: .88rem;
+}
+
+.cp-tag i {
+  width: .5rem;
+  height: .5rem;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 0 .25rem rgba(10, 108, 255, .18);
+  font-style: normal;
+  display: block;
+  flex-shrink: 0;
+}
+
+.cp-page .cp-h1 {
+  margin: 1.1rem 0 1rem;
+  font: 800 clamp(2.9rem, 6.2vw, 5.2rem)/.98 "Bricolage Grotesque", Inter, sans-serif;
+  letter-spacing: -.045em;
+  color: var(--ink);
+  text-align: left;
+}
+
+.cp-page .cp-h1 span {
+  color: var(--blue);
+  background: linear-gradient(transparent 70%, #CFE3FF 70%);
+}
+
+.cp-page .cp-lead {
+  max-width: 28rem;
+  margin: 0 0 1.6rem;
+  font-size: 1.08rem;
+  text-align: left;
+  color: var(--mut);
+}
+
+.cp-page .cp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .8rem;
+  padding: .5rem .5rem .5rem 1.6rem;
+  border-radius: 999px;
+  background: var(--blue);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 12px 28px rgba(10, 108, 255, .3);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.cp-btn b {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--blue);
+  display: grid;
+  place-items: center;
+  transition: transform .25s;
+  font-style: normal;
+}
+
+.cp-btn:hover b {
+  transform: translateX(.3rem);
+}
+
+.cp-count {
+  display: flex;
+  align-items: baseline;
+  gap: .7rem;
+  margin-top: 2rem;
+  padding-top: 1.1rem;
+  border-top: 2px solid var(--ink);
+  max-width: 28rem;
+}
+
+.cp-count strong {
+  font: 800 3rem/1 "Bricolage Grotesque", Inter, sans-serif;
+  color: var(--blue);
+  letter-spacing: -.04em;
+}
+
+.cp-count span {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ── ORBIT ───────────────────────────────────────────────── */
+.cp-orbit {
+  --s: min(88vw, 35rem);
+  position: relative;
+  z-index: 1;
+  width: var(--s);
+  height: var(--s);
+  margin: 0 auto;
+  flex: none;
+}
+
+/* Dashed guide rings */
+.cp-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width:  calc(var(--s) * var(--k));
+  height: calc(var(--s) * var(--k));
+  margin: calc(var(--s) * var(--k) * -.5) 0 0 calc(var(--s) * var(--k) * -.5);
+  border: 1.5px dashed #9CC4FF;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Core white circle with Jupical logo */
+.cp-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 31%;
+  aspect-ratio: 1;
+  margin: -15.5% 0 0 -15.5%;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  border: 2px solid var(--line);
+  box-shadow:
+    0 0 0 .6rem rgba(10, 108, 255, .10),
+    0 0 0 1.4rem rgba(10, 108, 255, .06),
+    0 18px 40px rgba(10, 108, 255, .2);
+  z-index: 5;
+}
+
+.cp-core img {
+  width: 80%;
+  height: auto;
+  max-width: none;
+}
+
+/* Pulse ring — behind the orbit tiles (z-index lower) */
+.cp-core::after {
+  content: "";
+  position: absolute;
+  inset: -1.4rem;
+  border-radius: 50%;
+  border: 1.5px solid rgba(10, 108, 255, .4);
+  animation: cp-pulse 3.2s ease-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes cp-pulse {
+  from { transform: scale(.92); opacity: .9; }
+  to   { transform: scale(1.32); opacity: 0; }
+}
+
+/* Spinning wrapper — fills the full orbit square */
+.cp-spin {
+  position: absolute;
+  inset: 0;
+  animation: cp-rot var(--d) linear infinite;
+}
+
+.cp-spin.cp-rev {
+  animation-direction: reverse;
+}
+
+@keyframes cp-rot {
+  to { transform: rotate(360deg); }
+}
+
+/*
+  Each tile (.cp-c) is positioned at the centre of the orbit,
+  then translated out to the ring radius via rotate+translateY.
+  --a  = angle in degrees
+  --w  = tile size (width and height)
+  --k  = ring scale factor (matched to the <Ring k=...> prop)
+  --s  = orbit size (inherited from .cp-orbit)
+*/
+.cp-c {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width:  var(--w);
+  height: var(--w);
+  margin: calc(var(--w) * -.5) 0 0 calc(var(--w) * -.5);
+  transform: rotate(calc(var(--a) * 1deg)) translateY(calc(var(--s) * var(--k) * -.5));
+  z-index: 2;
+}
+
+/* Counter-rotation to keep tiles upright */
+.cp-u {
+  width:  100%;
+  height: 100%;
+  transform: rotate(calc(var(--a) * -1deg));
+  animation: cp-pop .6s cubic-bezier(.3, 1.5, .5, 1) backwards;
+  animation-delay: calc(var(--i) * 70ms + .3s);
+}
+
+/* Cancel parent ring spin so tile face is always upright */
+.cp-v {
+  width:  100%;
+  height: 100%;
+  animation: cp-rot var(--d) linear infinite reverse;
+}
+
+.cp-rev .cp-v {
+  animation-direction: normal;
+}
+
+@keyframes cp-pop {
+  from { scale: 0; opacity: 0; }
+}
+
+/* Tile card frame inside the orbit */
+.cp-orbit .cp-t {
+  border-radius: 18px;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  box-shadow: 0 10px 24px rgba(10, 108, 255, .14);
+}
+
+/* ── Logo area (shared between orbit and wall) ───────────── */
+/*
+  Logos are NEVER cropped: object-fit:contain, padded max-sizes.
+  The sprite images are 169×69 with the logo flush to the edges.
+  max-width/max-height keeps logos inside the tile without stretching.
+*/
+.cp-t {
+  width:  100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  min-width: 0;
+  min-height: 0;
+  padding: 8%;
+}
+
+.cp-t img {
+  width:  auto;
+  height: auto;
+  max-width:  100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.cp-mono {
+  display: grid;
+  place-items: center;
+  gap: .25rem;
+  text-align: center;
+  font: 800 .95rem/1.05 "Bricolage Grotesque", Inter, sans-serif;
+  color: var(--ink);
+  padding: .3rem;
+}
+
+.cp-mono i {
+  font-style: normal;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--blue);
+  color: #fff;
+  font-size: .85rem;
+}
+
+.cp-orbit .cp-mono {
+  font-size: 0;
+}
+
+.cp-orbit .cp-mono i {
+  width: 62%;
+  height: auto;
+  aspect-ratio: 1;
+  font-size: 1rem;
+}
+
+/* ── LOGO WALL SECTION ───────────────────────────────────── */
+.cp-sec {
+  padding: 3rem 0 1rem;
+}
+
+.cp-page .cp-h2 {
+  margin: 0 0 .4rem;
+  font: 800 clamp(1.7rem, 3vw, 2.4rem)/1.1 "Bricolage Grotesque", Inter, sans-serif;
+  letter-spacing: -.03em;
+  color: var(--ink);
+  text-align: left;
+}
+
+.cp-sub {
+  margin: 0 0 1.6rem;
+}
+
+.cp-wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
+  gap: 1rem;
+}
+
+.cp-tile {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  translate: 0 18px;
+  transition: opacity .6s, translate .6s, border-color .25s, box-shadow .25s;
+}
+
+.cp-tile.cp-in {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* Cursor spotlight */
+.cp-tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    12rem circle at var(--x, 50%) var(--y, 50%),
+    rgba(10, 108, 255, .16),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.cp-wall:hover .cp-tile::before {
+  opacity: 1;
+}
+
+.cp-tile:hover {
+  border-color: var(--blue);
+  box-shadow: 8px 8px 0 var(--blue);
+  translate: -3px -3px;
+}
+
+/* Logo area inside wall tile — flex child that grows */
+.cp-tile .cp-t {
+  flex: 1;
+  height: auto;
+  position: relative;
+}
+
+/* Client name label */
+.cp-tile em {
+  position: relative;
+  font-style: normal;
+  text-align: center;
+  padding: .45rem .6rem;
+  border-top: 1px solid var(--line);
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--soft);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── CTA BAND ────────────────────────────────────────────── */
+.cp-cta {
+  margin: 3.5rem 0 4rem;
+  padding: 2.6rem 2.4rem;
+  border-radius: 28px;
+  background: var(--blue);
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.cp-cta::after {
+  content: "";
+  position: absolute;
+  right: -5rem;
+  top: -5rem;
+  width: 17rem;
+  height: 17rem;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, .3);
+  box-shadow: 0 0 0 2rem rgba(255, 255, 255, .08);
+  pointer-events: none;
+}
+
+.cp-page .cp-h3 {
+  max-width: 30rem;
+  font: 800 clamp(1.5rem, 3vw, 2.2rem)/1.1 "Bricolage Grotesque", Inter, sans-serif;
+  letter-spacing: -.03em;
+  color: #fff;
+  position: relative;
+  text-align: left;
+}
+
+.cp-cta div {
+  display: flex;
+  gap: .8rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.cp-page .cp-cta a {
+  padding: .8rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  background: #fff;
+  color: var(--blue);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.cp-page .cp-cta a + a {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, .7);
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 62rem) {
+  .cp-hero {
+    grid-template-columns: 1fr;
+    padding-top: 6.5rem;
+  }
+  /* On single-column layout the orbit sits BELOW copy */
+  .cp-orbit {
+    /* use a slightly smaller size so it doesn't overflow on tablet */
+    --s: min(80vw, 32rem);
+  }
+}
+
+@media (max-width: 36rem) {
+  .cp-wall {
+    grid-template-columns: repeat(2, 1fr);
+    gap: .7rem;
+  }
+  .cp-cta {
+    padding: 2rem 1.4rem;
+  }
+  .cp-orbit {
+    --s: 88vw;
+  }
+}
+
+/* ── REDUCED MOTION ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .cp-page *,
+  .cp-page *::before,
+  .cp-page *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .cp-tile {
+    opacity: 1;
+    translate: 0 0;
+  }
+}

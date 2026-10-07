@@ -15,6 +15,8 @@ import OurPhilosophyPage from './pages/OurPhilosophy/OurPhilosophyPage';
 import About from './pages/About/About';
 import CaseStudies from './pages/CaseStudies/CaseStudies';
 import Contact from './pages/Contact/Contact';
+import WhyJupicalPage from './pages/WhyJupical/WhyJupicalPage';
+import OurClients from './pages/Clients/OurClients';
 
 function ScrollToHashManager() {
   const { pathname, hash } = useLocation();
@@ -64,12 +66,16 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/our-philosophy" element={<OurPhilosophyPage />} />
+            <Route path="/why-jupical" element={<WhyJupicalPage />} />
+            <Route path="/why" element={<WhyJupicalPage />} />
             <Route path="/about" element={<About />} />
             <Route path="/about-us" element={<About />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/cases" element={<CaseStudies />} />
             <Route path="/contact-us" element={<Contact />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/our-clients" element={<OurClients />} />
+            <Route path="/clients" element={<OurClients />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
