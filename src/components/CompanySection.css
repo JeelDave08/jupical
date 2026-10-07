@@ -381,6 +381,29 @@
   transform: translateY(-1px) scale(1.06);
 }
 
+/* Card 06 - Case Studies (Idea Glow Pulse) */
+.company-case-idea-glow {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.35) 0%, transparent 70%);
+  opacity: 0;
+  transform: scale(0.7);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.company-card:hover .company-case-idea-glow {
+  opacity: 1;
+  transform: scale(1.2);
+}
+.company-card:hover .company-icon--case-studies .company-icon-svg {
+  transform: translateY(-2px) scale(1.08);
+}
+.company-card:hover .case-idea-highlight {
+  stroke: #FFF;
+  stroke-width: 2;
+}
+
 /* ---- Card Content (Title + Subtitle) ---- */
 .company-card__content {
   position: relative;

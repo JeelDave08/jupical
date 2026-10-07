@@ -30,7 +30,7 @@ const en = {
   'Start Your Transformation':'Start Your Transformation','Explore Our Global Presence':'Explore Our Global Presence',
   'Global ERP Reach & Localization':'Global ERP Reach & Localization',
   'Choose your language and discover our experience around the world. Serving multi-site enterprises across 16+ localized regions.':'Choose your language and discover our experience around the world. Serving multi-site enterprises across 16+ localized regions.',
-  'About Us':'About Us','Why Jupical':'Why Jupical','Our Clients':'Our Clients','Our Philosophy':'Our Philosophy','Blog':'Blog',
+  'About Us':'About Us','Why Jupical':'Why Jupical','Our Clients':'Our Clients','Our Philosophy':'Our Philosophy','Blog':'Blog','Case Studies':'Case Studies','Success Stories.':'Success Stories.',
   'Company':'Company','Odoo ERPs':'Odoo ERPs','Odoo ERP Solutions':'Odoo ERP Solutions','Odoo Connectors':'Odoo Connectors','Resources':'Resources',
   'Manufacturing ERP':'Manufacturing ERP','Construction ERP':'Construction ERP','Healthcare ERP':'Healthcare ERP','Education ERP':'Education ERP','Inventory ERP':'Inventory ERP','Finance ERP':'Finance ERP','Hotel ERP':'Hotel ERP','Loan Management':'Loan Management',
   'Coming Soon':'Coming Soon','View All Resources':'View All Resources','Stay informed. Stay ahead.':'Stay informed. Stay ahead.',

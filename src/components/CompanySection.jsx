@@ -68,6 +68,19 @@ const companyCards = [
     href: '#blogs',
     iconType: 'blog',
   },
+  {
+    id: 'cases',
+    number: '06',
+    title: 'Case Studies',
+    subtitle: 'Success Stories.',
+    accentColor: '#0057FF',
+    accentSoft: '#E6EFFF',
+    accentRgb: '0, 87, 255',
+    iconGradient: 'linear-gradient(135deg, #0057FF, #3B82F6)',
+    shadowColor: 'rgba(0, 87, 255, 0.25)',
+    href: '#cases',
+    iconType: 'caseStudies',
+  },
 ];
 
 /* ---- Individual Custom SVG Icons with Animations ---- */
@@ -175,6 +188,20 @@ function BlogIcon() {
   );
 }
 
+function CaseStudiesIcon() {
+  return (
+    <div className="company-icon-wrapper company-icon--case-studies">
+      <div className="company-case-idea-glow" />
+      <svg className="company-icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-1 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.5 2.5 1.5 3.5.8.8 1.3 1.5 1.5 2.5" />
+        <path d="M9 18h6" />
+        <path d="M10 21h4" />
+        <path className="case-idea-highlight" d="M11 6.5a2.5 2.5 0 0 1 2.5 2.5" strokeWidth="1.6" />
+      </svg>
+    </div>
+  );
+}
+
 function RenderIcon({ type }) {
   switch (type) {
     case 'building': return <AboutIcon />;
@@ -182,6 +209,7 @@ function RenderIcon({ type }) {
     case 'clients': return <ClientsIcon />;
     case 'philosophy': return <PhilosophyIcon />;
     case 'blog': return <BlogIcon />;
+    case 'caseStudies': return <CaseStudiesIcon />;
     default: return <AboutIcon />;
   }
 }
