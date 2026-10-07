@@ -257,6 +257,24 @@ function ConnectorPlatformLogo({ id }) {
           <circle cx="16.5" cy="7.5" r="2" fill="#D4AF37" />
         </svg>
       );
+    case 'recruitee':
+      return (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="6" fill="#1A73E8" />
+          <path d="M7 6.5H12C14.2 6.5 16 8.3 16 10.5C16 12.3 14.8 13.8 13.2 14.3L16.5 18.5H13.5L10.5 14.5H9.5V18.5H7V6.5ZM9.5 8.7V12.3H12C13 12.3 13.8 11.5 13.8 10.5C13.8 9.5 13 8.7 12 8.7H9.5Z" fill="white" />
+        </svg>
+      );
+    case 'taxjar':
+      return (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="6" fill="#00B074" />
+          <path d="M9 6h6v1.5H9z" fill="white" />
+          <path d="M7.5 8.5h9c.5 0 .9.4.9.9v6.8c0 1.5-1.2 2.8-2.8 2.8H9.4c-1.5 0-2.8-1.3-2.8-2.8V9.4c0-.5.4-.9.9-.9z" fill="white" fillOpacity="0.25" stroke="white" strokeWidth="1.2" />
+          <circle cx="10.5" cy="12" r="1.2" fill="white" />
+          <circle cx="13.5" cy="15" r="1.2" fill="white" />
+          <path d="M14 11l-4 5" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+      );
     case 'shipengine':
       return (
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -549,11 +567,13 @@ const connectorsData = {
     { id: 'tripletex', name: 'Tripletex', sub: 'Accounting', href: '#tripletex' },
     { id: 'pogo', name: 'Pogo', sub: 'Accounting', href: '#pogo' },
     { id: 'bill', name: 'BILL', sub: 'Accounting', href: '#bill' },
+    { id: 'taxjar', name: 'TaxJar', sub: 'Accounting', href: '#taxjar' },
   ],
   hr: [
     { id: 'bamboohr', name: 'Bamboo HR', sub: 'HR', href: '#bamboo' },
     { id: 'zohopeople', name: 'Zoho People', sub: 'HR', href: '#zohopeople' },
     { id: 'gusto', name: 'Gusto', sub: 'HR', href: '#gusto' },
+    { id: 'recruitee', name: 'Recruitee', sub: 'HR', href: '#recruitee' },
   ],
   payment: [
     { id: 'paystack', name: 'Paystack', sub: 'Payment', href: '#paystack' },
