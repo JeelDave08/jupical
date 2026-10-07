@@ -606,11 +606,46 @@
   transform: translateX(-50%) translateY(0) scale(1);
 }
 
-.nav-odoo-dropdown__header { position: relative; z-index: 1; text-align: center; margin-bottom: 12px; }
-.nav-odoo-dropdown__badge { display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.12em; color: #0075FF; margin-bottom: 3px; text-transform: uppercase; }
-.nav-odoo-dropdown__title { font-size: 19px; font-weight: 900; color: #0F172A; letter-spacing: -0.02em; margin-bottom: 3px; }
-.nav-odoo-dropdown__title-blue { color: #0075FF; background: linear-gradient(90deg, #0075FF, #8B5CF6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.nav-odoo-dropdown__sub { font-size: 12px; color: #64748B; max-width: 480px; margin: 0 auto; line-height: 1.35; }
+.nav-odoo-dropdown__header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.nav-odoo-dropdown__badge {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #0075FF;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+.nav-odoo-dropdown__title {
+  font-size: 20px;
+  font-weight: 900;
+  color: #0F172A;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+  line-height: 1.25;
+}
+.nav-odoo-dropdown__title-blue {
+  color: #0075FF;
+  background: linear-gradient(90deg, #0075FF, #8B5CF6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.navbar .nav-odoo-dropdown__sub,
+.navbar p.nav-odoo-dropdown__sub {
+  font-size: 13px !important;
+  font-weight: 450 !important;
+  color: #64748B !important;
+  max-width: 620px !important;
+  margin: 0 auto !important;
+  line-height: 1.45 !important;
+  letter-spacing: -0.01em !important;
+  text-wrap: balance !important;
+}
 .nav-odoo-dropdown__body { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr); align-items: center; gap: 0; margin-bottom: 12px; width: 100%; box-sizing: border-box; }
 .nav-odoo-dropdown__column { display: flex; flex-direction: column; gap: 8px; min-width: 0; width: 100%; box-sizing: border-box; }
 .nav-odoo-dropdown__divider { position: relative; width: 28px; height: 100%; min-height: 200px; display: flex; align-items: center; justify-content: center; }
@@ -1599,10 +1634,11 @@
 }
 
 [data-theme="dark"] .nav-odoo-dropdown__sub,
+[data-theme="dark"] .navbar .nav-odoo-dropdown__sub,
 [data-theme="dark"] .nav-connectors-hub__sub,
 [data-theme="dark"] .nav-resources-hub__sub,
 [data-theme="dark"] .nav-resources-col__sub {
-  color: #94A3B8;
+  color: #94A3B8 !important;
 }
 
 [data-theme="dark"] .nav-odoo-card,

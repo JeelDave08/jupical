@@ -236,12 +236,13 @@ export default function About() {
   };
 
   return (
-    <div className="about-page" ref={containerRef}>
+    <>
       {/* Primary Global Navbar */}
       <Navbar activePage="Company" />
 
-      {/* Floating Side Rail Dock */}
-      <nav className="about-rail" id="rail" aria-label="Sections">
+      <div className="about-page" ref={containerRef}>
+        {/* Floating Side Rail Dock */}
+        <nav className="about-rail" id="rail" aria-label="Sections">
         {sections.map((sec, i) => (
           <a
             key={sec.id}
@@ -526,9 +527,10 @@ export default function About() {
           Free Consultation, lower the barrier to entry
         </div>
       </section>
-
-      {/* Website Official Footer */}
-      <Footer />
     </div>
-  );
+
+    {/* Website Official Footer */}
+    <Footer />
+  </>
+);
 }

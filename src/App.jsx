@@ -9,6 +9,7 @@ import CompanySection from './components/CompanySection';
 import Services from './components/Services';
 import BeforeAfter from './components/BeforeAfter';
 import JupicalJourney from './components/JupicalJourney';
+import OdooBricks from './components/OdooBricks';
 import Footer from './components/Footer';
 import OurPhilosophyPage from './pages/OurPhilosophy/OurPhilosophyPage';
 import About from './pages/About/About';
@@ -47,6 +48,7 @@ function HomePage() {
         <CompanySection />
         <BeforeAfter />
         <JupicalJourney />
+        <OdooBricks />
       </main>
       <Footer />
     </>
