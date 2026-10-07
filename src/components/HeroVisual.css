@@ -70,7 +70,7 @@
 .hv-top   { transform: rotateX(90deg) translateZ(var(--half)); background: linear-gradient(145deg, #fff, #cfe4ff); }
 .hv-top img { width: 62%; height: 62%; object-fit: contain; mix-blend-mode: multiply; transform: rotate(180deg); }
 .hv-bottom { transform: rotateX(-90deg) translateZ(var(--half)); background: #0a3fa8; }
-@keyframes hv-spin { to { transform: rotateY(360deg); } }
+@keyframes hv-spin { to { transform: rotateY(-360deg); } }
 
 .hv-chip { z-index: 6; transform: translate(-50%, -50%); display: flex; align-items: center; gap: .6em;
   padding: .45em 1.1em .45em .45em; border-radius: 99px; background: #fff; color: #0b2a8a; font-weight: 700;
