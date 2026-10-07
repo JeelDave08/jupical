@@ -11,6 +11,7 @@ import BeforeAfter from './components/BeforeAfter';
 import JupicalJourney from './components/JupicalJourney';
 import Footer from './components/Footer';
 import OurPhilosophyPage from './pages/OurPhilosophy/OurPhilosophyPage';
+import About from './pages/About/About';
 
 /** Home page — all original sections */
 function HomePage() {
@@ -38,6 +39,8 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/our-philosophy" element={<OurPhilosophyPage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/about-us" element={<About />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

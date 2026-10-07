@@ -14,7 +14,7 @@ const companyCards = [
     accentRgb: '37, 99, 235',
     iconGradient: 'linear-gradient(135deg, #2563EB, #4F8CFF)',
     shadowColor: 'rgba(37, 99, 235, 0.25)',
-    href: '#about',
+    href: '/about',
     iconType: 'building',
   },
   {

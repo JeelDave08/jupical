@@ -1,0 +1,1245 @@
+/* ================================================================
+   About.css — JUPICAL About Us Official Page Styles
+   Matches the design in user screenshot:
+   - Rajkot rooted. World trusted. Odoo perfected.
+   - Animated 3D Target character illustration for Why Jupical
+   - Animated 3D Growth Blocks (2016 -> 2018 -> Today) with globe & curved looping arrow
+   - Timeline scroll reveals with progress line
+   - Our Growth in Numbers stat cards
+   - Our Mission & Our Vision cards
+   - Blue CTA banner
+   ================================================================ */
+
+.about-page {
+  --blue: #0075FA;
+  --blue-hover: #0060D0;
+  --blue-light: #EBF4FF;
+  --blue-subtle: #F0F7FF;
+  --blue-glow: rgba(0, 117, 250, 0.22);
+  --yellow: #F59E0B;
+  --yellow-glow: rgba(245, 158, 11, 0.3);
+  --cyan: #06B6D4;
+  --text-main: #0B192C;
+  --text-sub: #475569;
+  --text-muted: #64748B;
+  --card-bg: #FFFFFF;
+  --card-border: #E2E8F0;
+  --border-light: #EEF2F6;
+  --bg-page: #FFFFFF;
+  --bg-soft: #F8FAFC;
+  --bg-alt: #F1F6FD;
+  --shadow-sm: 0 2px 8px rgba(0, 117, 250, 0.04);
+  --shadow-card: 0 10px 30px -5px rgba(0, 80, 220, 0.07), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+  --shadow-hover: 0 20px 40px -8px rgba(0, 117, 250, 0.15), 0 8px 16px -4px rgba(0, 0, 0, 0.04);
+  background: var(--bg-page);
+  color: var(--text-main);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+[data-theme="dark"] .about-page {
+  --text-main: #F8FAFC;
+  --text-sub: #CBD5E1;
+  --text-muted: #94A3B8;
+  --card-bg: #111827;
+  --card-border: #1F2937;
+  --bg-page: #0B0F17;
+  --bg-soft: #0F172A;
+  --bg-alt: #131E33;
+  --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+  --shadow-hover: 0 20px 40px -8px rgba(0, 117, 250, 0.3);
+}
+
+.about-page * {
+  box-sizing: border-box;
+}
+
+/* Common Container */
+.about-container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .about-container {
+    padding: 0 32px;
+  }
+}
+
+/* Badges */
+.about-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: #EBF4FF;
+  color: #0075FA;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  border: 1px solid rgba(0, 117, 250, 0.18);
+}
+
+[data-theme="dark"] .about-pill-badge {
+  background: rgba(0, 117, 250, 0.15);
+  border-color: rgba(0, 117, 250, 0.3);
+}
+
+/* ================================================================
+   1. HERO SECTION
+   ================================================================ */
+.about-hero-sec {
+  padding-top: calc(var(--nav-height, 72px) + 40px);
+  padding-bottom: 70px;
+  background: radial-gradient(70% 60% at 75% 45%, #EAF4FF 0%, #FFFFFF 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .about-hero-sec {
+  background: radial-gradient(70% 60% at 75% 45%, #132238 0%, #0B0F17 100%);
+}
+
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .about-hero-grid {
+    grid-template-columns: 1.15fr 1fr;
+    gap: 48px;
+  }
+}
+
+.about-hero-left h1 {
+  font-size: clamp(2.6rem, 5.2vw, 4.4rem);
+  font-weight: 850;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  color: #0057FF;
+  margin-bottom: 22px;
+}
+
+.about-hero-left h1 span.dark-text {
+  color: #0B192C;
+  display: block;
+}
+
+[data-theme="dark"] .about-hero-left h1 span.dark-text {
+  color: #F8FAFC;
+}
+
+.about-hero-left p {
+  font-size: 1.12rem;
+  line-height: 1.7;
+  color: var(--text-sub);
+  max-width: 540px;
+  margin-bottom: 24px;
+}
+
+/* Handwritten signature sticker */
+.about-handwriting-sticker {
+  display: inline-block;
+  transform: rotate(-7deg);
+  font-family: 'Caveat', 'Segoe Print', 'Comic Sans MS', cursive;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #0057FF;
+  text-shadow: 0 2px 10px rgba(0, 87, 255, 0.15);
+  margin-top: 8px;
+  user-select: none;
+}
+
+/* Hero Right Visual (Laptop + 3D Target Accent) */
+.about-hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 380px;
+}
+
+.about-hero-stage {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-laptop-mock {
+  position: relative;
+  width: 92%;
+  height: 78%;
+  background: #1E293B;
+  border-radius: 18px 18px 6px 6px;
+  box-shadow: 0 25px 60px -15px rgba(0, 87, 255, 0.28), 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 4px solid #334155;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-laptop-screen {
+  flex: 1;
+  background: radial-gradient(circle at 50% 30%, #172554 0%, #0F172A 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 24px;
+  position: relative;
+}
+
+.about-laptop-odoo {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.about-laptop-odoo span {
+  color: #38BDF8;
+}
+
+.about-laptop-slogan {
+  font-family: 'Caveat', cursive, sans-serif;
+  font-size: 1.35rem;
+  color: #93C5FD;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.about-laptop-base {
+  height: 12px;
+  background: #64748B;
+  border-radius: 0 0 14px 14px;
+  position: relative;
+}
+
+.about-laptop-base::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: #94A3B8;
+  border-radius: 0 0 4px 4px;
+}
+
+/* Floating Mug */
+.about-hero-mug {
+  position: absolute;
+  right: -10px;
+  bottom: 25px;
+  width: 65px;
+  height: 70px;
+  background: #FFFFFF;
+  border-radius: 6px 6px 14px 14px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #E2E8F0;
+  z-index: 3;
+}
+
+.about-hero-mug-logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #0057FF;
+}
+
+/* 3D Target Walker on Laptop */
+.about-hero-target-buddy {
+  position: absolute;
+  left: -20px;
+  top: 40px;
+  width: 140px;
+  height: 140px;
+  z-index: 4;
+  animation: floatBuddy 4s ease-in-out infinite;
+}
+
+@keyframes floatBuddy {
+  0%, 100% { transform: translateY(0px) rotate(-3deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+}
+
+/* ================================================================
+   2. WHY JUPICAL? SECTION
+   ================================================================ */
+.about-why-sec {
+  padding: 90px 0;
+  background: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .about-why-sec {
+  background: #0B0F17;
+}
+
+.about-why-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .about-why-grid {
+    grid-template-columns: 1.15fr 1fr;
+    gap: 60px;
+  }
+}
+
+.about-why-left h2 {
+  font-size: clamp(2.3rem, 4.4vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #0B192C;
+  margin-bottom: 22px;
+}
+
+[data-theme="dark"] .about-why-left h2 {
+  color: #F8FAFC;
+}
+
+.about-why-left h2 span {
+  color: #0057FF;
+}
+
+.about-why-left p {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--text-sub);
+  margin-bottom: 20px;
+}
+
+.about-why-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  background: #0057FF;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(0, 87, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-why-btn:hover {
+  background: #0046D5;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 87, 255, 0.38);
+}
+
+.about-why-btn-arrow {
+  transition: transform 0.25s ease;
+}
+
+.about-why-btn:hover .about-why-btn-arrow {
+  transform: translateX(4px);
+}
+
+/* --- ANIMATED 3D TARGET CHARACTER ILLUSTRATION --- */
+.about-target-stage {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 1/1;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Background Soft Blue Glow */
+.about-target-glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 117, 250, 0.22) 0%, rgba(56, 189, 248, 0.08) 50%, transparent 75%);
+  filter: blur(24px);
+  animation: glowPulse 4.5s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { transform: scale(0.95); opacity: 0.6; }
+  50% { transform: scale(1.15); opacity: 0.95; }
+}
+
+/* Orbit Rings */
+.about-orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(0, 117, 250, 0.28);
+  pointer-events: none;
+}
+
+.about-orbit-ring--1 {
+  width: 320px;
+  height: 320px;
+  animation: rotateOrbit 35s linear infinite;
+}
+
+.about-orbit-ring--2 {
+  width: 410px;
+  height: 410px;
+  border-style: solid;
+  border-color: rgba(56, 189, 248, 0.18);
+  animation: rotateOrbitReverse 45s linear infinite;
+}
+
+@keyframes rotateOrbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotateOrbitReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+/* Ripple Base Pedestal */
+.about-pedestal-ripples {
+  position: absolute;
+  bottom: 25px;
+  width: 280px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(0, 117, 250, 0.2) 0%, rgba(56, 189, 248, 0.05) 60%, transparent 80%);
+  border: 2px solid rgba(0, 117, 250, 0.2);
+  box-shadow: 0 0 30px rgba(0, 117, 250, 0.25);
+  transform: rotateX(60deg);
+}
+
+.about-pedestal-ripples::after {
+  content: '';
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 117, 250, 0.15);
+}
+
+/* Floating Character + Target Body */
+.about-target-character {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: floatCharacter 4.5s ease-in-out infinite;
+}
+
+@keyframes floatCharacter {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+
+/* The 3D Target Disc */
+.about-target-disc {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #0057FF 0%, #0046D5 60%, #003299 100%);
+  box-shadow: 0 20px 45px rgba(0, 87, 255, 0.35), inset 0 3px 6px rgba(255, 255, 255, 0.4);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid #FFFFFF;
+}
+
+.about-target-ring-white {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.about-target-ring-blue {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #0066FF 0%, #0052CC 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.about-target-bullseye {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dart pinned into target */
+.about-target-dart {
+  position: absolute;
+  top: 18px;
+  right: 28px;
+  width: 48px;
+  height: 48px;
+  transform: rotate(28deg);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+}
+
+/* Character Legs */
+.about-character-legs {
+  display: flex;
+  gap: 28px;
+  margin-top: -8px;
+  z-index: 2;
+}
+
+.about-character-leg {
+  width: 16px;
+  height: 44px;
+  background: #1E293B;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.about-character-leg::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -4px;
+  width: 24px;
+  height: 12px;
+  background: #0F172A;
+  border-radius: 6px;
+}
+
+/* Floating Tech Icon Chips */
+.about-float-icon {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #0075FA, #0057D9);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 24px rgba(0, 117, 250, 0.32);
+  z-index: 5;
+  transition: transform 0.3s ease;
+}
+
+.about-float-icon--chart {
+  top: 40px;
+  left: 36px;
+  animation: floatPill1 5s ease-in-out infinite;
+}
+
+.about-float-icon--cloud {
+  bottom: 110px;
+  left: 20px;
+  animation: floatPill2 6s ease-in-out infinite;
+}
+
+.about-float-icon--gear {
+  top: 60px;
+  right: 36px;
+  animation: floatPill3 5.5s ease-in-out infinite;
+}
+
+.about-float-icon--code {
+  bottom: 95px;
+  right: 24px;
+  animation: floatPill4 6.2s ease-in-out infinite;
+}
+
+@keyframes floatPill1 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(-4deg); }
+}
+
+@keyframes floatPill2 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(8px) rotate(3deg); }
+}
+
+@keyframes floatPill3 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(5deg); }
+}
+
+@keyframes floatPill4 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(10px) rotate(-3deg); }
+}
+
+/* ================================================================
+   3. OUR GROWTH STORY SECTION
+   ================================================================ */
+.about-story-sec {
+  padding: 100px 0;
+  background: #F8FAFD;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .about-story-sec {
+  background: #0E1420;
+}
+
+.about-story-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 52px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .about-story-grid {
+    grid-template-columns: 1.15fr 1fr;
+    gap: 64px;
+  }
+}
+
+.about-story-left-header h2 {
+  font-size: clamp(2.3rem, 4.4vw, 3.4rem);
+  font-weight: 850;
+  letter-spacing: -0.03em;
+  color: #0B192C;
+  margin-bottom: 8px;
+}
+
+[data-theme="dark"] .about-story-left-header h2 {
+  color: #F8FAFC;
+}
+
+.about-story-left-header h2 span {
+  color: #0057FF;
+}
+
+.about-story-sub {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-sub);
+  margin-bottom: 38px;
+}
+
+/* Timeline Vertical Line & Items */
+.about-timeline-list {
+  position: relative;
+  padding-left: 36px;
+}
+
+.about-timeline-rail {
+  position: absolute;
+  left: 11px;
+  top: 14px;
+  bottom: 24px;
+  width: 3px;
+  background: #E2E8F0;
+  border-radius: 3px;
+}
+
+.about-timeline-rail-fill {
+  width: 100%;
+  background: linear-gradient(180deg, #0075FA 0%, #06B6D4 100%);
+  border-radius: 3px;
+  transition: height 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-timeline-item {
+  position: relative;
+  margin-bottom: 36px;
+  opacity: 0;
+  transform: translateX(-16px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-timeline-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.about-timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.about-timeline-dot {
+  position: absolute;
+  left: -36px;
+  top: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 4px solid #0057FF;
+  box-shadow: 0 0 0 4px rgba(0, 87, 255, 0.15);
+  transition: all 0.4s ease;
+}
+
+.about-timeline-item.visible .about-timeline-dot {
+  box-shadow: 0 0 14px rgba(0, 87, 255, 0.5), 0 0 0 4px rgba(0, 87, 255, 0.2);
+}
+
+.about-timeline-content h3 {
+  font-size: 1.25rem;
+  font-weight: 750;
+  color: #0057FF;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.about-timeline-content p {
+  font-size: 1.02rem;
+  line-height: 1.68;
+  color: var(--text-sub);
+  margin: 0;
+}
+
+/* --- ANIMATED 3D GROWTH BLOCKS & LOOPING ARROW --- */
+.about-growth-stage {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 1/1;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Background Globe */
+.about-growth-globe-bg {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 45% 40%, rgba(186, 230, 253, 0.5) 0%, rgba(224, 242, 254, 0.2) 60%, transparent 80%);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  box-shadow: inset 0 0 50px rgba(56, 189, 248, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+[data-theme="dark"] .about-growth-globe-bg {
+  background: radial-gradient(circle at 45% 40%, rgba(14, 116, 144, 0.3) 0%, rgba(15, 23, 42, 0.4) 60%, transparent 80%);
+  border-color: rgba(56, 189, 248, 0.15);
+}
+
+.about-globe-lines {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-image: 
+    radial-gradient(circle, transparent 65%, rgba(0, 117, 250, 0.08) 66%),
+    repeating-linear-gradient(0deg, transparent, transparent 32px, rgba(0, 117, 250, 0.05) 33px),
+    repeating-linear-gradient(90deg, transparent, transparent 32px, rgba(0, 117, 250, 0.05) 33px);
+  opacity: 0.6;
+}
+
+/* Isometric Stage for 3D Blocks */
+.about-growth-blocks-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 22px;
+  padding-bottom: 50px;
+  z-index: 3;
+}
+
+/* Individual 3D Isometric Pillar */
+.about-block-pillar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.about-block-pillar:hover {
+  transform: translateY(-6px);
+}
+
+.about-block-year-label {
+  font-size: 1.2rem;
+  font-weight: 850;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+/* 2016 Pillar */
+.about-pillar-2016 .about-block-year-label {
+  color: #0057FF;
+}
+
+.about-pillar-2016 .about-block-box {
+  width: 82px;
+  height: 95px;
+  background: linear-gradient(180deg, #1D68FF 0%, #0047D4 100%);
+  box-shadow: 0 15px 30px rgba(0, 87, 255, 0.3);
+}
+
+/* 2018 Pillar */
+.about-pillar-2018 .about-block-year-label {
+  color: #0057FF;
+}
+
+.about-pillar-2018 .about-block-box {
+  width: 90px;
+  height: 145px;
+  background: linear-gradient(180deg, #0075FA 0%, #0052CC 100%);
+  box-shadow: 0 20px 40px rgba(0, 117, 250, 0.35);
+}
+
+/* Today Pillar (Gold/Yellow) */
+.about-pillar-today .about-block-year-label {
+  color: #D97706;
+}
+
+.about-pillar-today .about-block-box {
+  width: 100px;
+  height: 205px;
+  background: linear-gradient(180deg, #FBBF24 0%, #F59E0B 50%, #D97706 100%);
+  box-shadow: 0 24px 50px rgba(245, 158, 11, 0.4);
+}
+
+/* Block 3D Styling */
+.about-block-box {
+  border-radius: 14px 14px 6px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 16px 10px;
+  color: #FFFFFF;
+  position: relative;
+  border-top: 3px solid rgba(255, 255, 255, 0.6);
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.about-block-icon {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- CONTINUOUS ANIMATED GROWTH ARROW --- */
+.about-arrow-svg-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 6;
+  pointer-events: none;
+}
+
+/* The curved trajectory path */
+.about-arrow-guide-path {
+  fill: none;
+  stroke: rgba(16, 185, 129, 0.15);
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+/* The travelling glowing arrow stroke */
+.about-arrow-animated-path {
+  fill: none;
+  stroke: url(#growthArrowGrad);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 240 700;
+  stroke-dashoffset: 700;
+  animation: travelArrow 4.8s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+  filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.8));
+}
+
+@keyframes travelArrow {
+  0% {
+    stroke-dashoffset: 700;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -240;
+    opacity: 0;
+  }
+}
+
+/* Floating arrowhead icon on the leading tip */
+.about-arrow-leading-head {
+  fill: #10B981;
+  filter: drop-shadow(0 0 12px #10B981);
+}
+
+/* ================================================================
+   4. OUR GROWTH IN NUMBERS
+   ================================================================ */
+.about-numbers-sec {
+  padding: 80px 0;
+  background: #FFFFFF;
+  position: relative;
+}
+
+[data-theme="dark"] .about-numbers-sec {
+  background: #0B0F17;
+}
+
+.about-numbers-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .about-numbers-layout {
+    grid-template-columns: 340px 1fr;
+    gap: 40px;
+  }
+}
+
+.about-numbers-headline h2 {
+  font-size: clamp(2.2rem, 3.8vw, 3rem);
+  font-weight: 850;
+  color: #0057FF;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.about-numbers-headline p {
+  font-size: 1.05rem;
+  color: var(--text-sub);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.about-headline-line {
+  width: 48px;
+  height: 4px;
+  border-radius: 4px;
+  background: #0057FF;
+}
+
+.about-num-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+}
+
+.about-num-card {
+  background: var(--bg-soft);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.about-num-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 87, 255, 0.3);
+  box-shadow: var(--shadow-hover);
+}
+
+.about-num-icon-circle {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #EBF4FF;
+  color: #0057FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px auto;
+}
+
+[data-theme="dark"] .about-num-icon-circle {
+  background: rgba(0, 117, 250, 0.15);
+}
+
+.about-num-val {
+  font-size: 2.6rem;
+  font-weight: 850;
+  color: #0057FF;
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -0.03em;
+}
+
+.about-num-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-sub);
+  line-height: 1.4;
+}
+
+/* ================================================================
+   5. OUR MISSION & OUR VISION
+   ================================================================ */
+.about-mission-sec {
+  padding: 60px 0 90px;
+  background: #FFFFFF;
+}
+
+[data-theme="dark"] .about-mission-sec {
+  background: #0B0F17;
+}
+
+.about-mission-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .about-mission-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.about-mv-card {
+  background: var(--bg-soft);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  padding: 38px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-mv-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.about-mv-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.about-mv-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.about-mv-icon--mission {
+  background: #E0F2FE;
+  color: #0284C7;
+}
+
+.about-mv-icon--vision {
+  background: #EDE9FE;
+  color: #7C3AED;
+}
+
+.about-mv-header h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0057FF;
+  margin: 0;
+}
+
+.about-mv-card--vision .about-mv-header h3 {
+  color: #7C3AED;
+}
+
+.about-mv-tagline {
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #0284C7;
+  margin-bottom: 12px;
+}
+
+.about-mv-card--vision .about-mv-tagline {
+  color: #7C3AED;
+}
+
+.about-mv-text {
+  font-size: 1rem;
+  line-height: 1.68;
+  color: var(--text-sub);
+  margin-bottom: 20px;
+}
+
+.about-mv-bar {
+  width: 54px;
+  height: 4px;
+  border-radius: 4px;
+  background: #0284C7;
+}
+
+.about-mv-card--vision .about-mv-bar {
+  background: #7C3AED;
+}
+
+/* ================================================================
+   6. CTA BANNER
+   ================================================================ */
+.about-cta-sec {
+  padding-bottom: 70px;
+}
+
+.about-cta-banner {
+  background: linear-gradient(135deg, #092868 0%, #004AD7 60%, #0066FF 100%);
+  border-radius: 28px;
+  padding: 44px 36px;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: center;
+  box-shadow: 0 20px 50px rgba(0, 87, 255, 0.28);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 900px) {
+  .about-cta-banner {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 48px 52px;
+  }
+}
+
+.about-cta-left {
+  font-family: 'Caveat', cursive, sans-serif;
+  font-size: 2.3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #FFFFFF;
+  user-select: none;
+}
+
+.about-cta-center {
+  max-width: 480px;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: #E0E7FF;
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .about-cta-center {
+    text-align: left;
+  }
+}
+
+.about-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 32px;
+  border-radius: 9999px;
+  background: #0075FA;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.about-cta-btn:hover {
+  background: #FFFFFF;
+  color: #0057FF;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .about-hero-sec {
+    padding-top: calc(var(--nav-height, 72px) + 24px);
+  }
+  .about-target-disc {
+    width: 140px;
+    height: 140px;
+  }
+  .about-orbit-ring--1 {
+    width: 260px;
+    height: 260px;
+  }
+  .about-orbit-ring--2 {
+    width: 320px;
+    height: 320px;
+  }
+  .about-growth-stage {
+    max-width: 360px;
+  }
+  .about-block-pillar {
+    gap: 12px;
+  }
+  .about-pillar-2016 .about-block-box {
+    width: 68px;
+    height: 80px;
+  }
+  .about-pillar-2018 .about-block-box {
+    width: 74px;
+    height: 120px;
+  }
+  .about-pillar-today .about-block-box {
+    width: 82px;
+    height: 170px;
+  }
+}

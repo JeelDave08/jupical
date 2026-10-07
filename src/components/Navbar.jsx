@@ -323,7 +323,7 @@ const companyDropdownItems = [
     num: '01',
     label: 'About Us',
     sub: 'Building Future-Ready Solutions',
-    href: '#about',
+    href: '/about',
     accent: '#2563EB',
     gradient: 'linear-gradient(135deg, #2563EB, #4F8CFF)',
     rgb: '37, 99, 235',
