@@ -25,7 +25,7 @@ export default function OdooBricks() {
 
         {/* Lego Brick Tiles Grid */}
         <div className="jb-grid">
-          <Link className="jb-brick jb-a" to="/#clients">
+          <Link className="jb-brick jb-a" to="/our-clients">
             Our happy clients
             <small>See who we work with</small>
           </Link>
