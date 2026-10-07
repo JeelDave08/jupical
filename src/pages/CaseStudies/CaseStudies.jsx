@@ -262,7 +262,7 @@ export default function CaseStudies() {
               Discover how Jupical helps businesses streamline operations, automate workflows and build scalable digital systems through expertly implemented Odoo and Open Source ERP solutions.
             </p>
             <div className="cs-cta">
-              <Link className="cs-btn" to="/#contact">Connect</Link>
+              <Link className="cs-btn" to="/contact-us">Connect</Link>
             </div>
             <ul className="cs-flow" aria-label="Departments connected in one Odoo system">
               <li style={{ '--i': 0 }}>Sales</li>

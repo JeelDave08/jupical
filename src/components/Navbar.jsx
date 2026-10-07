@@ -1630,7 +1630,7 @@ export default function Navbar({ activePage = null }) {
 
         {/* Right Controls — Contact Us CTA */}
         <div className="navbar__cta">
-          <Link to="/#contact" id="nav-contact-btn" className="btn-primary navbar__contact-btn">
+          <Link to="/contact-us" id="nav-contact-btn" className="btn-primary navbar__contact-btn">
             <ContactNavIcon />
             <span>{t('Contact Us')}</span>
           </Link>
@@ -1709,7 +1709,7 @@ export default function Navbar({ activePage = null }) {
 
           <div className="navbar__mobile-footer">
             <ThemeToggle />
-            <Link to="/#contact" className="btn-primary" onClick={() => setMobileOpen(false)}>
+            <Link to="/contact-us" className="btn-primary" onClick={() => setMobileOpen(false)}>
               <ContactNavIcon />
               <span>Contact Us</span>
             </Link>

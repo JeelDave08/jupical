@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import HeroVisual from './HeroVisual';
 import Clients from './Clients';
 import { useLanguage } from '../context/LanguageContext';
@@ -50,10 +51,10 @@ export default function Hero() {
                 <span className="hero__btn-arrow">→</span>
               </a>
 
-              <a href="#contact" className="hero__btn hero__btn--secondary" id="hero-btn-contact">
+              <Link to="/contact-us" className="hero__btn hero__btn--secondary" id="hero-btn-contact">
                 <span>{t('Contact Us')}</span>
                 <span className="hero__btn-arrow">→</span>
-              </a>
+              </Link>
             </div>
 
             {/* Country Badges & Social Proof */}

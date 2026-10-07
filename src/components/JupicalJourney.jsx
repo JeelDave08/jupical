@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import JourneyVisual from './JourneyVisual';
 import './JupicalJourney.css';
 
@@ -22,9 +23,9 @@ export default function JupicalJourney() {
           <p className="jj-p">
             Our dedicated resource model allows us to deliver Odoo ERP implementation and support services with consistent quality no matter where our clients are located.
           </p>
-          <a href="#contact" className="jj-btn" id="jj-hire-btn">
+          <Link to="/contact-us" className="jj-btn" id="jj-hire-btn">
             Hire Odoo Expert
-          </a>
+          </Link>
         </div>
       </div>
     </section>

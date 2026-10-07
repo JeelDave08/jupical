@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import './Services.css';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -191,9 +192,9 @@ export default function Services() {
                       <h3 className="service-card__title">{t(svc.title)}</h3>
                       <p className="service-card__desc">{t(svc.desc)}</p>
                       <div className="service-card__tags">{svc.tags}</div>
-                      <a href="#contact" className="service-card__link">
+                      <Link to="/contact-us" className="service-card__link">
                         {t('Explore Service')} <span className="arrow">→</span>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 );
