@@ -183,7 +183,7 @@ export default function WhyJupicalSections() {
                   <path d="M 2 16 Q 12 2 30 2 L 22 20 L 16 14 L 10 20 L 8 14 Z" />
                 </svg>
               </div>
-              <Link to="/#contact" className="why-cta-banner__btn" id="why-cta-connect-btn">
+              <Link to="/contact-us" className="why-cta-banner__btn" id="why-cta-connect-btn">
                 <span>Connect with Us!</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12" />
