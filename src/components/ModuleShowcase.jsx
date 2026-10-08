@@ -1,11 +1,12 @@
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import {
   Activity, Award, BedDouble, BellRing, BookOpen, Boxes, Building2, Bus, Calculator,
-  CalendarDays, ChartColumnIncreasing, ChartNoAxesCombined, ClipboardList, Clock3,
+  CalendarCheck, CalendarClock, CalendarDays, ChartColumnIncreasing, ChartNoAxesCombined, ClipboardList, Clock3,
   FileCheck2, FileText, Filter, Gauge, Globe, GraduationCap, Handshake, HeartHandshake,
   House, KeyRound, LayoutDashboard, LibraryBig, LockKeyhole, Percent, Play, ReceiptText,
   Repeat2, School, Settings2, ShieldCheck, ShoppingCart, Smartphone, Sparkles, Table2,
-  Tag, TicketCheck, Truck, Utensils, UserRound, UsersRound, WalletCards, Wrench, Coins,
+  HeartPulse, ScanLine, Stethoscope, Tag, TicketCheck, Truck, Utensils, UserRound,
+  UserRoundCheck, UsersRound, WalletCards, Wrench, Coins,
 } from 'lucide-react';
 import './ModuleShowcase.css';
 
@@ -102,6 +103,16 @@ const posterIcons = {
   'loan-approval': ShieldCheck,
   'loan-agreement': LoanAgreementIcon,
   'loan-mobile': Smartphone,
+  building: Building2,
+  doctor: Stethoscope,
+  records: ClipboardList,
+  surgery: CalendarClock,
+  imaging: ScanLine,
+  nursing: HeartPulse,
+  insurance: ShieldCheck,
+  portal: CalendarCheck,
+  patient: UserRoundCheck,
+  mobile: Smartphone,
   'pms-dashboard': LayoutDashboard,
   'pms-portfolio': Building2,
   'pms-crm-pipeline': Filter,
@@ -119,6 +130,7 @@ function VideoFrame({ videoId, title }) {
 function ModuleCard({ module, active, playing, onPlay }) {
   const [expanded, setExpanded] = useState(false);
   const descriptionId = useId();
+  const bulletsId = useId();
   const PosterIcon = posterIcons[module.icon] || BookOpen;
 
   const handleKeyDown = (event) => {
@@ -147,7 +159,8 @@ function ModuleCard({ module, active, playing, onPlay }) {
       <div className="jp-cons__step-content">
         <h3>{module.title}</h3>
         <p id={descriptionId} className={expanded ? 'is-expanded' : undefined}>{module.desc}</p>
-        <button className="jp-cons__read-more" type="button" aria-expanded={expanded} aria-controls={descriptionId} onClick={() => setExpanded((value) => !value)}>{expanded ? 'Read less' : 'Read more'}</button>
+        {module.bullets?.length > 0 && <ul className="jp-cons__step-bullets" id={bulletsId} hidden={!expanded}>{module.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}
+        <button className="jp-cons__read-more" type="button" aria-expanded={expanded} aria-controls={module.bullets?.length ? `${descriptionId} ${bulletsId}` : descriptionId} onClick={() => setExpanded((value) => !value)}>{expanded ? 'Read less' : 'Read more'}</button>
       </div>
     </article>
   );

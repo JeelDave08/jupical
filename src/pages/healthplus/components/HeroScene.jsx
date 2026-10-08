@@ -2,7 +2,7 @@ import { memo } from "react";
 
 function HeroScene() {
   return (
-    <div className="hp-scene-wrap" aria-label="Healthcare ERP interactive platform illustration">
+    <div className="hp-scene-wrap hp-healthcare-scene-card" aria-label="Healthcare ERP interactive platform illustration">
       {/* Soft circular platform & radial aura */}
       <div className="hp-scene-glow" aria-hidden="true" />
 

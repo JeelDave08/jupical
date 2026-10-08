@@ -16,12 +16,8 @@ export default function Hero() {
 
       <div className="hp-wrap hp-hero-grid">
         <div className="hp-hero-copy">
-          <h1 id="hp-hero-title" className="hp-hero-title">
-            Complete<br />
-            <span className="hp-hero-title-blue">Healthcare</span><br />
-            Management<br />
-            Solution Built on<br />
-            Odoo
+          <h1 id="hp-hero-title" className="hp-healthcare-title">
+            Complete <span className="hp-hero-title-blue">Healthcare</span> Management Solution Built on Odoo
           </h1>
           <p className="hp-hero-description">
             From patient registration and OPD to pharmacy, lab, billing, and HR, everything you need for a smooth, modern, and efficient healthcare system.

@@ -31,6 +31,8 @@
 .jp-cons .jp-cons__step h3 {display:-webkit-box;min-height:2.4em;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;font-size:18px;font-weight:700;line-height:1.2;margin:1px 0 8px}
 .jp-cons .jp-cons__step p {display:-webkit-box;min-height:4.65em;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:3;margin:0;color:var(--mut);font-size:14.5px;line-height:1.55}
 .jp-cons .jp-cons__step p.is-expanded {display:block;min-height:0;overflow:visible}
+.jp-cons .jp-cons__step-bullets {width:100%;margin:10px 0 0;padding-left:18px;color:var(--mut);font-size:13px;line-height:1.5}
+.jp-cons .jp-cons__step-bullets li+li {margin-top:5px}
 .jp-cons .jp-cons__read-more {padding:0;margin:10px 0 0;border:0;background:transparent;color:var(--blue);font:700 13px/1.4 'DM Sans',sans-serif;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .jp-cons .jp-cons__read-more:focus-visible {outline:2px solid var(--blue);outline-offset:3px;border-radius:2px}
 .jp-cons .jp-cons__thumbnail {position:relative;display:block;flex:none;width:100%;aspect-ratio:16/9;overflow:hidden;border:1px solid transparent;border-radius:14px;background:#eaf3ff;box-shadow:0 12px 30px -14px rgba(29,78,216,.34);cursor:pointer;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
