@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
@@ -17,6 +17,8 @@ import CaseStudies from './pages/CaseStudies/CaseStudies';
 import Contact from './pages/Contact/Contact';
 import WhyJupicalPage from './pages/WhyJupical/WhyJupicalPage';
 import OurClients from './pages/Clients/OurClients';
+
+const CaseStudyDetail = lazy(() => import('./pages/CaseStudies/CaseStudyDetail'));
 
 function ScrollToHashManager() {
   const { pathname, hash } = useLocation();
@@ -71,6 +73,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/about-us" element={<About />} />
             <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/case-studies/:slug" element={<Suspense fallback={<div role="status">Loading case study…</div>}><CaseStudyDetail /></Suspense>} />
             <Route path="/cases" element={<CaseStudies />} />
             <Route path="/contact-us" element={<Contact />} />
             <Route path="/contact" element={<Contact />} />
