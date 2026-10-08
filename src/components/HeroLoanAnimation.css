@@ -1,0 +1,56 @@
+.hla-scene {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.hla-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 28px;
+  box-shadow: 0 30px 70px -20px rgba(23,71,214,.55);
+}
+
+.hla-scene text { font-family: "Poppins", "Segoe UI", system-ui, sans-serif; }
+.hla-t1 { font-size: 13px; font-weight: 600; fill: #0b1f4d; }
+.hla-t2 { font-size: 11px; font-weight: 500; fill: #64748b; }
+.hla-f1 { animation: hla-fl 5s ease-in-out infinite; }
+.hla-f2 { animation: hla-fl 6s ease-in-out -2s infinite; }
+.hla-f3 { animation: hla-fl 5.5s ease-in-out -1s infinite; }
+.hla-f4 { animation: hla-fl 6.5s ease-in-out -3.5s infinite; }
+@keyframes hla-fl { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.hla-orbit { transform-box: fill-box; transform-origin: center; animation: hla-spin 40s linear infinite; }
+@keyframes hla-spin { to { transform: rotate(360deg); } }
+.hla-house { transform-box: fill-box; transform-origin: 50% 100%; animation: hla-hb 4.5s ease-in-out infinite; }
+@keyframes hla-hb { 0%,100% { transform: scale(1); } 50% { transform: scale(1.02); } }
+.hla-key { transform-box: fill-box; transform-origin: 50% 0%; animation: hla-sw 3s ease-in-out infinite; }
+@keyframes hla-sw { 0%,100% { transform: rotate(-14deg); } 50% { transform: rotate(14deg); } }
+.hla-coin { animation: hla-drop 5.4s ease-in infinite; opacity: 0; }
+.hla-coin.hla-c2 { animation-delay: -1.35s; }
+.hla-coin.hla-c3 { animation-delay: -2.7s; }
+.hla-coin.hla-c4 { animation-delay: -4.05s; }
+@keyframes hla-drop { 0% { transform: translateY(0); opacity: 0; } 12% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translateY(150px); opacity: 0; } }
+.hla-spinc { transform-box: fill-box; transform-origin: center; animation: hla-flip 1.2s linear infinite; }
+@keyframes hla-flip { 0%,100% { transform: scaleX(1); } 50% { transform: scaleX(.15); } }
+.hla-bar { transform-box: fill-box; transform-origin: 0 50%; animation: hla-fill 6s ease-in-out infinite; }
+@keyframes hla-fill { 0% { transform: scaleX(.12); } 55%,85% { transform: scaleX(.82); } 100% { transform: scaleX(.12); } }
+.hla-tick { stroke-dasharray: 30; animation: hla-tk 6s ease-in-out infinite; }
+@keyframes hla-tk { 0%,20% { stroke-dashoffset: 30; } 40%,90% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 30; } }
+.hla-emi { opacity: 0; animation: hla-emi 9s linear infinite; }
+@keyframes hla-emi { 0% { opacity: 0; } 6%,88% { opacity: 1; } 96%,100% { opacity: 0; } }
+.hla-needle { transform-box: fill-box; transform-origin: 50% 100%; animation: hla-nd 5s ease-in-out infinite; }
+@keyframes hla-nd { 0%,100% { transform: rotate(-62deg); } 50% { transform: rotate(58deg); } }
+.hla-tw { animation: hla-tw 3s ease-in-out infinite; }
+.hla-tw.hla-b { animation-delay: -1s; }
+.hla-tw.hla-c { animation-delay: -2s; }
+@keyframes hla-tw { 0%,100% { opacity: .2; } 50% { opacity: .95; } }
+.hla-ripple { transform-box: fill-box; transform-origin: center; animation: hla-rp 4s ease-out infinite; fill: none; stroke: #7dd3fc; stroke-width: 2; }
+.hla-ripple.hla-r2 { animation-delay: -2s; }
+@keyframes hla-rp { 0% { transform: scale(.5); opacity: .8; } 100% { transform: scale(1.15); opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .hla-scene * { animation: none !important; }
+  .hla-scene .hla-tick { stroke-dashoffset: 0; }
+  .hla-scene .hla-emi, .hla-scene .hla-coin { opacity: 1; }
+}

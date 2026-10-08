@@ -1,4 +1,4 @@
-import HeroScene from "./HeroScene";
+import HealthcareHeroScene from "../../../components/HealthcareHeroScene";
 
 export default function Hero() {
   return (
@@ -8,7 +8,6 @@ export default function Hero() {
         <div className="hp-hero-glow-radial" />
         <div className="hp-hero-curve-shape" />
         <div className="hp-hero-wave-bottom" />
-        <div className="hp-hero-dots-grid" />
         <span className="hp-decor-plus hp-decor-plus-1">+</span>
         <span className="hp-decor-plus hp-decor-plus-2">+</span>
         <span className="hp-decor-plus hp-decor-plus-3">+</span>
@@ -28,7 +27,7 @@ export default function Hero() {
             </a>
           </div>
         </div>
-        <HeroScene />
+        <HealthcareHeroScene />
       </div>
     </section>
   );

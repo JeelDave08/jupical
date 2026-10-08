@@ -1,0 +1,71 @@
+.hpa-scene {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.hpa-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 28px;
+  box-shadow: 0 24px 60px -24px rgba(23,71,214,.4);
+  border: 1px solid #cfe0ff;
+}
+
+.hpa-scene text { font-family: "Poppins", "Segoe UI", system-ui, sans-serif; }
+/* day-dusk cycle */
+.hpa-dusk{opacity:0;animation:hpa-dusk 16s ease-in-out infinite}
+@keyframes hpa-dusk{0%,18%{opacity:0}42%,64%{opacity:.62}88%,100%{opacity:0}}
+.hpa-nw{opacity:0;animation:hpa-nw 16s ease-in-out infinite}
+@keyframes hpa-nw{0%,24%{opacity:0}44%,64%{opacity:1}86%,100%{opacity:0}}
+.hpa-sun{animation:hpa-sun 16s ease-in-out infinite}
+@keyframes hpa-sun{0%,18%{opacity:1;transform:translateY(0)}42%,64%{opacity:0;transform:translateY(46px)}88%,100%{opacity:1;transform:translateY(0)}}
+.hpa-isl{animation:hpa-isl 6s ease-in-out infinite}
+@keyframes hpa-isl{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hpa-shadow{transform-box:fill-box;transform-origin:center;animation:hpa-shd 6s ease-in-out infinite}
+@keyframes hpa-shd{0%,100%{transform:scale(1);opacity:.35}50%{transform:scale(.93);opacity:.25}}
+.hpa-f1{animation:hpa-fl 5s ease-in-out infinite}.hpa-f2{animation:hpa-fl 6s ease-in-out -2s infinite}.hpa-f3{animation:hpa-fl 5.5s ease-in-out -1s infinite}.hpa-f4{animation:hpa-fl 6.5s ease-in-out -3s infinite}
+@keyframes hpa-fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.hpa-cloud{animation:hpa-cl 26s ease-in-out infinite alternate}.hpa-cloud.hpa-c2{animation-duration:34s;animation-delay:-10s}
+@keyframes hpa-cl{from{transform:translateX(-30px)}to{transform:translateX(60px)}}
+.hpa-sway{transform-box:fill-box;transform-origin:50% 100%;animation:hpa-sw 4s ease-in-out infinite}
+.hpa-sway.hpa-s2{animation-delay:-2s;animation-duration:4.6s}
+@keyframes hpa-sw{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+.hpa-tree{transform-box:fill-box;transform-origin:50% 100%;animation:hpa-tr 5s ease-in-out infinite}
+.hpa-tree.hpa-t2{animation-delay:-2.5s}
+@keyframes hpa-tr{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
+.hpa-key{transform-box:fill-box;transform-origin:50% 50%;animation:hpa-ky 4s ease-in-out infinite}
+@keyframes hpa-ky{0%,100%{transform:translateY(0) rotate(-24deg)}50%{transform:translateY(-10px) rotate(-8deg)}}
+.hpa-glow{animation:hpa-gl 3s ease-in-out infinite}
+@keyframes hpa-gl{0%,100%{opacity:.25}50%{opacity:.7}}
+.hpa-coin{animation:hpa-cb 3s ease-in-out infinite}
+@keyframes hpa-cb{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hpa-blink{animation:hpa-bk 1.4s steps(1) infinite}
+@keyframes hpa-bk{0%{opacity:1}50%{opacity:.1}}
+.hpa-pulse{transform-box:fill-box;transform-origin:center;animation:hpa-pu 3.6s ease-out infinite;fill:none;stroke:#60a5fa;stroke-width:2.5}
+.hpa-pulse.hpa-p2{animation-delay:1.8s}
+@keyframes hpa-pu{0%{transform:scale(.7);opacity:.8}100%{transform:scale(1.18);opacity:0}}
+.hpa-bar{transform-box:fill-box;transform-origin:50% 100%;animation:hpa-gr 6s ease-in-out infinite}
+.hpa-bar.hpa-b2{animation-delay:.3s}.hpa-bar.hpa-b3{animation-delay:.6s}.hpa-bar.hpa-b4{animation-delay:.9s}
+@keyframes hpa-gr{0%{transform:scaleY(.1)}35%,85%{transform:scaleY(1)}100%{transform:scaleY(.1)}}
+.hpa-arrow{stroke-dasharray:170;stroke-dashoffset:170;animation:hpa-ar 6s ease-in-out infinite}
+@keyframes hpa-ar{0%,10%{stroke-dashoffset:170}45%,88%{stroke-dashoffset:0}100%{stroke-dashoffset:170}}
+.hpa-tick{stroke-dasharray:30;animation:hpa-tk 5s ease-in-out infinite}
+@keyframes hpa-tk{0%,20%{stroke-dashoffset:30}40%,90%{stroke-dashoffset:0}100%{stroke-dashoffset:30}}
+.hpa-vb{transform-box:fill-box;transform-origin:center;animation:hpa-vp 2.5s ease-in-out infinite}
+@keyframes hpa-vp{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+.hpa-fillbar{transform-box:fill-box;transform-origin:0 50%;animation:hpa-fb 6s ease-in-out infinite}
+@keyframes hpa-fb{0%{transform:scaleX(.1)}55%,85%{transform:scaleX(.86)}100%{transform:scaleX(.1)}}
+.hpa-stamp{transform-box:fill-box;transform-origin:center;opacity:0;animation:hpa-st 6s ease-in infinite}
+@keyframes hpa-st{0%,50%{transform:scale(2.2);opacity:0}60%{transform:scale(1);opacity:1}88%{transform:scale(1);opacity:1}100%{opacity:0}}
+.hpa-ring{stroke-dasharray:126;stroke-dashoffset:126;transform:rotate(-90deg);transform-box:fill-box;transform-origin:center;animation:hpa-rg 6s ease-in-out infinite}
+@keyframes hpa-rg{0%{stroke-dashoffset:126}45%,85%{stroke-dashoffset:8}100%{stroke-dashoffset:126}}
+.hpa-tw{animation:hpa-tw 3s ease-in-out infinite}.hpa-tw.hpa-b{animation-delay:-1s}.hpa-tw.hpa-c{animation-delay:-2s}
+@keyframes hpa-tw{0%,100%{opacity:.25}50%{opacity:1}}
+@media (prefers-reduced-motion: reduce) {
+  .hpa-svg, .hpa-svg * { animation: none !important; }
+  .hpa-svg .hpa-tick, .hpa-svg .hpa-arrow { stroke-dashoffset: 0; }
+  .hpa-svg .hpa-ring { stroke-dashoffset: 8; }
+  .hpa-svg .hpa-stamp { opacity: 1; }
+}

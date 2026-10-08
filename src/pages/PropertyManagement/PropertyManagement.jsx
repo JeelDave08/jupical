@@ -3,7 +3,7 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import ModuleShowcase from '../../components/ModuleShowcase';
 import { PMS_CONTENT, PMS_MODULES } from '../../data/pms';
-import PropertyScene from './PropertyScene';
+import HeroPropertyAnimation from './HeroPropertyAnimation';
 import './PropertyManagement.css';
 
 function CheckIcon() {
@@ -23,7 +23,7 @@ export default function PropertyManagement() {
               <p>{PMS_CONTENT.heroParagraph}</p>
               <Link className="jp-cons__pms-button" to="/contact-us">Request Demo <span aria-hidden="true">→</span></Link>
             </div>
-            <PropertyScene />
+            <HeroPropertyAnimation />
           </div>
         </header>
 

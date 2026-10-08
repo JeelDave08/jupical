@@ -1,0 +1,46 @@
+.hc-scene { width: min(100%, 640px); max-width: 640px; margin: 0 auto; }
+.hc-scene svg { display: block; width: 100%; height: auto; border-radius: 28px; box-shadow: 0 30px 70px -20px rgba(23,71,214,.55); }
+.hc-scene text { font-family: "Poppins", "Segoe UI", system-ui, sans-serif; }
+.hc-scene .hc-chip text { font-size: 13px; font-weight: 600; fill: #0b1f4d; }
+.hc-scene .hc-float1 { animation: hc-fl 5s ease-in-out infinite; }
+.hc-scene .hc-float2 { animation: hc-fl 6s ease-in-out -2s infinite; }
+.hc-scene .hc-float3 { animation: hc-fl 5.5s ease-in-out -1s infinite; }
+.hc-scene .hc-float4 { animation: hc-fl 6.5s ease-in-out -3.5s infinite; }
+@keyframes hc-fl { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+.hc-scene .hc-ring { transform-box: fill-box; transform-origin: center; animation: hc-ring 3.2s ease-out infinite; fill: none; stroke: #7dd3fc; stroke-width: 2; }
+.hc-scene .hc-ring.hc-r2 { animation-delay: 1.06s; }
+.hc-scene .hc-ring.hc-r3 { animation-delay: 2.12s; }
+@keyframes hc-ring { 0% { transform: scale(.4); opacity: .9; } 100% { transform: scale(2.6); opacity: 0; } }
+.hc-scene .hc-cross { transform-box: fill-box; transform-origin: center; animation: hc-pulse 1.6s ease-in-out infinite; }
+@keyframes hc-pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.18); } }
+.hc-scene .hc-win { animation: hc-tw 4s ease-in-out infinite; }
+.hc-scene .hc-win.hc-b { animation-delay: -1.3s; }
+.hc-scene .hc-win.hc-c { animation-delay: -2.6s; }
+@keyframes hc-tw { 0%,100% { opacity: .35; } 50% { opacity: 1; } }
+.hc-scene .hc-ecg { stroke-dasharray: 420; stroke-dashoffset: 420; animation: hc-ecg 3s linear infinite; }
+@keyframes hc-ecg { 0% { stroke-dashoffset: 420; } 60% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -420; } }
+.hc-scene .hc-amb { animation: hc-drive 9s linear infinite; }
+@keyframes hc-drive { 0% { transform: translateX(-140px); } 100% { transform: translateX(700px); } }
+.hc-scene .hc-lightA { animation: hc-blink .5s steps(1) infinite; }
+.hc-scene .hc-lightB { animation: hc-blink .5s steps(1) -.25s infinite; }
+@keyframes hc-blink { 0% { opacity: 1; } 50% { opacity: .1; } }
+.hc-scene .hc-hero { transform-box: fill-box; transform-origin: 50% 100%; animation: hc-heroFloat 5s ease-in-out infinite; }
+@keyframes hc-heroFloat { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-8px) scale(1.015); } }
+.hc-scene .hc-doc { transform-box: fill-box; transform-origin: 50% 100%; animation: hc-br 4s ease-in-out infinite; }
+.hc-scene .hc-nur { transform-box: fill-box; transform-origin: 50% 100%; animation: hc-br 4s ease-in-out -2s infinite; }
+@keyframes hc-br { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(1.015); } }
+.hc-scene .hc-arm { transform-box: fill-box; transform-origin: 0% 0%; animation: hc-wave 2.4s ease-in-out infinite; }
+@keyframes hc-wave { 0%,100% { transform: rotate(0); } 50% { transform: rotate(-14deg); } }
+.hc-scene .hc-plus { animation: hc-rise 7s linear infinite; opacity: 0; }
+.hc-scene .hc-plus.hc-p2 { animation-delay: -2.3s; }
+.hc-scene .hc-plus.hc-p3 { animation-delay: -4.6s; }
+.hc-scene .hc-plus.hc-p4 { animation-delay: -1.2s; }
+.hc-scene .hc-plus.hc-p5 { animation-delay: -5.8s; }
+@keyframes hc-rise { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: .7; } 100% { transform: translateY(-300px); opacity: 0; } }
+.hc-scene .hc-blinkeye { transform-box: fill-box; transform-origin: center; animation: hc-eye 5s infinite; }
+@keyframes hc-eye { 0%,94%,100% { transform: scaleY(1); } 97% { transform: scaleY(.1); } }
+@media (prefers-reduced-motion: reduce) {
+  .hc-scene * { animation: none !important; }
+  .hc-scene .hc-ecg { stroke-dashoffset: 0; }
+  .hc-scene .hc-plus { opacity: .5; }
+}

@@ -4,7 +4,7 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import ModuleShowcase from '../../components/ModuleShowcase';
 import { LMS_CONTENT, LMS_FEATURES, LMS_PAGE } from '../../data/lms';
-import LendingScene from './LendingScene';
+import HeroLoanAnimation from '../../components/HeroLoanAnimation';
 import './LoanManagement.css';
 
 function FeatureIcon({ kind }) {
@@ -42,7 +42,7 @@ export default function LoanManagement() {
                 <Link className="jp-cons__loan-btn jp-cons__loan-btn--outline" to="/contact-us">{LMS_CONTENT.requestDemoLabel}<span aria-hidden="true"> →</span></Link>
               </div>
             </div>
-            <LendingScene />
+            <HeroLoanAnimation />
           </div>
         </section>
 
