@@ -1,0 +1,34 @@
+.jp-cons.jp-cons__education {--header-h:var(--nav-height,72px)}
+.jp-cons .jp-cons__education-hero {background:#fff}
+.jp-cons.jp-cons__education .jp-cons__hero-grid {grid-template-columns:1.15fr 1fr;gap:40px}
+.jp-cons.jp-cons__education .jp-hero-title {font-size:clamp(30px,2.8vw,40px);line-height:1.2;letter-spacing:0;font-weight:700;text-wrap:balance;margin:0 0 18px}
+.jp-cons.jp-cons__education .jp-cons__hero-grid p {max-width:620px}
+.jp-cons .jp-cons__edu-scene {width:100%;height:auto;display:block;border-radius:22px;box-shadow:0 24px 60px -24px rgba(29,78,216,.35)}
+.jp-cons .jp-cons__education-actions {display:flex;flex-wrap:wrap;gap:12px}
+.jp-cons .jp-cons__education .jp-cons__btn--outline {border-color:var(--blue)}
+.jp-cons .jp-cons__edu-cloud {animation:jp-cons-edu-drift 32s linear infinite}
+.jp-cons .jp-cons__edu-float {transform-box:fill-box;transform-origin:center;animation:jp-cons-edu-bob 3.2s ease-in-out infinite}
+.jp-cons .jp-cons__edu-pencil {animation-delay:-.8s}.jp-cons .jp-cons__edu-cap {animation-delay:-1.6s}.jp-cons .jp-cons__edu-atom {animation-delay:-2.4s}
+.jp-cons .jp-cons__education-ending {padding:62px 0 72px;background:#fff}
+.jp-cons .jp-cons__education-intro {max-width:850px;margin:0 auto 50px;text-align:center}
+.jp-cons .jp-cons__education-intro h2,.jp-cons .jp-cons__education-core h2 {font-size:clamp(28px,3vw,40px);line-height:1.15;margin:0 0 14px}
+.jp-cons .jp-cons__education-intro p {color:var(--mut);font-size:17px;line-height:1.7;margin:0}
+.jp-cons .jp-cons__education-core {padding:30px 0 46px;border-top:1px solid var(--line)}
+.jp-cons .jp-cons__education-chips {display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.jp-cons .jp-cons__education-chips span {background:#fff;border:1px solid var(--line);padding:9px 16px;border-radius:99px;font-weight:500;font-size:14.5px;color:var(--ink)}
+.jp-cons .jp-cons__education-cards {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.jp-cons .jp-cons__education-cards article {padding:24px 0;border-top:2px solid var(--line)}
+.jp-cons .jp-cons__education-cards h3 {font-size:23px;line-height:1.2;margin:0 0 10px}
+.jp-cons .jp-cons__education-cards p {color:var(--mut);font-size:15px;line-height:1.7;margin:0 0 10px}
+.jp-cons .jp-cons__education-cards p:last-child {margin-bottom:0}
+.jp-cons .jp-cons__education-cards b {color:var(--ink)}
+.jp-cons .jp-cons__education-card-subtitle {padding-top:18px}
+.jp-cons .jp-cons__education-cta {background:var(--pale);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:36px 0}
+.jp-cons .jp-cons__education-cta .jp-cons__wrap {display:flex;align-items:center;justify-content:space-between;gap:26px}
+.jp-cons .jp-cons__education-cta h2 {font-size:clamp(26px,3vw,38px);line-height:1.15;margin:0 0 8px}
+.jp-cons .jp-cons__education-cta p {color:var(--mut);margin:0}
+@keyframes jp-cons-edu-drift {from{transform:translateX(-60px)}to{transform:translateX(90px)}}
+@keyframes jp-cons-edu-bob {0%,100%{translate:0 0}50%{translate:0 -9px}}
+@media(max-width:860px) {.jp-cons.jp-cons__education .jp-cons__hero-grid {grid-template-columns:1fr}.jp-cons .jp-cons__education-cards {grid-template-columns:1fr}}
+@media(max-width:640px) {.jp-cons .jp-cons__education-cta .jp-cons__wrap {align-items:flex-start;flex-direction:column}.jp-cons.jp-cons__education .jp-cons__hero-grid {gap:24px}.jp-cons .jp-cons__edu-scene {border-radius:16px}}
+@media(prefers-reduced-motion:reduce) {.jp-cons .jp-cons__edu-cloud,.jp-cons .jp-cons__edu-float {animation:none}}

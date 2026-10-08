@@ -20,6 +20,7 @@ import OurClients from './pages/Clients/OurClients';
 import ConstructionERP from './pages/ConstructionERP/ConstructionERP';
 import HealthPlusPage from './pages/healthplus/HealthPlusPage';
 import LoanManagement from './pages/LoanManagement/LoanManagement';
+import EducationERP from './pages/EducationERP/EducationERP';
 
 const CaseStudyDetail = lazy(() => import('./pages/CaseStudies/CaseStudyDetail'));
 
@@ -86,6 +87,7 @@ function App() {
             <Route path="/odoo-loan-management" element={<LoanManagement />} />
             <Route path="/odoo-healthcare-erp" element={<HealthPlusPage />} />
             <Route path="/healthcare-erp" element={<HealthPlusPage />} />
+            <Route path="/odoo-education-erp" element={<EducationERP />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

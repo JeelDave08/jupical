@@ -1,7 +1,30 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
+import {
+  Activity, Award, BookOpen, Bus, CalendarDays, ClipboardList, GraduationCap,
+  HeartHandshake, LibraryBig, Play, School, Settings2, Smartphone, UserRound,
+  UsersRound, WalletCards,
+} from 'lucide-react';
 import './ModuleShowcase.css';
 
 const pad = (value) => String(value).padStart(2, '0');
+
+const posterIcons = {
+  activity: Activity,
+  award: Award,
+  book: BookOpen,
+  bus: Bus,
+  calendar: CalendarDays,
+  clipboard: ClipboardList,
+  graduation: GraduationCap,
+  counseling: HeartHandshake,
+  library: LibraryBig,
+  school: School,
+  settings: Settings2,
+  smartphone: Smartphone,
+  user: UserRound,
+  users: UsersRound,
+  wallet: WalletCards,
+};
 
 function VideoFrame({ videoId, title }) {
   return (
@@ -15,74 +38,66 @@ function VideoFrame({ videoId, title }) {
   );
 }
 
-function VideoThumbnail({ module, index, onPlay, playing }) {
-  const number = module.number || pad(index + 1);
-  const lineWidths = [90, 70, 80, 55, 85, 65];
-  const widths = lineWidths.map((width, lineIndex) => width - (number * 7 + lineIndex * 3) % 20);
+function ModuleCard({ module, index, active, playing, onPlay }) {
+  const [expanded, setExpanded] = useState(false);
+  const descriptionId = useId();
+  const PosterIcon = (module.icon && posterIcons[module.icon]) || BookOpen;
 
-  if (playing && module.videoId) {
-    return (
-      <div className="jp-cons__thumbnail jp-cons__playing">
-        <VideoFrame videoId={module.videoId} title={`${module.title} video`} />
-      </div>
-    );
-  }
+  const handleKeyDown = (event) => {
+    if (module.videoId && (event.key === 'Enter' || event.key === ' ')) {
+      event.preventDefault();
+      onPlay();
+    }
+  };
 
-  const canPlay = Boolean(module.videoId);
   return (
-    <div
-      className={`jp-cons__thumbnail${canPlay ? '' : ' jp-cons__thumbnail--static'}`}
-      data-video-id={module.videoId || undefined}
-      role={canPlay ? 'button' : undefined}
-      tabIndex={canPlay ? 0 : undefined}
-      aria-label={canPlay ? `Play module ${pad(number)}: ${module.title} video` : undefined}
-      onClick={canPlay ? () => onPlay(module) : undefined}
-      onKeyDown={canPlay ? (event) => {
-        if (event.key === 'Enter' || event.key === ' ') {
-          event.preventDefault();
-          onPlay(module);
-        }
-      } : undefined}
-    >
-      <div className="jp-cons__bar"><span>{pad(number)}. {module.title.slice(0, 26)}</span><span>JUPICAL</span></div>
-      <div className="jp-cons__ui">
-        <s className="a" style={{ width: `${35 + (number - 1) % 4 * 10}%` }} />
-        {widths.map((width, lineIndex) => (
-          <s key={lineIndex} className={(lineIndex + number - 1) % 4 === 0 ? 'r' : (lineIndex + number - 1) % 3 === 0 ? 'a' : ''} style={{ width: `${width}%` }} />
-        ))}
+    <article className={`jp-cons__step${active ? ' is-active' : ''}`}>
+      <div
+        className={`jp-cons__thumbnail${playing ? ' jp-cons__playing' : ''}`}
+        role="button"
+        tabIndex={0}
+        aria-disabled={!module.videoId}
+        aria-label={`Play module ${pad(module.number ?? index + 1)}: ${module.title} video`}
+        onClick={module.videoId ? onPlay : undefined}
+        onKeyDown={handleKeyDown}
+      >
+        {playing ? (
+          <>
+            <VideoFrame videoId={module.videoId} title={`${module.title} video`} />
+            <span className="jp-cons__now-playing">Now playing</span>
+          </>
+        ) : (
+          <>
+            <div className="jp-cons__thumbnail-poster" aria-hidden="true">
+              <span className="jp-cons__poster-grid" />
+              <span className="jp-cons__poster-watermark">{pad(module.number ?? index + 1)}</span>
+              <span className="jp-cons__poster-icon"><PosterIcon size={38} strokeWidth={1.7} /></span>
+            </div>
+            <span className="jp-cons__number">{pad(module.number ?? index + 1)}</span>
+            <span className="jp-cons__play-pill" aria-hidden="true"><Play size={19} fill="currentColor" /></span>
+            {module.videoId && <span className="jp-cons__watch-video">Watch video</span>}
+          </>
+        )}
       </div>
-      {canPlay && <span className="jp-cons__play-pill" aria-hidden="true">▶</span>}
-    </div>
-  );
-}
-
-function Tower({ modules, activeFloor, labelPrefix }) {
-  const height = Math.max(120, modules.length * 23 + 36);
-  const baseline = height - 12;
-  return (
-    <aside className="jp-cons__tower" aria-label="Module progress">
-      <svg viewBox={`0 0 160 ${height}`} role="img" aria-label={`${modules.length}-floor module progress tower`}>
-        <rect x="0" y={baseline} width="160" height="6" fill="#1d4ed8" />
-        <path d={`M80 12V34M80 12l-40 6M80 12l40 6`} stroke="#1d4ed8" strokeWidth="2" />
-        {modules.map((module, index) => {
-          const y = baseline - (index + 1) * 23;
-          const filled = index < activeFloor;
-          return (
-            <g key={module.title}>
-              <rect className={`jp-cons__tower-floor${filled ? ' on' : ''}`} x="24" y={y} width="112" height="22" rx="2" />
-              <text className={filled ? 'on' : ''} x="80" y={y + 15}>{module.number || pad(index + 1)}</text>
-            </g>
-          );
-        })}
-      </svg>
-      <div className="jp-cons__floor-label" aria-live="polite">
-        {labelPrefix} {modules[Math.max(0, activeFloor - 1)]?.number || pad(Math.max(1, activeFloor))} of {modules.length}: {modules[Math.max(0, activeFloor - 1)]?.title}
+      <div className="jp-cons__step-content">
+        <h3>{module.title}</h3>
+        <p id={descriptionId} className={expanded ? 'is-expanded' : undefined}>{module.desc}</p>
+        <button
+          className="jp-cons__read-more"
+          type="button"
+          aria-expanded={expanded}
+          aria-controls={descriptionId}
+          onClick={() => setExpanded((value) => !value)}
+        >
+          {expanded ? 'Read less' : 'Read more'}
+        </button>
       </div>
-    </aside>
+    </article>
   );
 }
 
 export default function ModuleShowcase({
+  id,
   title,
   subtitle,
   playerTitle,
@@ -91,66 +106,136 @@ export default function ModuleShowcase({
   mainVideoId = '',
   modules = [],
   labelPrefix = 'Floor',
+  validateVideoTitles = false,
 }) {
   const sectionRef = useRef(null);
   const [playingKey, setPlayingKey] = useState(null);
-  const [activeFloor, setActiveFloor] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(-1);
+  const numberedModules = modules.map((module, index) => ({
+    ...module,
+    number: module.number ?? index + 1,
+  }));
+  const towerHeight = 330 + Math.max(0, numberedModules.length - 13) * 23;
+  const baseline = towerHeight - 14;
 
   useEffect(() => {
-    let frame = 0;
-    const updateTower = () => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        let current = 0;
-        sectionRef.current?.querySelectorAll('.jp-cons__step').forEach((element, index) => {
-          if (element.getBoundingClientRect().top < window.innerHeight * 0.6) current = index + 1;
-        });
-        setActiveFloor(Math.min(current, modules.length));
-      });
-    };
-    window.addEventListener('scroll', updateTower, { passive: true });
-    window.addEventListener('resize', updateTower);
-    updateTower();
-    return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener('scroll', updateTower);
-      window.removeEventListener('resize', updateTower);
-    };
-  }, [modules.length]);
+    const section = sectionRef.current;
+    const cards = section?.querySelectorAll('.jp-cons__step');
+    if (!section || !cards?.length) return undefined;
 
-  const play = (key) => setPlayingKey(key);
-  const playModule = (module) => setPlayingKey(String(module.number || module.title));
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      const screenCenter = window.innerHeight / 2;
+      let nearestIndex = -1;
+      let nearestDistance = Infinity;
+      cards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        const distance = Math.abs((rect.top + rect.bottom) / 2 - screenCenter);
+        if (distance < nearestDistance) {
+          nearestDistance = distance;
+          nearestIndex = index;
+        }
+      });
+      setActiveIndex((previous) => (previous === nearestIndex ? previous : nearestIndex));
+    }, { root: null, rootMargin: '-40% 0px -40% 0px', threshold: 0 });
+
+    cards.forEach((card) => observer.observe(card));
+    return () => observer.disconnect();
+  }, [numberedModules.length]);
+
+  useEffect(() => {
+    if (!validateVideoTitles || !import.meta.env.DEV || !modules.length) return undefined;
+
+    const controller = new AbortController();
+    numberedModules.filter((module) => module.videoId).forEach(async (module) => {
+      const watchUrl = `https://www.youtube.com/watch?v=${encodeURIComponent(module.videoId)}`;
+      try {
+        const response = await fetch(`https://www.youtube.com/oembed?format=json&url=${encodeURIComponent(watchUrl)}`, { signal: controller.signal });
+        if (!response.ok) return;
+        const { title: videoTitle } = await response.json();
+        const match = String(videoTitle || '').match(/^\s*(\d+)\s*[.:)\-]/);
+        if (match && Number(match[1]) !== Number(module.number)) {
+          console.warn(`Video mismatch: module ${module.number} plays video titled ${videoTitle}`);
+        }
+      } catch {
+        // Network and oEmbed errors are advisory only.
+      }
+    });
+
+    return () => controller.abort();
+  }, [modules, validateVideoTitles]);
+
+  const onPlayKey = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      setPlayingKey('main');
+    }
+  };
+
   return (
     <>
       {mainVideoId && (
         <section className="jp-cons__video-section jp-cons__wrap" aria-labelledby="jp-cons-main-video-title">
-          <h2 id="jp-cons-main-video-title">{playerHeading || `See the ${playerTitle} in Action`}</h2>
+          <h2 id="jp-cons-main-video-title">{playerHeading || playerTitle}</h2>
           {playerSubtitle && <p className="jp-cons__caption">{playerSubtitle}</p>}
           {playingKey === 'main' ? (
-            <div className="jp-cons__player jp-cons__playing"><VideoFrame videoId={mainVideoId} title={playerTitle} /></div>
+            <div className="jp-cons__player jp-cons__playing">
+              <VideoFrame videoId={mainVideoId} title={playerTitle} />
+            </div>
           ) : (
-            <button type="button" className="jp-cons__player" aria-label={`Play ${playerTitle} video`} onClick={() => play('main')}>
-              <span className="jp-cons__player-content"><span className="jp-cons__big-play" aria-hidden="true">▶</span><span className="jp-cons__player-heading">{playerTitle}</span><span className="jp-cons__player-subtitle">{playerSubtitle}</span></span>
-            </button>
+            <div
+              className="jp-cons__player"
+              role="button"
+              tabIndex={0}
+              aria-label={`Play ${playerTitle} video`}
+              onClick={() => setPlayingKey('main')}
+              onKeyDown={onPlayKey}
+            >
+              <div className="jp-cons__player-content">
+                <span className="jp-cons__big-play" aria-hidden="true">▶</span>
+                <h3>{playerTitle}</h3>
+                {playerSubtitle && <p>{playerSubtitle}</p>}
+              </div>
+            </div>
           )}
         </section>
       )}
 
-      <section className="jp-cons__wrap jp-cons__showcase" ref={sectionRef}>
+      <section className="jp-cons__wrap jp-cons__module-section" id={id} ref={sectionRef}>
         <h2 className="jp-cons__sequence-title">{title}</h2>
-        <p className="jp-cons__sequence-intro">{subtitle}</p>
+        {subtitle && <p className="jp-cons__sequence-intro">{subtitle}</p>}
         <div className="jp-cons__sequence">
-          <Tower modules={modules} activeFloor={activeFloor} labelPrefix={labelPrefix} />
-          <div className="jp-cons__module-grid">
-            {modules.map((module, index) => {
-                const key = String(module.number || module.title);
+          <aside className="jp-cons__tower">
+            <svg viewBox={`0 0 160 ${towerHeight}`} aria-hidden="true">
+              <rect x="0" y={baseline + 2} width="160" height="6" fill="#1d4ed8" />
+              <path d="M80 12V34M80 12l-40 6M80 12l40 6" stroke="#1d4ed8" strokeWidth="2" />
+              {numberedModules.map((module, index) => {
+                const y = baseline - (index + 1) * 23;
+                const filled = index <= activeIndex;
+                const active = index === activeIndex;
                 return (
-                  <article className="jp-cons__step" key={key}>
-                  <VideoThumbnail module={module} index={index} playing={playingKey === key} onPlay={playModule} />
-                  <div><span className="jp-cons__number">{module.number || pad(index + 1)}</span><h3>{module.title}</h3><p>{module.desc}</p></div>
-                </article>
-              );
-            })}
+                  <g key={module.number}>
+                    <rect className={`jp-cons__tower-floor${filled ? ' on' : ''}${active ? ' active' : ''}`} x="24" y={y} width="112" height="22" rx="2" />
+                    <text className={filled ? 'on' : ''} x="80" y={y + 15}>{pad(module.number)}</text>
+                  </g>
+                );
+              })}
+            </svg>
+            <div className="jp-cons__floor-label">
+              {activeIndex >= 0 ? `${labelPrefix} ${pad(numberedModules[activeIndex].number)} of ${numberedModules.length}: ${numberedModules[activeIndex].title}` : 'Foundation'}
+            </div>
+          </aside>
+          <div className="jp-cons__module-grid">
+            {numberedModules.map((module, index) => (
+              <ModuleCard
+                key={module.number}
+                module={module}
+                index={index}
+                active={activeIndex === index}
+                playing={playingKey === module.number}
+                onPlay={() => setPlayingKey(module.number)}
+              />
+            ))}
           </div>
         </div>
       </section>

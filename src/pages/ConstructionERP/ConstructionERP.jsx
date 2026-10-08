@@ -7,7 +7,7 @@ import './ConstructionERP.css';
 
 const JP_VIDEOS = { main: "gWbe-VODpQc", modules: ["X6eys_I26uM","AVLGyHDSvjU","rO2JH9eyxz8","9hailXgLfgg","u6qiVwj0Eco","JLsHWVtYhKk","pz0Wvu6uX4U","vFKKFdCz7CA","8xg37GKnAnw","vZdRzyeHuB8","1-N1fKiw2o8","gG4GObM0zow","w9hskwXSjv4"] };
 
-const moduleRows = [
+const modules = [
   ['Configuration and Setup', 'Set up your company, projects, users and workflows so everything is ready to start.'],
   ['Project Creation & Analytic Linking', 'Create projects and link analytic accounts to see cost and progress in real time.'],
   ['Project Scope & Property Setup', 'Define scope, property details, units and specifications.'],
@@ -22,7 +22,6 @@ const moduleRows = [
   ['Labour Management & Labour Expenses', 'Manage workforce, wages and labour costs.'],
   ['Project Reporting', 'See profitability and progress in reports built for decisions.'],
 ];
-const modules = moduleRows.map(([title, desc], index) => ({ title, desc, videoId: JP_VIDEOS.modules[index] }));
 
 function ConstructionScene({ floorCount }) {
   const floors = Array.from({ length: 5 }, (_, index) => {
@@ -70,6 +69,7 @@ function ConstructionScene({ floorCount }) {
 
 export default function ConstructionERP() {
   const [floorCount, setFloorCount] = useState(0);
+  const moduleData = modules.map(([title, desc], index) => ({ title, desc, videoId: JP_VIDEOS.modules[index] }));
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -110,16 +110,7 @@ export default function ConstructionERP() {
           </div>
         </header>
 
-        <div id="seq">
-          <ModuleShowcase
-            title="Build your project, one floor at a time"
-            subtitle="Thirteen modules, in the order a real project runs. Scroll and watch the tower go up."
-            playerTitle="Construction ERP"
-            playerSubtitle="Construction ERP in Odoo: an end-to-end construction management success story."
-            mainVideoId={JP_VIDEOS.main}
-            modules={modules}
-          />
-        </div>
+        <ModuleShowcase id="seq" title="Build your project, one floor at a time" subtitle="Thirteen modules, in the order a real project runs. Scroll and watch the tower go up." playerTitle="Construction ERP" playerSubtitle="Construction ERP in Odoo: an end-to-end construction management success story." mainVideoId={JP_VIDEOS.main} modules={moduleData} />
 
         <section className="jp-cons__features">
           <div className="jp-cons__wrap">
