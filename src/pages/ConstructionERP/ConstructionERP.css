@@ -33,42 +33,6 @@
 .jp-cons .jp-cons__cloud {animation:jp-cons-drift 40s linear infinite}
 .jp-cons .jp-cons__floor {transition:opacity .6s,transform .6s}
 .jp-cons .jp-cons__floor.off {opacity:0;transform:translateY(-30px)}
-.jp-cons .jp-cons__video-section {padding:30px 22px 70px;text-align:center}
-.jp-cons .jp-cons__video-section h2,
-.jp-cons .jp-cons__features h2 {font-size:clamp(26px,3.4vw,40px);margin:0 0 8px;line-height:1.1}
-.jp-cons .jp-cons__caption {color:var(--mut);margin:0 0 24px}
-.jp-cons .jp-cons__player {position:relative;aspect-ratio:16/8;border-radius:22px;overflow:hidden;background:linear-gradient(120deg,#0b2a7a,#1d4ed8 55%,#38bdf8);display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;cursor:pointer}
-.jp-cons .jp-cons__player::before {content:"";position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px) 0 0/30px 30px,linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px) 0 0/30px 30px}
-.jp-cons .jp-cons__player-content {position:relative;padding:20px}
-.jp-cons .jp-cons__player h3 {font-size:clamp(24px,4vw,44px);margin:12px 0 4px}
-.jp-cons .jp-cons__player p {margin:0;opacity:.9}
-.jp-cons .jp-cons__big-play {width:76px;height:76px;border-radius:50%;background:#fff;color:var(--blue);display:inline-flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 0 0 12px rgba(255,255,255,.28)}
-.jp-cons .jp-cons__player:focus-visible,
-.jp-cons .jp-cons__thumbnail:focus-visible {outline:3px solid #0a1f44;outline-offset:4px}
-.jp-cons .jp-cons__sequence-title {font-size:clamp(26px,3.4vw,40px);margin:0 0 6px;line-height:1.1}
-.jp-cons .jp-cons__sequence-intro {color:var(--mut);margin:0 0 26px}
-.jp-cons .jp-cons__sequence {display:grid;grid-template-columns:210px 1fr;gap:48px;padding-bottom:60px;align-items:start}
-.jp-cons .jp-cons__sequence > div:last-child {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 22px;align-items:start}
-.jp-cons .jp-cons__video-section .jp-cons__player {max-width:960px;margin:0 auto}
-.jp-cons .jp-cons__tower {position:sticky;top:calc(var(--header-h) + 16px);align-self:start;height:fit-content;text-align:center}
-.jp-cons .jp-cons__tower svg {width:100%;height:auto}
-.jp-cons .jp-cons__tower-floor {fill:var(--pale);stroke:var(--line);transition:fill .5s,stroke .5s}
-.jp-cons .jp-cons__tower-floor.on {fill:var(--blue);stroke:var(--blue)}
-.jp-cons .jp-cons__tower text {font:700 10px 'DM Sans',sans-serif;fill:var(--mut);text-anchor:middle;transition:fill .5s}
-.jp-cons .jp-cons__tower text.on {fill:#fff}
-.jp-cons .jp-cons__floor-label {font-size:13px;font-weight:700;color:var(--blue);margin-top:8px}
-.jp-cons .jp-cons__step {display:flex;flex-direction:column;gap:14px;align-items:stretch;padding:14px;border:1px solid var(--line);border-radius:16px;background:#fff}
-.jp-cons .jp-cons__step:last-child {grid-column:1/-1;width:calc(50% - 11px);justify-self:center}
-.jp-cons .jp-cons__step h3 {font-size:22px;margin:4px 0 6px;line-height:1.15}
-.jp-cons .jp-cons__step p {margin:0;color:var(--mut);font-size:15px}
-.jp-cons .jp-cons__number {font:800 13px 'Bricolage Grotesque',sans-serif;color:var(--blue);background:var(--pale);padding:3px 10px;border-radius:99px;display:inline-block}
-.jp-cons .jp-cons__thumbnail {position:relative;aspect-ratio:16/10;border-radius:12px;overflow:hidden;background:var(--blue);order:-1;box-shadow:0 12px 30px -14px rgba(29,78,216,.5);cursor:pointer}
-.jp-cons .jp-cons__bar {color:#fff;font:700 10px 'DM Sans',sans-serif;padding:6px 10px;display:flex;justify-content:space-between}
-.jp-cons .jp-cons__ui {position:absolute;inset:26px 8px 8px;background:#fff;border-radius:6px;padding:8px;display:flex;flex-direction:column;gap:6px}
-.jp-cons .jp-cons__ui s {display:block;height:7px;border-radius:3px;background:var(--line);text-decoration:none}
-.jp-cons .jp-cons__ui s.a {background:var(--sky)}
-.jp-cons .jp-cons__ui s.r {outline:2px solid #3b82f6;outline-offset:2px;background:var(--pale)}
-.jp-cons .jp-cons__play-pill {position:absolute;left:50%;top:58%;transform:translate(-50%,-50%);width:44px;height:32px;border-radius:9px;background:#fff;color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:13px;box-shadow:0 6px 16px rgba(10,31,68,.3)}
 .jp-cons .jp-cons__features {padding:50px 0;background:var(--pale)}
 .jp-cons .jp-cons__chips {display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
 .jp-cons .jp-cons__chips span {background:#fff;border:1px solid var(--line);padding:9px 16px;border-radius:99px;font-weight:500;font-size:14.5px}
@@ -77,8 +41,6 @@
 .jp-cons .jp-cons__columns > div {background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}
 .jp-cons .jp-cons__columns b {font:800 18px 'Bricolage Grotesque',sans-serif;display:block;margin-bottom:4px}
 .jp-cons .jp-cons__columns span {color:var(--mut);font-size:14px}
-.jp-cons .jp-cons__playing {aspect-ratio:16/9;background:#000;box-shadow:0 12px 30px -14px rgba(29,78,216,.5)}
-.jp-cons .jp-cons__iframe {position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:inherit}
 @keyframes jp-cons-drift {from{transform:translateX(-80px)}to{transform:translateX(600px)}}
 @media (prefers-reduced-motion:reduce) {
   .jp-cons .jp-cons__cloud {animation:none}
@@ -87,11 +49,7 @@
 }
 @media (max-width:860px) {
   .jp-cons .jp-cons__hero-grid {grid-template-columns:1fr}
-  .jp-cons .jp-cons__sequence {grid-template-columns:1fr}
-  .jp-cons .jp-cons__tower {display:none}
   .jp-cons .jp-cons__columns {grid-template-columns:1fr}
 }
 @media (max-width:640px) {
-  .jp-cons .jp-cons__sequence > div:last-child {grid-template-columns:1fr}
-  .jp-cons .jp-cons__step:last-child {width:auto}
 }

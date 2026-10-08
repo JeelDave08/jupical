@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import ModuleShowcase from '../../components/ModuleShowcase';
 import './ConstructionERP.css';
 
 const JP_VIDEOS = { main: "gWbe-VODpQc", modules: ["X6eys_I26uM","AVLGyHDSvjU","rO2JH9eyxz8","9hailXgLfgg","u6qiVwj0Eco","JLsHWVtYhKk","pz0Wvu6uX4U","vFKKFdCz7CA","8xg37GKnAnw","vZdRzyeHuB8","1-N1fKiw2o8","gG4GObM0zow","w9hskwXSjv4"] };
@@ -21,21 +22,6 @@ const modules = [
   ['Labour Management & Labour Expenses', 'Manage workforce, wages and labour costs.'],
   ['Project Reporting', 'See profitability and progress in reports built for decisions.'],
 ];
-
-const pad = (value) => String(value).padStart(2, '0');
-const lineWidths = [90, 70, 80, 55, 85, 65];
-
-function VideoFrame({ videoId, title }) {
-  return (
-    <iframe
-      className="jp-cons__iframe"
-      src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1`}
-      allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-      allowFullScreen
-      title={title}
-    />
-  );
-}
 
 function ConstructionScene({ floorCount }) {
   const floors = Array.from({ length: 5 }, (_, index) => {
@@ -81,23 +67,9 @@ function ConstructionScene({ floorCount }) {
   );
 }
 
-function ModuleThumbnail({ module, index, onPlay, playing }) {
-  const widths = lineWidths.map((width, lineIndex) => width - (index * 7 + lineIndex * 3) % 20);
-  if (playing) return <div className="jp-cons__thumbnail jp-cons__playing"><VideoFrame videoId={JP_VIDEOS.modules[index]} title={`${module[0]} video`} /></div>;
-  return (
-    <div className="jp-cons__thumbnail" role="button" tabIndex={0} aria-label={`Play module ${pad(index + 1)}: ${module[0]} video`} onClick={onPlay} onKeyDown={(event) => (event.key === 'Enter' || event.key === ' ') && (event.preventDefault(), onPlay())}>
-      <div className="jp-cons__bar"><span>{pad(index + 1)}. {module[0].slice(0, 26)}</span><span>JUPICAL</span></div>
-      <div className="jp-cons__ui"><s className="a" style={{ width: `${35 + index % 4 * 10}%` }} />{widths.map((width, lineIndex) => <s key={lineIndex} className={(lineIndex + index) % 4 === 0 ? 'r' : (lineIndex + index) % 3 === 0 ? 'a' : ''} style={{ width: `${width}%` }} />)}</div>
-      <span className="jp-cons__play-pill" aria-hidden="true">▶</span>
-    </div>
-  );
-}
-
 export default function ConstructionERP() {
-  const pageRef = useRef(null);
   const [floorCount, setFloorCount] = useState(0);
-  const [playingKey, setPlayingKey] = useState(null);
-  const [activeFloor, setActiveFloor] = useState(0);
+  const moduleData = modules.map(([title, desc], index) => ({ title, desc, videoId: JP_VIDEOS.modules[index] }));
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -116,31 +88,10 @@ export default function ConstructionERP() {
     return () => window.clearInterval(timer);
   }, []);
 
-  useEffect(() => {
-    const updateTower = () => {
-      let current = 0;
-      pageRef.current?.querySelectorAll('.jp-cons__step').forEach((element, index) => {
-        if (element.getBoundingClientRect().top < window.innerHeight * 0.6) current = index + 1;
-      });
-      setActiveFloor(current);
-    };
-    window.addEventListener('scroll', updateTower, { passive: true });
-    updateTower();
-    return () => window.removeEventListener('scroll', updateTower);
-  }, []);
-
-  const activate = (key) => setPlayingKey(key);
-  const handlePlayKey = (event, key) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      activate(key);
-    }
-  };
-
   return (
     <>
       <Navbar activePage="Odoo ERPs" />
-      <main className="jp-cons" ref={pageRef}>
+      <main className="jp-cons">
         <header className="jp-cons__hero">
           <div className="jp-cons__wrap">
             <div className="jp-cons__hero-grid">
@@ -159,48 +110,7 @@ export default function ConstructionERP() {
           </div>
         </header>
 
-        <section className="jp-cons__video-section jp-cons__wrap">
-          <h2>See the Construction ERP in Action</h2>
-          <p className="jp-cons__caption">Construction ERP in Odoo: an end-to-end construction management success story.</p>
-          {playingKey === 'main' ? (
-            <div className="jp-cons__player jp-cons__playing"><VideoFrame videoId={JP_VIDEOS.main} title="Phase 1: End-to-End Solution" /></div>
-          ) : (
-            <div className="jp-cons__player" role="button" tabIndex={0} aria-label="Play Phase 1: End-to-End Solution video" onClick={() => activate('main')} onKeyDown={(event) => handlePlayKey(event, 'main')}>
-              <div className="jp-cons__player-content"><span className="jp-cons__big-play" aria-hidden="true">▶</span><h3>Phase 1: End-to-End Solution</h3><p>From project planning and execution to final delivery</p></div>
-            </div>
-          )}
-        </section>
-
-        <section className="jp-cons__wrap" id="seq">
-          <h2 className="jp-cons__sequence-title">Build your project, one floor at a time</h2>
-          <p className="jp-cons__sequence-intro">Thirteen modules, in the order a real project runs. Scroll and watch the tower go up.</p>
-          <div className="jp-cons__sequence">
-            <aside className="jp-cons__tower">
-              <svg viewBox="0 0 160 330" aria-hidden="true">
-                <rect x="0" y="318" width="160" height="6" fill="#1d4ed8" />
-                <path d="M80 12V34M80 12l-40 6M80 12l40 6" stroke="#1d4ed8" strokeWidth="2" />
-                {modules.map((module, index) => {
-                  const y = 316 - (index + 1) * 23;
-                  const filled = index < activeFloor;
-                  return <g key={module[0]}><rect className={`jp-cons__tower-floor${filled ? ' on' : ''}`} x="24" y={y} width="112" height="22" rx="2" /><text className={filled ? 'on' : ''} x="80" y={y + 15}>{pad(index + 1)}</text></g>;
-                })}
-              </svg>
-              <div className="jp-cons__floor-label">{activeFloor ? `Floor ${pad(activeFloor)} of 13: ${modules[activeFloor - 1][0]}` : 'Foundation'}</div>
-            </aside>
-            <div>
-              {modules.map((module, index) => {
-                const key = `module-${index}`;
-                const isPlaying = playingKey === key;
-                return (
-                  <article className="jp-cons__step" key={module[0]}>
-                    <ModuleThumbnail module={module} index={index} playing={isPlaying} onPlay={() => activate(key)} />
-                    <div><span className="jp-cons__number">{pad(index + 1)}</span><h3>{module[0]}</h3><p>{module[1]}</p></div>
-                  </article>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        <ModuleShowcase id="seq" title="Build your project, one floor at a time" subtitle="Thirteen modules, in the order a real project runs. Scroll and watch the tower go up." playerTitle="Phase 1: End-to-End Solution" playerSubtitle="From project planning and execution to final delivery" mainVideoId={JP_VIDEOS.main} modules={moduleData} />
 
         <section className="jp-cons__features">
           <div className="jp-cons__wrap">
