@@ -140,6 +140,17 @@
   transition: transform 0.3s ease;
 }
 
+.heroLabelConstruction {
+  pointer-events: auto;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.heroLabelConstruction:focus-visible {
+  outline: 3px solid #09295c;
+  outline-offset: 3px;
+}
+
 .heroLabelIcon {
   display: flex;
   align-items: center;

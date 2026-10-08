@@ -17,6 +17,7 @@ import CaseStudies from './pages/CaseStudies/CaseStudies';
 import Contact from './pages/Contact/Contact';
 import WhyJupicalPage from './pages/WhyJupical/WhyJupicalPage';
 import OurClients from './pages/Clients/OurClients';
+import ConstructionERP from './pages/ConstructionERP/ConstructionERP';
 
 const CaseStudyDetail = lazy(() => import('./pages/CaseStudies/CaseStudyDetail'));
 
@@ -79,6 +80,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/our-clients" element={<OurClients />} />
             <Route path="/clients" element={<OurClients />} />
+            <Route path="/construction-erp-odoo" element={<ConstructionERP />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

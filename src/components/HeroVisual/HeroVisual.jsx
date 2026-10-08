@@ -7,6 +7,7 @@ import {
   DollarSign,
 } from 'lucide-react';
 import './HeroVisual.css';
+import { Link } from 'react-router-dom';
 
 /**
  * HeroVisual Component
@@ -114,12 +115,12 @@ export default function HeroVisual() {
         <span className="heroLabelText">Manufacturing</span>
       </div>
 
-      <div className="heroLabel heroLabelConstruction">
+      <Link to="/construction-erp-odoo" className="heroLabel heroLabelConstruction" aria-label="Construction ERP in Odoo">
         <span className="heroLabelIcon">
           <HardHat size={13} strokeWidth={2.4} />
         </span>
         <span className="heroLabelText">Construction</span>
-      </div>
+      </Link>
 
       <div className="heroLabel heroLabelIntegration">
         <span className="heroLabelIcon">

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import LanguageDropdown from './LanguageDropdown';
@@ -508,7 +508,7 @@ const odooErpItemsRight = [
     num: '06',
     label: 'Construction',
     sub: 'Protecting construction materials with precision',
-    href: '#finance',
+    href: '/construction-erp-odoo',
     gradient: 'linear-gradient(135deg, #10B981, #34D399)',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -743,8 +743,10 @@ function NavbarCompanyCard({ item, onClose }) {
 
 /* Odoo ERP Card inside Mega Dropdown */
 function OdooErpMegaCard({ item, onClose }) {
+  const { pathname } = useLocation();
+  const isActive = item.href === pathname;
   return (
-    <a href={item.href} className="nav-odoo-card" onClick={onClose}>
+    <a href={item.href} className={`nav-odoo-card${isActive ? ' nav-odoo-card--active' : ''}`} aria-current={isActive ? 'page' : undefined} onClick={onClose}>
       <div className="nav-odoo-card__icon" style={{ background: item.gradient }}>
         {item.icon}
       </div>
@@ -792,6 +794,7 @@ function ConnectorCardItem({ item, hoveredId, onHover, onClose }) {
 }
 
 export default function Navbar({ activePage = null }) {
+  const { pathname } = useLocation();
   const { t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [activeItem, setActiveItem] = useState(activePage);
@@ -801,6 +804,10 @@ export default function Navbar({ activePage = null }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navRef = useRef(null);
   const hoverCloseTimer = useRef(null);
+
+  useEffect(() => {
+    if (pathname === '/construction-erp-odoo') setActiveItem('Odoo ERPs');
+  }, [pathname]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -872,7 +879,7 @@ export default function Navbar({ activePage = null }) {
                 role="menuitem"
                 aria-haspopup="true"
                 aria-expanded={isOpen}
-                className={`navbar__link navbar__link--btn${activeItem === item.label ? ' navbar__link--active' : ''}`}
+                className={`navbar__link navbar__link--btn${activeItem === item.label || (item.isOdooMega && pathname === '/construction-erp-odoo') ? ' navbar__link--active' : ''}`}
                 onClick={() => {
                   setActiveItem(item.label);
                   if (isThisCompany) {
@@ -1471,7 +1478,7 @@ export default function Navbar({ activePage = null }) {
           <div className="navbar__mobile-group">
             <span className="navbar__mobile-heading">Odoo ERP Solutions</span>
             {[...odooErpItemsLeft, ...odooErpItemsRight].map((item) => (
-              <Link key={item.num} to={item.href ? (item.href.startsWith('/') ? item.href : `/${item.href}`) : '/#services'} className="navbar__mobile-link navbar__mobile-link--company" onClick={() => setMobileOpen(false)}>
+              <Link key={item.num} to={item.href ? (item.href.startsWith('/') ? item.href : `/${item.href}`) : '/#services'} className={`navbar__mobile-link navbar__mobile-link--company${item.href === pathname ? ' navbar__mobile-link--active' : ''}`} aria-current={item.href === pathname ? 'page' : undefined} onClick={() => setMobileOpen(false)}>
                 <span className="mobile-num" style={{ color: '#0075FF' }}>{item.num}</span>
                 <div className="mobile-text">
                   <span className="mobile-title">{item.label}</span>
