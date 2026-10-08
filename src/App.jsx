@@ -18,7 +18,8 @@ import Contact from './pages/Contact/Contact';
 import WhyJupicalPage from './pages/WhyJupical/WhyJupicalPage';
 import OurClients from './pages/Clients/OurClients';
 import ConstructionERP from './pages/ConstructionERP/ConstructionERP';
-import HealthPlus from './pages/Healthcare/HealthPlus';
+import HealthPlusPage from './pages/healthplus/HealthPlusPage';
+import LoanManagement from './pages/LoanManagement/LoanManagement';
 
 const CaseStudyDetail = lazy(() => import('./pages/CaseStudies/CaseStudyDetail'));
 
@@ -82,8 +83,9 @@ function App() {
             <Route path="/our-clients" element={<OurClients />} />
             <Route path="/clients" element={<OurClients />} />
             <Route path="/construction-erp-odoo" element={<ConstructionERP />} />
-            <Route path="/odoo-healthcare-erp" element={<HealthPlus />} />
-            <Route path="/healthcare-erp" element={<HealthPlus />} />
+            <Route path="/odoo-loan-management" element={<LoanManagement />} />
+            <Route path="/odoo-healthcare-erp" element={<HealthPlusPage />} />
+            <Route path="/healthcare-erp" element={<HealthPlusPage />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

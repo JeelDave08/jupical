@@ -1,0 +1,95 @@
+.jp-cons--loan {
+  --header-h:var(--nav-height,72px);
+  --p:#0a6cff;
+  --p2:#00b4ff;
+  --ink:#102747;
+  --mute:#637694;
+  --soft:#f0f7ff;
+  --line:#dce9f8;
+  --blue:#0a6cff;
+  --sky:#00b4ff;
+  --pale:#eef5ff;
+  --mut:#637694;
+  padding-top:var(--nav-height,72px);
+  color:var(--ink);
+  background:#fff;
+  font:400 16px/1.65 'Plus Jakarta Sans','DM Sans',system-ui,sans-serif;
+  overflow:clip;
+}
+.jp-cons--loan,.jp-cons--loan *,.jp-cons--loan *::before,.jp-cons--loan *::after {box-sizing:border-box}
+.jp-cons--loan a {text-decoration:none}
+.jp-cons .jp-cons__loan-wrap {max-width:1240px;margin:0 auto;padding:0 24px}
+.jp-cons__loan-hero {position:relative;background:radial-gradient(ellipse at 78% 45%,#e9f6ff 0,rgba(233,246,255,.4) 31%,transparent 60%),linear-gradient(180deg,#fff,#f8fbff);overflow:hidden}
+.jp-cons__loan-hero::before,.jp-cons__loan-hero::after {content:"";position:absolute;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(0,180,255,.11),transparent 68%)}
+.jp-cons__loan-hero::before {width:400px;height:400px;right:-120px;top:-190px}
+.jp-cons__loan-hero::after {width:320px;height:320px;left:-200px;bottom:-190px}
+.jp-cons .jp-cons__loan-hero-grid {position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);align-items:center;gap:32px;padding-top:38px;padding-bottom:58px;min-height:590px}
+.jp-cons__loan-copy {position:relative;z-index:2}
+.jp-cons__loan-kicker,.jp-cons__loan-eyebrow {display:inline-flex;color:var(--p);font-size:13px;letter-spacing:.13em;text-transform:uppercase;font-weight:800;margin-bottom:12px}
+.jp-cons .jp-cons__loans-title {font-family:'Plus Jakarta Sans','DM Sans',system-ui,sans-serif!important;font-size:clamp(30px,2.8vw,40px)!important;line-height:1.2!important;letter-spacing:0!important;font-weight:700!important;text-wrap:balance;margin:0 0 20px;color:var(--ink)}
+.jp-cons__loan-copy > p {max-width:560px;margin:0 0 26px;color:var(--mute);font-size:16px;line-height:1.8}
+.jp-cons__loan-actions {display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.jp-cons .jp-cons__loan-btn {display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:12px 23px;border-radius:14px;background:linear-gradient(110deg,var(--p),var(--p2));color:#fff;font-size:14px;font-weight:800;box-shadow:0 12px 25px rgba(10,108,255,.2);transition:transform .2s,box-shadow .2s;border:1px solid transparent;text-align:center}
+.jp-cons .jp-cons__loan-btn:hover {transform:translateY(-2px);box-shadow:0 16px 30px rgba(10,108,255,.27)}
+.jp-cons .jp-cons__loan-btn:focus-visible {outline:3px solid #13365b;outline-offset:4px}
+.jp-cons .jp-cons__loan-btn--outline {background:#fff;border-color:#bddcff;color:var(--p);box-shadow:0 8px 22px rgba(29,99,174,.08)}
+.jp-cons .jp-cons__loan-scene {display:block;width:100%;max-width:580px;height:auto;margin:0 auto;overflow:visible;filter:drop-shadow(0 24px 36px rgba(40,117,192,.1))}
+.jp-cons .jp-cons__loan-scene text {font:600 10px 'Plus Jakarta Sans',system-ui,sans-serif;fill:#325579}
+.jp-cons .jp-cons__loan-scene .jp-cons__digits {font:700 13px monospace;fill:#0a6cff;animation:jp-cons-digit-blink 1.3s steps(2,end) infinite}
+.jp-cons .jp-cons__loan-scene .jp-cons__percent,.jp-cons .jp-cons__loan-scene .jp-cons__dollar {font:800 19px system-ui,sans-serif;fill:#0a6cff}
+.jp-cons .jp-cons__loan-house {animation:jp-cons-loan-float 5.5s ease-in-out infinite}
+.jp-cons .jp-cons__loan-person {transform-box:fill-box;transform-origin:center bottom;animation:jp-cons-loan-breathe 4.5s ease-in-out infinite}
+.jp-cons .jp-cons__loan-laptop {animation:jp-cons-loan-float 5s ease-in-out -1.4s infinite}
+.jp-cons .jp-cons__loan-card--schedule {animation:jp-cons-loan-float 5s ease-in-out -.7s infinite}
+.jp-cons .jp-cons__loan-card--care {animation:jp-cons-loan-float 6s ease-in-out -2.2s infinite}
+.jp-cons .jp-cons__loan-card--qualified {animation:jp-cons-loan-float 5.5s ease-in-out -1.8s infinite}
+.jp-cons .jp-cons__loan-card--lab {animation:jp-cons-loan-float 6.2s ease-in-out -3s infinite}
+.jp-cons .jp-cons__loan-progress {animation:jp-cons-loan-float 5.8s ease-in-out -1s infinite}
+.jp-cons .jp-cons__calculator {animation:jp-cons-loan-float 4.8s ease-in-out -2.4s infinite}
+.jp-cons .jp-cons__loan-document {animation:jp-cons-loan-float 5.4s ease-in-out -1.5s infinite}
+.jp-cons .jp-cons__key-float,.jp-cons .jp-cons__float-percent,.jp-cons .jp-cons__float-coin {transform-box:fill-box;transform-origin:center;animation:jp-cons-loan-bob 3.8s ease-in-out infinite}
+.jp-cons .jp-cons__float-coin {animation-delay:-1.2s}
+.jp-cons .jp-cons__coin {opacity:0;transform-box:fill-box;transform-origin:center;animation:jp-cons-coin-stack 4s ease-in-out infinite}
+.jp-cons .jp-cons__coin--one {animation-delay:0s}.jp-cons .jp-cons__coin--two {animation-delay:.32s}.jp-cons .jp-cons__coin--three {animation-delay:.64s}
+.jp-cons .jp-cons__progress-fill {animation:jp-cons-progress 3.4s ease-in-out infinite}
+.jp-cons .jp-cons__check-draw {stroke-dasharray:50;stroke-dashoffset:50;animation:jp-cons-draw-check 3.5s ease-in-out infinite}
+.jp-cons .jp-cons__loan-ecg {stroke-dasharray:92;stroke-dashoffset:92;animation:jp-cons-ecg 2.2s linear infinite}
+.jp-cons .jp-cons__orbit {transform-box:fill-box;transform-origin:center;animation:jp-cons-orbit-turn 32s linear infinite}
+.jp-cons .jp-cons__orbit-line {stroke-dasharray:7 11;animation:jp-cons-ecg 5s linear infinite}
+.jp-cons .jp-cons__platform {animation:jp-cons-platform-glow 4s ease-in-out infinite}
+.jp-cons__loan-overview {padding-top:82px;padding-bottom:82px}
+.jp-cons__loan-intro {max-width:850px;margin:0 auto 50px;text-align:center}
+.jp-cons__loan-intro h2,.jp-cons__loan-section-title {font-family:'Plus Jakarta Sans','DM Sans',system-ui,sans-serif;font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1.15}
+.jp-cons__loan-intro h2 {font-size:clamp(32px,4vw,48px);margin:0 0 16px}
+.jp-cons__loan-intro p {font-size:16px;color:var(--mute);line-height:1.85;margin:0}
+.jp-cons__loan-section-title {text-align:center;font-size:clamp(28px,3.2vw,38px);margin:0 0 25px}
+.jp-cons__loan-features {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.jp-cons__loan-feature {display:flex;align-items:flex-start;gap:15px;padding:23px;border:1px solid var(--line);border-radius:20px;background:#fff;box-shadow:0 14px 42px rgba(33,86,144,.07);min-height:140px}
+.jp-cons__loan-feature-icon {flex:0 0 46px;width:46px;height:46px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(140deg,#e8f4ff,#daf4ff);color:var(--p)}
+.jp-cons .jp-cons__feature-icon {width:25px;height:25px}
+.jp-cons__loan-feature h3 {font:700 16px/1.4 'Plus Jakarta Sans','DM Sans',system-ui,sans-serif;margin:1px 0 7px;color:#14335a}
+.jp-cons__loan-feature p {font-size:13px;line-height:1.65;color:var(--mute);margin:0}
+.jp-cons .jp-cons__showcase {padding-top:10px}
+.jp-cons .jp-cons__showcase > .jp-cons__sequence-title {text-align:center;margin-top:24px}
+.jp-cons .jp-cons__showcase > .jp-cons__sequence-intro:empty {display:none}
+.jp-cons .jp-cons__loan-cta {position:relative;overflow:hidden;background:linear-gradient(115deg,#0a6cff,#00b4ff);padding:76px 24px;text-align:center;color:#fff}
+.jp-cons .jp-cons__loan-cta::before,.jp-cons .jp-cons__loan-cta::after {content:"";position:absolute;width:280px;height:280px;border:1px solid rgba(255,255,255,.16);border-radius:50%;pointer-events:none}
+.jp-cons .jp-cons__loan-cta::before {left:-110px;top:-170px}.jp-cons .jp-cons__loan-cta::after {right:-100px;bottom:-190px}
+.jp-cons__loan-cta-inner {position:relative;z-index:1;max-width:810px;margin:0 auto}
+.jp-cons__loan-cta-mark {display:grid;place-items:center;width:48px;height:48px;margin:0 auto 16px;border-radius:16px;background:rgba(255,255,255,.17);font-size:26px;font-weight:500}
+.jp-cons .jp-cons__loan-cta h2 {font:800 clamp(30px,4vw,46px)/1.16 'Plus Jakarta Sans','DM Sans',system-ui,sans-serif;letter-spacing:-.03em;margin:0 0 14px;color:#fff}
+.jp-cons .jp-cons__loan-cta p {font-size:16px;line-height:1.75;color:rgba(255,255,255,.9);margin:0 auto 25px;max-width:720px}
+.jp-cons .jp-cons__loan-btn--white {background:#fff;color:#0865df;border-color:#fff;box-shadow:0 12px 24px rgba(0,41,120,.15)}
+@keyframes jp-cons-loan-float {0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes jp-cons-loan-breathe {0%,100%{transform:scale(1)}50%{transform:scale(1.012)}}
+@keyframes jp-cons-loan-bob {0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-8px) scale(1.04)}}
+@keyframes jp-cons-coin-stack {0%,12%{opacity:0;transform:translateY(-18px) scale(.7)}28%,82%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(4px) scale(.9)}}
+@keyframes jp-cons-progress {0%,10%{width:0}72%,90%{width:112px}100%{width:0}}
+@keyframes jp-cons-draw-check {0%,18%{stroke-dashoffset:50}55%,80%{stroke-dashoffset:0}100%{stroke-dashoffset:50}}
+@keyframes jp-cons-ecg {to{stroke-dashoffset:0}}
+@keyframes jp-cons-digit-blink {50%{opacity:.55}}
+@keyframes jp-cons-orbit-turn {to{transform:rotate(360deg)}}
+@keyframes jp-cons-platform-glow {0%,100%{opacity:.2;transform:scaleX(.94)}50%{opacity:.42;transform:scaleX(1)}}
+@media (max-width:980px) {.jp-cons .jp-cons__loan-hero-grid {grid-template-columns:1fr;gap:10px;padding-top:46px}.jp-cons__loan-copy {max-width:760px;margin:auto}.jp-cons .jp-cons__loan-scene {max-width:560px}.jp-cons__loan-features {grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px) {.jp-cons .jp-cons__loan-wrap {padding-left:18px;padding-right:18px}.jp-cons .jp-cons__loan-hero-grid {padding-top:34px;padding-bottom:38px}.jp-cons .jp-cons__loan-scene {width:112%;max-width:none;margin-left:-6%}.jp-cons__loan-overview {padding-top:60px;padding-bottom:58px}.jp-cons__loan-features {grid-template-columns:1fr}.jp-cons__loan-feature {min-height:0;padding:19px}.jp-cons__loan-cta {padding:58px 20px!important}.jp-cons .jp-cons__loan-btn {width:100%}.jp-cons__loan-actions {align-items:stretch}}
+@media (prefers-reduced-motion:reduce) {.jp-cons .jp-cons__loan-scene * {animation:none!important;scroll-behavior:auto!important}.jp-cons .jp-cons__loan-btn {transition:none}}
