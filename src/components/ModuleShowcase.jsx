@@ -1,9 +1,10 @@
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import {
-  Activity, Award, BellRing, BookOpen, Boxes, Bus, CalendarDays,
-  ClipboardList, GraduationCap, HeartHandshake, KeyRound, LibraryBig, Play,
-  School, Settings2, ShieldCheck, ShoppingCart, Smartphone, TicketCheck, Truck,
-  UserRound, UsersRound, WalletCards, Wrench,
+  Activity, Award, BedDouble, BellRing, BookOpen, Boxes, Bus, CalendarDays,
+  ChartNoAxesCombined, ClipboardList, Globe, GraduationCap, HeartHandshake,
+  KeyRound, LibraryBig, Play, School, Settings2, ShieldCheck, ShoppingCart,
+  Smartphone, Sparkles, TicketCheck, Truck, Utensils, UserRound, UsersRound,
+  WalletCards, Wrench,
 } from 'lucide-react';
 import './ModuleShowcase.css';
 
@@ -21,6 +22,29 @@ function InventoryPosterIcon({ size = 38 }) {
     <Boxes className="jp-cons__poster-combo-main" size={size} strokeWidth={1.7} />
     <Truck className="jp-cons__poster-combo-accent" size={size * .56} strokeWidth={2} />
   </span>;
+}
+
+function HotelComboIcon({ main: MainIcon, accent: AccentIcon, size = 38 }) {
+  return <span className="jp-cons__poster-combo" style={{ width: size, height: size }}>
+    <MainIcon className="jp-cons__poster-combo-main" size={size} strokeWidth={1.7} />
+    <AccentIcon className="jp-cons__poster-combo-accent" size={size * .54} strokeWidth={2} />
+  </span>;
+}
+
+function HotelConfigurationIcon(props) {
+  return <HotelComboIcon {...props} main={Settings2} accent={BedDouble} />;
+}
+
+function HotelBookingIcon(props) {
+  return <HotelComboIcon {...props} main={Globe} accent={CalendarDays} />;
+}
+
+function HotelReservationIcon(props) {
+  return <HotelComboIcon {...props} main={KeyRound} accent={CalendarDays} />;
+}
+
+function HotelHousekeepingIcon(props) {
+  return <HotelComboIcon {...props} main={Sparkles} accent={Wrench} />;
 }
 
 const posterIcons = {
@@ -46,6 +70,12 @@ const posterIcons = {
   'service-picking': ClipboardList,
   'service-inventory': InventoryPosterIcon,
   'service-actions': BellRing,
+  'hotel-configuration': HotelConfigurationIcon,
+  'hotel-booking': HotelBookingIcon,
+  'hotel-reservation': HotelReservationIcon,
+  'hotel-housekeeping': HotelHousekeepingIcon,
+  'hotel-restaurant': Utensils,
+  'hotel-reports': ChartNoAxesCombined,
 };
 
 function VideoFrame({ videoId, title }) {

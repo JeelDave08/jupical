@@ -1,0 +1,92 @@
+.jp-cons.jp-cons__hotel {
+  --header-h:var(--nav-height,72px);
+  --ink:#0a1f44;
+  --blue:#1d4ed8;
+  --sky:#38bdf8;
+  --pale:#eef5ff;
+  --line:#d3e3fb;
+  --mut:#4a5f82;
+  box-sizing:border-box;
+  padding-top:var(--nav-height,72px);
+  background:#fff;
+  color:var(--ink);
+  font:400 16px/1.6 'DM Sans',system-ui,sans-serif;
+}
+.jp-cons.jp-cons__hotel *,
+.jp-cons.jp-cons__hotel *::before,
+.jp-cons.jp-cons__hotel *::after {box-sizing:border-box}
+.jp-cons.jp-cons__hotel a {color:inherit;text-decoration:none}
+.jp-cons.jp-cons__hotel h1,
+.jp-cons.jp-cons__hotel h2,
+.jp-cons.jp-cons__hotel h3 {font-family:'Bricolage Grotesque',system-ui,sans-serif}
+.jp-cons.jp-cons__hotel .jp-cons__wrap {max-width:1140px;margin:0 auto;padding:0 22px}
+.jp-cons .jp-cons__hotel-hero {background:#fff}
+.jp-cons .jp-cons__hotel-hero > .jp-cons__wrap {max-width:1320px}
+.jp-cons .jp-cons__hotel-hero-grid {display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding:28px 0 50px}
+.jp-cons .jp-cons__hotel-title {margin:0 0 18px;font-size:clamp(30px,2.8vw,40px);line-height:1.2;letter-spacing:0;font-weight:700;text-wrap:balance}
+.jp-cons .jp-cons__hotel-copy p {max-width:590px;margin:0 0 24px;color:var(--mut);font-size:17px;line-height:1.7}
+.jp-cons .jp-cons__hotel-cta {display:inline-flex;max-width:100%;align-items:center;justify-content:center;padding:12px 20px;border:2px solid var(--blue);border-radius:9px;background:var(--blue);color:#fff;font-weight:700;line-height:1.45;text-align:center;transition:transform .16s ease,box-shadow .16s ease}
+.jp-cons .jp-cons__hotel-cta:hover {transform:translateY(-2px);box-shadow:0 10px 22px rgba(29,78,216,.2)}
+.jp-cons .jp-cons__hotel-cta:focus-visible,.jp-cons .jp-cons__hotel-doc-card a:focus-visible,.jp-cons .jp-cons__hotel-doc-card button:focus-visible {outline:3px solid #0a1f44;outline-offset:3px}
+.jp-cons .jp-cons__hotel-scene {display:block;width:100%;height:auto;border-radius:20px;background:#eff6ff;box-shadow:0 24px 60px -28px rgba(29,78,216,.38)}
+.jp-cons .jp-cons__hotel-cloud {animation:jp-cons-hotel-cloud 36s linear infinite}
+.jp-cons .jp-cons__hotel-star {transform-box:fill-box;transform-origin:center;animation:jp-cons-hotel-twinkle 1.2s ease-in-out infinite alternate}
+.jp-cons .jp-cons__hotel-window {animation:jp-cons-hotel-light 4.6s ease-in-out infinite alternate}
+.jp-cons .jp-cons__hotel-ripple {transform-box:fill-box;transform-origin:center;animation:jp-cons-hotel-ripple 1.4s ease-out infinite}
+.jp-cons .jp-cons__hotel-sparkle {animation:jp-cons-hotel-glint 1.5s ease-in-out infinite alternate}
+.jp-cons .jp-cons__hotel-steam {animation:jp-cons-hotel-steam 2.1s ease-in-out infinite alternate}
+.jp-cons .jp-cons__hotel-features {padding:35px 0 54px;background:#fff}
+.jp-cons .jp-cons__hotel-heading {margin:0 auto 24px;text-align:center}
+.jp-cons .jp-cons__hotel-heading h2 {margin:0;font-size:clamp(27px,3vw,38px);line-height:1.15}
+.jp-cons .jp-cons__hotel-feature-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.jp-cons .jp-cons__hotel-feature {display:flex;min-width:0;gap:13px;padding:19px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.jp-cons .jp-cons__hotel-feature > span,.jp-cons .jp-cons__hotel-benefit > span {flex:0 0 42px;width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:var(--pale);color:var(--blue)}
+.jp-cons .jp-cons__hotel-feature h3 {margin:0 0 5px;font-size:17px;line-height:1.25}
+.jp-cons .jp-cons__hotel-feature p {margin:0;color:var(--mut);font-size:14px;line-height:1.5}
+.jp-cons .jp-cons__hotel-ending {padding:52px 0 62px;background:#fff}
+.jp-cons .jp-cons__hotel-benefits {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.jp-cons .jp-cons__hotel-benefit {display:flex;align-items:flex-start;gap:12px;min-width:0;padding:16px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.jp-cons .jp-cons__hotel-benefit > span {flex-basis:38px;width:38px;height:38px}
+.jp-cons .jp-cons__hotel-benefit p {margin:1px 0 0;font-weight:600;line-height:1.5}
+.jp-cons .jp-cons__hotel-docs {margin-top:42px;padding-top:26px;border-top:1px solid var(--line)}
+.jp-cons .jp-cons__hotel-doc-heading {margin-bottom:16px}
+.jp-cons .jp-cons__hotel-doc-heading h2 {margin:0 0 4px;font-size:23px;line-height:1.2}
+.jp-cons .jp-cons__hotel-doc-heading p {margin:0;color:var(--mut);font-size:14px}
+.jp-cons .jp-cons__hotel-doc-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.jp-cons .jp-cons__hotel-doc-card {display:flex;min-width:0;align-items:center;gap:13px;padding:16px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.jp-cons .jp-cons__hotel-doc-icon {flex:0 0 42px;width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:var(--pale);color:var(--blue)}
+.jp-cons .jp-cons__hotel-doc-card > div {flex:1;min-width:0}
+.jp-cons .jp-cons__hotel-doc-card h3 {margin:0 0 3px;font-size:17px;line-height:1.2}
+.jp-cons .jp-cons__hotel-doc-card p {margin:0;color:var(--mut);font-size:12px;line-height:1.4}
+.jp-cons .jp-cons__hotel-doc-card a,.jp-cons .jp-cons__hotel-doc-card button {display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;gap:7px;min-height:40px;padding:8px 11px;border:1px solid var(--line);border-radius:7px;background:#f7faff;color:#8291aa;font:700 12px/1.3 'DM Sans',sans-serif}
+.jp-cons .jp-cons__hotel-doc-card a {border-color:var(--blue);background:var(--blue);color:#fff;cursor:pointer}
+.jp-cons .jp-cons__hotel-doc-card button:disabled {cursor:not-allowed;opacity:.85}
+.jp-cons .jp-cons__hotel-closing {padding:40px 0;background:var(--pale);border-top:1px solid var(--line)}
+.jp-cons .jp-cons__hotel-closing > .jp-cons__wrap {display:flex;align-items:center;justify-content:space-between;gap:28px}
+.jp-cons .jp-cons__hotel-closing h2 {margin:0 0 8px;font-size:clamp(26px,3vw,38px);line-height:1.15}
+.jp-cons .jp-cons__hotel-closing p {max-width:670px;margin:0;color:var(--mut);line-height:1.65}
+@keyframes jp-cons-hotel-cloud {from{transform:translateX(-30px)}to{transform:translateX(100px)}}
+@keyframes jp-cons-hotel-twinkle {from{opacity:.5;transform:scale(.82)}to{opacity:1;transform:scale(1.12)}}
+@keyframes jp-cons-hotel-light {0%,35%{fill:#dbeafe}65%,100%{fill:#fff3bf}}
+@keyframes jp-cons-hotel-ripple {0%{opacity:.8;transform:scale(.7)}100%{opacity:0;transform:scale(2)}}
+@keyframes jp-cons-hotel-glint {from{opacity:.35;transform:scale(.8)}to{opacity:1;transform:scale(1.15)}}
+@keyframes jp-cons-hotel-steam {from{opacity:.3;transform:translateY(4px)}to{opacity:1;transform:translateY(-5px)}}
+@media(max-width:860px) {
+  .jp-cons .jp-cons__hotel-hero-grid {grid-template-columns:1fr;gap:24px}
+  .jp-cons .jp-cons__hotel-copy p {max-width:720px}
+  .jp-cons .jp-cons__hotel-feature-grid,.jp-cons .jp-cons__hotel-benefits {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .jp-cons .jp-cons__hotel-closing > .jp-cons__wrap {align-items:flex-start;flex-direction:column}
+}
+@media(max-width:640px) {
+  .jp-cons .jp-cons__hotel-hero-grid {padding:22px 0 40px}
+  .jp-cons .jp-cons__hotel-feature-grid,.jp-cons .jp-cons__hotel-benefits,.jp-cons .jp-cons__hotel-doc-grid {grid-template-columns:1fr}
+  .jp-cons .jp-cons__hotel-doc-card {flex-wrap:wrap}
+  .jp-cons .jp-cons__hotel-doc-card > div {flex:1 1 calc(100% - 60px)}
+  .jp-cons .jp-cons__hotel-doc-card a,.jp-cons .jp-cons__hotel-doc-card button {margin-left:55px}
+  .jp-cons .jp-cons__hotel-cta {width:100%}
+  .jp-cons .jp-cons__hotel-scene {border-radius:15px}
+}
+@media(prefers-reduced-motion:reduce) {
+  .jp-cons .jp-cons__hotel-cloud,.jp-cons .jp-cons__hotel-star,.jp-cons .jp-cons__hotel-window,.jp-cons .jp-cons__hotel-ripple,.jp-cons .jp-cons__hotel-sparkle,.jp-cons .jp-cons__hotel-steam,.jp-cons .jp-cons__hotel-cta {animation:none;transition:none}
+  .jp-cons .jp-cons__hotel-cta:hover {transform:none;box-shadow:none}
+}
