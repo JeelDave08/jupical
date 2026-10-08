@@ -439,8 +439,8 @@ const companyDropdownItems = [
 const odooErpItemsLeft = [
   {
     num: '01',
-    label: 'Manufacturing ERP',
-    sub: 'Automate production & shop floor',
+    label: 'Healthcare',
+    sub: 'Open-Source Healthcare ERP',
     href: '#manufacturing',
     gradient: 'linear-gradient(135deg, #0075FF, #38BDF8)',
     icon: (
@@ -452,8 +452,8 @@ const odooErpItemsLeft = [
   },
   {
     num: '02',
-    label: 'Construction ERP',
-    sub: 'Protecting materials with precision',
+    label: 'PMS',
+    sub: 'Find the perfect solution for property',
     href: '#construction',
     gradient: 'linear-gradient(135deg, #059669, #34D399)',
     icon: (
@@ -465,8 +465,8 @@ const odooErpItemsLeft = [
   },
   {
     num: '03',
-    label: 'Healthcare ERP',
-    sub: 'Open-Source Healthcare ERP',
+    label: 'Maintenance Service',
+    sub: 'Discover our realisations',
     href: '#healthcare',
     gradient: 'linear-gradient(135deg, #0284C7, #38BDF8)',
     icon: (
@@ -477,8 +477,8 @@ const odooErpItemsLeft = [
   },
   {
     num: '04',
-    label: 'Education ERP',
-    sub: 'Open Source Education ERP',
+    label: 'Hotel',
+    sub: 'Open Source ERP for Hospitality',
     href: '#education',
     gradient: 'linear-gradient(135deg, #E11D48, #FB7185)',
     icon: (
@@ -493,8 +493,8 @@ const odooErpItemsLeft = [
 const odooErpItemsRight = [
   {
     num: '05',
-    label: 'Inventory ERP',
-    sub: 'Smart inventory & warehouse management',
+    label: 'LMS',
+    sub: 'Open-Source Loan Management',
     href: '#inventory',
     gradient: 'linear-gradient(135deg, #6366F1, #818CF8)',
     icon: (
@@ -506,8 +506,8 @@ const odooErpItemsRight = [
   },
   {
     num: '06',
-    label: 'Finance ERP',
-    sub: 'Accounting & financial management',
+    label: 'Construction',
+    sub: 'Protecting construction materials with precision',
     href: '#finance',
     gradient: 'linear-gradient(135deg, #10B981, #34D399)',
     icon: (
@@ -518,8 +518,8 @@ const odooErpItemsRight = [
   },
   {
     num: '07',
-    label: 'Hotel ERP',
-    sub: 'Open Source ERP for Hospitality',
+    label: 'Education',
+    sub: 'Open Source Education ERP',
     href: '#hotel',
     gradient: 'linear-gradient(135deg, #F59E0B, #FBBF24)',
     icon: (
@@ -527,18 +527,6 @@ const odooErpItemsRight = [
         <path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Z"/>
         <path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/>
         <path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/>
-      </svg>
-    ),
-  },
-  {
-    num: '08',
-    label: 'Loan Management',
-    sub: 'Open-Source Loan Management',
-    href: '#lms',
-    gradient: 'linear-gradient(135deg, #8B5CF6, #C084FC)',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/>
       </svg>
     ),
   },
