@@ -622,7 +622,7 @@ const resourcesData = [
     num: '03',
     label: 'Success Stories',
     sub: 'Video testimonials & client reviews',
-    href: '/#success',
+    href: '/en/success-stories-videos',
     accent: '#06B6D4',
     gradient: 'linear-gradient(135deg, #06B6D4, #67E8F9)',
     rgb: '6, 182, 212',

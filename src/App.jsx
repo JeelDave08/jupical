@@ -24,6 +24,7 @@ import EducationERP from './pages/EducationERP/EducationERP';
 import MaintenanceERP from './pages/MaintenanceERP/MaintenanceERP';
 import HotelERP from './pages/HotelERP/HotelERP';
 import PropertyManagement from './pages/PropertyManagement/PropertyManagement';
+import VideoGallery from './pages/SuccessStories/VideoGallery';
 
 const CaseStudyDetail = lazy(() => import('./pages/CaseStudies/CaseStudyDetail'));
 
@@ -80,6 +81,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/about-us" element={<About />} />
             <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/en/success-stories-videos" element={<VideoGallery />} />
             <Route path="/case-studies/:slug" element={<Suspense fallback={<div role="status">Loading case study…</div>}><CaseStudyDetail /></Suspense>} />
             <Route path="/cases" element={<CaseStudies />} />
             <Route path="/contact-us" element={<Contact />} />
