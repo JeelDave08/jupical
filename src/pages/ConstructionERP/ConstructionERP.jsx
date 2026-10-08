@@ -145,7 +145,12 @@ export default function ConstructionERP() {
           <div className="jp-cons__wrap">
             <div className="jp-cons__hero-grid">
               <div>
-                <h1>Complete Construction ERP in Odoo for End-to-End Project Management</h1>
+                <h1
+                  className="jp-hero-title"
+                  style={{ fontSize: 'clamp(30px, 2.8vw, 40px)', lineHeight: 1.2, letterSpacing: 0, fontWeight: 700 }}
+                >
+                  Complete Construction ERP in Odoo for End&#8209;to&#8209;End Project Management
+                </h1>
                 <p>Manage projects, procurement, accounting, payroll, billing and profitability from a single integrated ERP built for construction businesses.</p>
                 <Link className="jp-cons__btn" to="/contact-us">Book a Demo</Link>&nbsp;<a className="jp-cons__btn jp-cons__btn--outline" href="#seq">See the 13 modules</a>
               </div>
