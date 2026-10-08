@@ -1,0 +1,76 @@
+.jp-cons.jp-cons__maintenance {
+  --header-h:var(--nav-height,72px);
+  --ink:#0a1f44;
+  --blue:#1d4ed8;
+  --sky:#38bdf8;
+  --pale:#eef5ff;
+  --line:#d3e3fb;
+  --mut:#4a5f82;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:var(--nav-height,72px);
+  background:#fff;
+  color:var(--ink);
+  font:400 16px/1.6 'DM Sans',system-ui,sans-serif;
+}
+.jp-cons.jp-cons__maintenance *,
+.jp-cons.jp-cons__maintenance *::before,
+.jp-cons.jp-cons__maintenance *::after {box-sizing:border-box}
+.jp-cons.jp-cons__maintenance a {color:inherit;text-decoration:none}
+.jp-cons.jp-cons__maintenance h1,
+.jp-cons.jp-cons__maintenance h2,
+.jp-cons.jp-cons__maintenance h3 {font-family:'Bricolage Grotesque',system-ui,sans-serif}
+.jp-cons.jp-cons__maintenance .jp-cons__wrap {max-width:1140px;margin:0 auto;padding:0 22px}
+.jp-cons .jp-cons__maintenance-hero {background:#fff}
+.jp-cons .jp-cons__maintenance-hero > .jp-cons__wrap {max-width:1320px}
+.jp-cons .jp-cons__maintenance-hero-grid {display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding:28px 0 58px}
+.jp-cons .jp-cons__maintenance-title {font-size:clamp(30px,2.8vw,40px);line-height:1.2;letter-spacing:0;font-weight:700;text-wrap:balance;margin:0 0 18px}
+.jp-cons .jp-cons__maintenance-copy p {max-width:570px;margin:0 0 24px;color:var(--mut);font-size:17px;line-height:1.7}
+.jp-cons .jp-cons__maintenance-cta {display:inline-flex;align-items:center;justify-content:center;max-width:100%;padding:12px 20px;border:2px solid var(--blue);border-radius:9px;background:var(--blue);color:#fff;font-weight:700;line-height:1.4;text-align:center;transition:transform .16s ease,box-shadow .16s ease}
+.jp-cons .jp-cons__maintenance-cta:hover {transform:translateY(-2px);box-shadow:0 10px 22px rgba(29,78,216,.2)}
+.jp-cons .jp-cons__maintenance-cta:focus-visible,.jp-cons .jp-cons__maintenance-download:focus-visible {outline:3px solid #0a1f44;outline-offset:3px}
+.jp-cons .jp-cons__maintenance-scene {display:block;width:100%;height:auto;border-radius:20px;background:#eff6ff;box-shadow:0 24px 60px -28px rgba(29,78,216,.38)}
+.jp-cons .jp-cons__maint-cloud {animation:jp-cons-maint-drift 35s linear infinite}
+.jp-cons .jp-cons__maintenance-features {padding:42px 0 60px;background:#fff}
+.jp-cons .jp-cons__maintenance-section-heading {max-width:760px;margin:0 auto 28px;text-align:center}
+.jp-cons .jp-cons__maintenance-section-heading h2 {margin:0 0 8px;font-size:clamp(27px,3vw,38px);line-height:1.15}
+.jp-cons .jp-cons__maintenance-section-heading p {margin:0;color:var(--mut);font-size:16px}
+.jp-cons .jp-cons__maintenance-feature-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.jp-cons .jp-cons__maintenance-feature {min-width:0;padding:20px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.jp-cons .jp-cons__maintenance-feature-icon {width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;background:var(--pale);color:var(--blue)}
+.jp-cons .jp-cons__maintenance-feature h3 {margin:14px 0 5px;font-size:18px;line-height:1.25}
+.jp-cons .jp-cons__maintenance-feature p {margin:0;color:var(--mut);font-size:14.5px;line-height:1.6}
+.jp-cons .jp-cons__maintenance-ending {padding:54px 0 64px;background:#fff}
+.jp-cons .jp-cons__maintenance-benefits {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.jp-cons .jp-cons__maintenance-benefit {display:flex;min-width:0;align-items:flex-start;gap:12px;padding:17px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.jp-cons .jp-cons__maintenance-benefit > span {flex:0 0 38px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:var(--pale);color:var(--blue)}
+.jp-cons .jp-cons__maintenance-benefit p {margin:1px 0 0;font-weight:600;line-height:1.5}
+.jp-cons .jp-cons__maintenance-documentation {display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:40px;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.jp-cons .jp-cons__maintenance-doc-copy {display:flex;align-items:center;gap:14px}
+.jp-cons .jp-cons__maintenance-doc-icon {width:48px;height:48px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:var(--pale);color:var(--blue)}
+.jp-cons .jp-cons__maintenance-doc-copy h2 {margin:0 0 3px;font-size:21px;line-height:1.2}
+.jp-cons .jp-cons__maintenance-doc-copy p {margin:0;color:var(--mut);font-size:14px}
+.jp-cons .jp-cons__maintenance-download {display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:9px 14px;border:1px solid var(--line);border-radius:8px;background:#f7faff;color:var(--mut);font:700 14px 'DM Sans',sans-serif}
+.jp-cons .jp-cons__maintenance-download:not(:disabled) {border-color:var(--blue);background:var(--blue);color:#fff;cursor:pointer}
+.jp-cons .jp-cons__maintenance-download:disabled {cursor:not-allowed;opacity:.72}
+.jp-cons .jp-cons__maintenance-closing {padding:40px 0;background:var(--pale);border-top:1px solid var(--line)}
+.jp-cons .jp-cons__maintenance-closing > .jp-cons__wrap {display:flex;align-items:center;justify-content:space-between;gap:28px}
+.jp-cons .jp-cons__maintenance-closing h2 {margin:0 0 8px;font-size:clamp(26px,3vw,38px);line-height:1.15}
+.jp-cons .jp-cons__maintenance-closing p {max-width:670px;margin:0;color:var(--mut);line-height:1.65}
+@keyframes jp-cons-maint-drift {from{transform:translateX(-35px)}to{transform:translateX(65px)}}
+@media(max-width:860px) {
+  .jp-cons .jp-cons__maintenance-hero-grid {grid-template-columns:1fr;gap:24px}
+  .jp-cons .jp-cons__maintenance-copy p {max-width:700px}
+  .jp-cons .jp-cons__maintenance-feature-grid,.jp-cons .jp-cons__maintenance-benefits {grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:640px) {
+  .jp-cons .jp-cons__maintenance-hero-grid {padding:22px 0 42px}
+  .jp-cons .jp-cons__maintenance-feature-grid,.jp-cons .jp-cons__maintenance-benefits {grid-template-columns:1fr}
+  .jp-cons .jp-cons__maintenance-documentation,.jp-cons .jp-cons__maintenance-closing > .jp-cons__wrap {align-items:flex-start;flex-direction:column}
+  .jp-cons .jp-cons__maintenance-cta {width:100%}
+  .jp-cons .jp-cons__maintenance-scene {border-radius:15px}
+}
+@media(prefers-reduced-motion:reduce) {
+  .jp-cons .jp-cons__maint-cloud,.jp-cons .jp-cons__maintenance-cta {animation:none;transition:none}
+  .jp-cons .jp-cons__maintenance-cta:hover {transform:none;box-shadow:none}
+}
