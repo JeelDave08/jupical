@@ -439,9 +439,9 @@ const companyDropdownItems = [
 const odooErpItemsLeft = [
   {
     num: '01',
-    label: 'Healthcare',
+    label: 'Healthcare ERP',
     sub: 'Open-Source Healthcare ERP',
-    href: '#manufacturing',
+    href: '/odoo-healthcare-erp',
     gradient: 'linear-gradient(135deg, #0075FF, #38BDF8)',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -745,8 +745,12 @@ function NavbarCompanyCard({ item, onClose }) {
 function OdooErpMegaCard({ item, onClose }) {
   const { pathname } = useLocation();
   const isActive = item.href === pathname;
+  const isRouterPath = item.href.startsWith('/');
+  const CardLink = isRouterPath ? Link : 'a';
+  const destinationProps = isRouterPath ? { to: item.href } : { href: item.href };
+
   return (
-    <a href={item.href} className={`nav-odoo-card${isActive ? ' nav-odoo-card--active' : ''}`} aria-current={isActive ? 'page' : undefined} onClick={onClose}>
+    <CardLink {...destinationProps} className={`nav-odoo-card${isActive ? ' nav-odoo-card--active' : ''}`} aria-current={isActive ? 'page' : undefined} onClick={onClose}>
       <div className="nav-odoo-card__icon" style={{ background: item.gradient }}>
         {item.icon}
       </div>
@@ -763,7 +767,7 @@ function OdooErpMegaCard({ item, onClose }) {
           <polyline points="7 7 17 7 17 17" />
         </svg>
       </div>
-    </a>
+    </CardLink>
   );
 }
 
@@ -806,7 +810,7 @@ export default function Navbar({ activePage = null }) {
   const hoverCloseTimer = useRef(null);
 
   useEffect(() => {
-    if (pathname === '/construction-erp-odoo') setActiveItem('Odoo ERPs');
+    if (pathname === '/construction-erp-odoo' || pathname === '/odoo-healthcare-erp' || pathname === '/healthcare-erp') setActiveItem('Odoo ERPs');
   }, [pathname]);
 
   useEffect(() => {
@@ -879,7 +883,7 @@ export default function Navbar({ activePage = null }) {
                 role="menuitem"
                 aria-haspopup="true"
                 aria-expanded={isOpen}
-                className={`navbar__link navbar__link--btn${activeItem === item.label || (item.isOdooMega && pathname === '/construction-erp-odoo') ? ' navbar__link--active' : ''}`}
+                className={`navbar__link navbar__link--btn${activeItem === item.label || (item.isOdooMega && ['/construction-erp-odoo', '/odoo-healthcare-erp', '/healthcare-erp'].includes(pathname)) ? ' navbar__link--active' : ''}`}
                 onClick={() => {
                   setActiveItem(item.label);
                   if (isThisCompany) {
