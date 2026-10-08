@@ -3,15 +3,14 @@ export default function PropertyScene() {
     <div className="jp-cons__pms-scene-wrap">
       <svg className="jp-cons__pms-scene" viewBox="0 0 560 450" role="img" aria-label="Animated illustration of property buildings, homes, rental documents and portfolio growth">
         <defs>
-          <linearGradient id="pms-sky" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#dbeafe" /><stop offset="1" stopColor="#f7fbff" /></linearGradient>
           <linearGradient id="pms-tower" x1="0" y1="0" x2="0" y2="1"><stop stopColor="#fff" /><stop offset="1" stopColor="#dcecff" /></linearGradient>
           <linearGradient id="pms-home" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#fff" /><stop offset="1" stopColor="#e6f2ff" /></linearGradient>
           <filter id="pms-shadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="9" stdDeviation="9" floodColor="#4579bf" floodOpacity=".18" /></filter>
         </defs>
-        <rect x="1" y="1" width="558" height="448" rx="24" fill="url(#pms-sky)" />
+        <rect x="1" y="1" width="558" height="448" rx="24" fill="var(--scene-bg)" />
         <circle cx="442" cy="85" r="57" fill="#fff" opacity=".42" />
         <circle cx="442" cy="85" r="36" fill="#cfe4ff" opacity=".48" />
-        <path d="M0 350q90-27 184 0t200-6 176 6v100H0z" fill="#e3efff" />
+        <path d="M0 350q90-27 184 0t200-6 176 6v100H0z" fill="var(--scene-ground)" />
 
         <g className="jp-cons__pms-skyline" opacity=".56">
           <path d="M60 320V222l38-24 38 24v98z" fill="#c4dcfa" stroke="#8eb4e6" strokeWidth="2" />

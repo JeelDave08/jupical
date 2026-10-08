@@ -2,12 +2,11 @@ export default function LendingScene() {
   return (
     <svg className="jp-cons__loan-scene" viewBox="0 0 560 440" role="img" aria-label="Animated LoanSuite lending dashboard illustration">
       <defs>
-        <linearGradient id="jp-cons-loan-bg" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#eaf4ff" /><stop offset="1" stopColor="#f8fcff" /></linearGradient>
         <linearGradient id="jp-cons-loan-blue" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#0a6cff" /><stop offset="1" stopColor="#00b4ff" /></linearGradient>
         <linearGradient id="jp-cons-loan-coat" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#fff" /><stop offset="1" stopColor="#dceaff" /></linearGradient>
         <filter id="jp-cons-loan-shadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="12" stdDeviation="12" floodColor="#1978de" floodOpacity=".18" /></filter>
       </defs>
-      <rect x="6" y="8" width="548" height="424" rx="34" fill="url(#jp-cons-loan-bg)" />
+      <rect x="6" y="8" width="548" height="424" rx="34" fill="var(--scene-bg)" />
       <circle cx="288" cy="205" r="158" fill="#cde8ff" opacity=".54" />
       <circle cx="288" cy="205" r="126" fill="none" stroke="#8bcfff" strokeWidth="2" strokeDasharray="5 9" className="jp-cons__orbit" />
       <path d="M88 322C138 228 194 163 277 149s154 15 207 112" fill="none" stroke="#55baff" strokeWidth="2" opacity=".7" className="jp-cons__orbit-line" />

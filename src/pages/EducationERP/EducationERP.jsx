@@ -21,15 +21,14 @@ function CampusScene() {
   return (
     <svg ref={sceneRef} className="jp-cons__edu-scene" viewBox="0 0 560 420" role="img" aria-label="Animated school campus with a bus, students and a teacher">
       <defs>
-        <linearGradient id="edu-sky" x1="0" y1="0" x2="0" y2="1"><stop stopColor="#dbeafe" /><stop offset="1" stopColor="#f8fbff" /></linearGradient>
         <g id="edu-student"><circle cx="0" cy="-30" r="7" fill="#f7c9a8" /><path d="M-8-36q8-10 16 0" fill="#1d4ed8" /><path d="M-9-21h18l4 21h-26z" fill="#2563eb" /><path d="M-5 0l-3 18m14-18 3 18" stroke="#173b77" strokeWidth="5" strokeLinecap="round" /><path d="M-9-16l-9 12m27-12 9 9" stroke="#f7c9a8" strokeWidth="4" strokeLinecap="round" /></g>
       </defs>
-      <rect width="560" height="420" rx="22" fill="url(#edu-sky)" />
-      <circle cx="476" cy="65" r="28" fill="#fde68a" opacity=".8" />
-      <g className="jp-cons__edu-cloud" fill="#fff" opacity=".9"><ellipse cx="72" cy="76" rx="37" ry="12"/><ellipse cx="96" cy="67" rx="25" ry="13"/></g>
-      <g className="jp-cons__edu-cloud" fill="#fff" opacity=".78" style={{ animationDelay: '-12s' }}><ellipse cx="378" cy="108" rx="33" ry="11"/><ellipse cx="399" cy="100" rx="23" ry="12"/></g>
-      <g fill="#c7dbf7"><rect x="20" y="267" width="48" height="103"/><rect x="75" y="290" width="35" height="80"/><rect x="454" y="264" width="48" height="106"/><rect x="508" y="297" width="32" height="73"/></g>
-      <rect y="370" width="560" height="50" fill="#93b4e6"/><rect y="370" width="560" height="5" fill="#1d4ed8"/>
+      <rect width="560" height="420" rx="22" fill="var(--scene-bg)" />
+      <circle cx="476" cy="65" r="28" fill="var(--scene-sun)" opacity=".8" />
+      <g className="jp-cons__edu-cloud" fill="var(--scene-cloud)" opacity=".9"><ellipse cx="72" cy="76" rx="37" ry="12"/><ellipse cx="96" cy="67" rx="25" ry="13"/></g>
+      <g className="jp-cons__edu-cloud" fill="var(--scene-cloud)" opacity=".78" style={{ animationDelay: '-12s' }}><ellipse cx="378" cy="108" rx="33" ry="11"/><ellipse cx="399" cy="100" rx="23" ry="12"/></g>
+      <g fill="var(--scene-skyline)"><rect x="20" y="267" width="48" height="103"/><rect x="75" y="290" width="35" height="80"/><rect x="454" y="264" width="48" height="106"/><rect x="508" y="297" width="32" height="73"/></g>
+      <rect y="370" width="560" height="50" fill="var(--scene-ground)"/><rect y="370" width="560" height="5" fill="#1d4ed8"/>
       <g>
         <rect x="164" y="176" width="228" height="194" fill="#fff" stroke="#1d4ed8" strokeWidth="3"/><path d="M148 178l130-90 130 90z" fill="#bfdbfe" stroke="#1d4ed8" strokeWidth="3"/>
         <rect x="254" y="116" width="48" height="46" fill="#fff" stroke="#1d4ed8" strokeWidth="2"/><path d="M278 116V93" stroke="#1d4ed8" strokeWidth="3"/><path d="M279 94l34 9-34 9z" fill="#38bdf8"/>

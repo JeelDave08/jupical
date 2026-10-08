@@ -27,7 +27,7 @@
 .jp-cons .jp-cons__pms-button:hover { transform: translateY(-2px); box-shadow: 0 10px 23px rgba(29,78,216,.22); }
 .jp-cons .jp-cons__pms-button:focus-visible { outline: 3px solid #0a1f44; outline-offset: 4px; }
 .jp-cons .jp-cons__pms-scene-wrap { min-width: 0; }
-.jp-cons .jp-cons__pms-scene { display: block; width: 100%; height: auto; overflow: visible; filter: drop-shadow(0 22px 36px rgba(44,92,157,.12)); }
+.jp-cons .jp-cons__pms-scene { display: block; width: 100%; height: auto; overflow: visible; border: 1px solid #e3ecfb; border-radius: 22px; filter: drop-shadow(0 18px 20px rgba(29,78,216,.12)); }
 .jp-cons .jp-cons__pms-scene text { fill: #315479; font: 700 8px 'DM Sans', system-ui, sans-serif; letter-spacing: .04em; }
 .jp-cons .jp-cons__pms-window { opacity: .32; animation: jp-pms-window-light 5s ease-in-out infinite; }
 .jp-cons .jp-cons__pms-building .jp-cons__pms-window { animation-duration: 6s; }

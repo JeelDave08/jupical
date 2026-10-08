@@ -43,7 +43,6 @@ function MaintenanceScene() {
   return (
     <svg ref={sceneRef} className="jp-cons__maintenance-scene" viewBox="0 0 650 420" role="img" aria-label="Animated maintenance workshop with service van, technician, repair board, gears and spare parts">
       <defs>
-        <linearGradient id="maint-sky" x1="0" y1="0" x2="0" y2="1"><stop stopColor="#dbeafe" /><stop offset="1" stopColor="#f8fbff" /></linearGradient>
         <pattern id="maint-grid" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M0 16L16 0M0 0l16 16" stroke="#93c5fd" strokeWidth="1" /></pattern>
         <g id="maint-tech">
           <circle cy="-42" r="8" fill="#f7c9a8" /><path d="M-13-48q13-14 26 0h-26z" fill="#fbbf24" /><path d="M-15-49h30" stroke="#d97706" strokeWidth="3" strokeLinecap="round" />
@@ -51,11 +50,11 @@ function MaintenanceScene() {
           <rect x="13" y="-14" width="16" height="13" rx="2" fill="#38bdf8" stroke="#1d4ed8" strokeWidth="2" />
         </g>
       </defs>
-      <rect width="650" height="420" rx="22" fill="url(#maint-sky)" />
-      <circle cx="566" cy="62" r="27" fill="#fde68a" opacity=".85" />
-      <g className="jp-cons__maint-cloud" fill="#fff" opacity=".9"><ellipse cx="93" cy="70" rx="36" ry="11" /><ellipse cx="117" cy="62" rx="23" ry="10" /></g>
-      <g fill="#c7dbf7"><rect x="18" y="266" width="42" height="94" /><rect x="65" y="291" width="32" height="69" /><rect x="584" y="273" width="40" height="87" /></g>
-      <rect y="360" width="650" height="60" fill="#93b4e6" /><rect y="360" width="650" height="5" fill="#1d4ed8" />
+      <rect width="650" height="420" rx="22" fill="var(--scene-bg)" />
+      <circle cx="566" cy="62" r="27" fill="var(--scene-sun)" opacity=".85" />
+      <g className="jp-cons__maint-cloud" fill="var(--scene-cloud)" opacity=".9"><ellipse cx="93" cy="70" rx="36" ry="11" /><ellipse cx="117" cy="62" rx="23" ry="10" /></g>
+      <g fill="var(--scene-skyline)"><rect x="18" y="266" width="42" height="94" /><rect x="65" y="291" width="32" height="69" /><rect x="584" y="273" width="40" height="87" /></g>
+      <rect y="360" width="650" height="60" fill="var(--scene-ground)" /><rect y="360" width="650" height="5" fill="#1d4ed8" />
 
       <g>
         <path d="M116 172l180-100 180 100v188H116z" fill="#fff" stroke="#1d4ed8" strokeWidth="3" />

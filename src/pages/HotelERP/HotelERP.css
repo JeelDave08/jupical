@@ -28,7 +28,7 @@
 .jp-cons .jp-cons__hotel-cta {display:inline-flex;max-width:100%;align-items:center;justify-content:center;padding:12px 20px;border:2px solid var(--blue);border-radius:9px;background:var(--blue);color:#fff;font-weight:700;line-height:1.45;text-align:center;transition:transform .16s ease,box-shadow .16s ease}
 .jp-cons .jp-cons__hotel-cta:hover {transform:translateY(-2px);box-shadow:0 10px 22px rgba(29,78,216,.2)}
 .jp-cons .jp-cons__hotel-cta:focus-visible,.jp-cons .jp-cons__hotel-doc-card a:focus-visible,.jp-cons .jp-cons__hotel-doc-card button:focus-visible {outline:3px solid #0a1f44;outline-offset:3px}
-.jp-cons .jp-cons__hotel-scene {display:block;width:100%;height:auto;border-radius:20px;background:#eff6ff;box-shadow:0 24px 60px -28px rgba(29,78,216,.38)}
+.jp-cons .jp-cons__hotel-scene {display:block;width:100%;height:auto;border:1px solid #e3ecfb;border-radius:22px;background:var(--scene-bg);box-shadow:0 18px 40px -24px rgba(29,78,216,.18)}
 .jp-cons .jp-cons__hotel-cloud {animation:jp-cons-hotel-cloud 36s linear infinite}
 .jp-cons .jp-cons__hotel-star {transform-box:fill-box;transform-origin:center;animation:jp-cons-hotel-twinkle 1.2s ease-in-out infinite alternate}
 .jp-cons .jp-cons__hotel-window {animation:jp-cons-hotel-light 4.6s ease-in-out infinite alternate}
@@ -84,7 +84,6 @@
   .jp-cons .jp-cons__hotel-doc-card > div {flex:1 1 calc(100% - 60px)}
   .jp-cons .jp-cons__hotel-doc-card a,.jp-cons .jp-cons__hotel-doc-card button {margin-left:55px}
   .jp-cons .jp-cons__hotel-cta {width:100%}
-  .jp-cons .jp-cons__hotel-scene {border-radius:15px}
 }
 @media(prefers-reduced-motion:reduce) {
   .jp-cons .jp-cons__hotel-cloud,.jp-cons .jp-cons__hotel-star,.jp-cons .jp-cons__hotel-window,.jp-cons .jp-cons__hotel-ripple,.jp-cons .jp-cons__hotel-sparkle,.jp-cons .jp-cons__hotel-steam,.jp-cons .jp-cons__hotel-cta {animation:none;transition:none}

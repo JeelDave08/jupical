@@ -33,14 +33,13 @@ function HotelScene() {
   return (
     <svg ref={sceneRef} className="jp-cons__hotel-scene" viewBox="0 0 650 420" role="img" aria-label="Animated hotel with glowing windows, a bellboy, reception, housekeeping cart and restaurant">
       <defs>
-        <linearGradient id="hotel-sky" x1="0" y1="0" x2="0" y2="1"><stop stopColor="#dbeafe" /><stop offset="1" stopColor="#f8fbff" /></linearGradient>
         <pattern id="hotel-grid" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M0 16L16 0M0 0l16 16" stroke="#93c5fd" strokeWidth="1" /></pattern>
       </defs>
-      <rect width="650" height="420" rx="22" fill="url(#hotel-sky)" />
-      <circle cx="562" cy="58" r="28" fill="#fde68a" opacity=".82" />
-      <g className="jp-cons__hotel-cloud" fill="#fff" opacity=".9"><ellipse cx="84" cy="74" rx="34" ry="11" /><ellipse cx="108" cy="66" rx="23" ry="10" /></g>
-      <g fill="#c7dbf7"><rect x="18" y="280" width="42" height="84" /><rect x="65" y="302" width="30" height="62" /><rect x="586" y="275" width="42" height="89" /></g>
-      <rect y="364" width="650" height="56" fill="#93b4e6" /><rect y="360" width="650" height="5" fill="#1d4ed8" />
+      <rect width="650" height="420" rx="22" fill="var(--scene-bg)" />
+      <circle cx="562" cy="58" r="28" fill="var(--scene-sun)" opacity=".82" />
+      <g className="jp-cons__hotel-cloud" fill="var(--scene-cloud)" opacity=".9"><ellipse cx="84" cy="74" rx="34" ry="11" /><ellipse cx="108" cy="66" rx="23" ry="10" /></g>
+      <g fill="var(--scene-skyline)"><rect x="18" y="280" width="42" height="84" /><rect x="65" y="302" width="30" height="62" /><rect x="586" y="275" width="42" height="89" /></g>
+      <rect y="364" width="650" height="56" fill="var(--scene-ground)" /><rect y="360" width="650" height="5" fill="#1d4ed8" />
 
       <g>
         <path d="M154 142 324 55l170 87v218H154z" fill="#fff" stroke="#1d4ed8" strokeWidth="3" />

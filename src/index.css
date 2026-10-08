@@ -265,3 +265,10 @@ header,
 footer {
   background-color: #FFFFFF !important;
 }
+.jp-cons {
+  --scene-bg: #ffffff;
+  --scene-ground: #f4f8ff;
+  --scene-skyline: #e9f1ff;
+  --scene-cloud: #e8f0fb;
+  --scene-sun: #fff3c4;
+}

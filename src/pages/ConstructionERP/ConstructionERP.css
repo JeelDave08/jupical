@@ -29,7 +29,7 @@
 .jp-cons .jp-cons__btn {display:inline-block;background:var(--blue);color:#fff;padding:12px 24px;border-radius:10px;font-weight:700;font-size:15px;border:2px solid var(--blue);transition:transform .15s}
 .jp-cons .jp-cons__btn:hover {transform:translateY(-2px)}
 .jp-cons .jp-cons__btn--outline {background:#fff;color:var(--blue)}
-.jp-cons .jp-cons__scene {width:100%;height:auto;display:block;border-radius:22px;box-shadow:0 24px 60px -24px rgba(29,78,216,.45)}
+.jp-cons .jp-cons__scene {width:100%;height:auto;display:block;border:1px solid #e3ecfb;border-radius:22px;box-shadow:0 18px 40px -24px rgba(29,78,216,.18)}
 .jp-cons .jp-cons__cloud {animation:jp-cons-drift 40s linear infinite}
 .jp-cons .jp-cons__floor {transition:opacity .6s,transform .6s}
 .jp-cons .jp-cons__floor.off {opacity:0;transform:translateY(-30px)}

@@ -39,16 +39,15 @@ function ConstructionScene({ floorCount }) {
   return (
     <svg className="jp-cons__scene" viewBox="0 0 520 420" role="img" aria-label="Animated construction site: crane lifting material while workers build a tower">
       <defs>
-        <linearGradient id="jp-cons-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#dbeafe" /><stop offset="1" stopColor="#f4f9ff" /></linearGradient>
         <pattern id="jp-cons-lattice" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M0 14L14 0M0 0L14 14" stroke="#1d4ed8" strokeWidth="1.2" fill="none" /></pattern>
         <g id="jp-cons-worker"><rect x="-5" y="-16" width="4" height="16" fill="#1e3a8a" /><rect x="1" y="-16" width="4" height="16" fill="#1e3a8a" /><rect x="-6" y="-34" width="12" height="19" rx="3" fill="#2563eb" /><rect x="-6" y="-24" width="12" height="3" fill="#bae6fd" /><circle cy="-40" r="5" fill="#fcd5b0" /><path d="M-6.5-41a6.5 6.5 0 0 1 13 0z" fill="#fbbf24" /><rect x="-7.5" y="-42" width="15" height="2" rx="1" fill="#f59e0b" /></g>
       </defs>
-      <rect width="520" height="420" rx="20" fill="url(#jp-cons-sky)" />
-      <circle cx="440" cy="60" r="26" fill="#fde68a" opacity=".8" />
-      <g className="jp-cons__cloud" fill="#fff" opacity=".9"><ellipse cx="90" cy="70" rx="34" ry="11" /><ellipse cx="112" cy="62" rx="22" ry="10" /></g>
-      <g className="jp-cons__cloud" style={{ animationDelay: '-20s' }} fill="#fff" opacity=".8"><ellipse cx="60" cy="120" rx="28" ry="9" /><ellipse cx="80" cy="113" rx="18" ry="8" /></g>
-      <g fill="#c7dbf7"><rect x="20" y="300" width="40" height="80" /><rect x="66" y="270" width="34" height="110" /><rect x="430" y="290" width="44" height="90" /><rect x="478" y="320" width="30" height="60" /></g>
-      <rect y="380" width="520" height="40" fill="#93b4e6" /><rect y="380" width="520" height="5" fill="#1d4ed8" />
+      <rect width="520" height="420" rx="20" fill="var(--scene-bg)" />
+      <circle cx="440" cy="60" r="26" fill="var(--scene-sun)" opacity=".8" />
+      <g className="jp-cons__cloud" fill="var(--scene-cloud)" opacity=".9"><ellipse cx="90" cy="70" rx="34" ry="11" /><ellipse cx="112" cy="62" rx="22" ry="10" /></g>
+      <g className="jp-cons__cloud" style={{ animationDelay: '-20s' }} fill="var(--scene-cloud)" opacity=".8"><ellipse cx="60" cy="120" rx="28" ry="9" /><ellipse cx="80" cy="113" rx="18" ry="8" /></g>
+      <g fill="var(--scene-skyline)"><rect x="20" y="300" width="40" height="80" /><rect x="66" y="270" width="34" height="110" /><rect x="430" y="290" width="44" height="90" /><rect x="478" y="320" width="30" height="60" /></g>
+      <rect y="380" width="520" height="40" fill="var(--scene-ground)" /><rect y="380" width="520" height="5" fill="#1d4ed8" />
       <g><rect x="246" y="372" width="148" height="10" fill="#64748b" />{floors}</g>
       <g stroke="#64748b" strokeWidth="2" opacity=".7"><path d="M232 380V190M246 380V190M232 380h14M232 344h14M232 308h14M232 272h14M232 236h14M232 200h14" /></g>
       <g>

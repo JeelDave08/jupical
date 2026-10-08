@@ -33,7 +33,7 @@
 .jp-cons .jp-cons__loan-btn:hover {transform:translateY(-2px);box-shadow:0 16px 30px rgba(10,108,255,.27)}
 .jp-cons .jp-cons__loan-btn:focus-visible {outline:3px solid #13365b;outline-offset:4px}
 .jp-cons .jp-cons__loan-btn--outline {background:#fff;border-color:#bddcff;color:var(--p);box-shadow:0 8px 22px rgba(29,99,174,.08)}
-.jp-cons .jp-cons__loan-scene {display:block;width:100%;max-width:580px;height:auto;margin:0 auto;overflow:visible;filter:drop-shadow(0 24px 36px rgba(40,117,192,.1))}
+.jp-cons .jp-cons__loan-scene {display:block;width:100%;max-width:580px;height:auto;margin:0 auto;overflow:visible;border:1px solid #e3ecfb;border-radius:22px;filter:drop-shadow(0 18px 20px rgba(29,78,216,.12))}
 .jp-cons .jp-cons__loan-scene text {font:600 10px 'Plus Jakarta Sans',system-ui,sans-serif;fill:#325579}
 .jp-cons .jp-cons__loan-scene .jp-cons__digits {font:700 13px monospace;fill:#0a6cff;animation:jp-cons-digit-blink 1.3s steps(2,end) infinite}
 .jp-cons .jp-cons__loan-scene .jp-cons__percent,.jp-cons .jp-cons__loan-scene .jp-cons__dollar {font:800 19px system-ui,sans-serif;fill:#0a6cff}
