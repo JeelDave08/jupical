@@ -495,7 +495,7 @@ const odooErpItemsRight = [
     num: '05',
     label: 'LMS',
     sub: 'Open-Source Loan Management',
-    href: '#inventory',
+    href: '/odoo-loan-management',
     gradient: 'linear-gradient(135deg, #6366F1, #818CF8)',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -810,7 +810,7 @@ export default function Navbar({ activePage = null }) {
   const hoverCloseTimer = useRef(null);
 
   useEffect(() => {
-    if (['/construction-erp-odoo', '/odoo-healthcare-erp', '/healthcare-erp', '/odoo-education-erp', '/en/service-product', '/en/odoo-hotel-management'].includes(pathname)) setActiveItem('Odoo ERPs');
+    if (['/construction-erp-odoo', '/odoo-healthcare-erp', '/healthcare-erp', '/odoo-education-erp', '/en/service-product', '/en/odoo-hotel-management', '/odoo-loan-management'].includes(pathname)) setActiveItem('Odoo ERPs');
   }, [pathname]);
 
   useEffect(() => {
@@ -883,7 +883,7 @@ export default function Navbar({ activePage = null }) {
                 role="menuitem"
                 aria-haspopup="true"
                 aria-expanded={isOpen}
-                className={`navbar__link navbar__link--btn${activeItem === item.label || (item.isOdooMega && ['/construction-erp-odoo', '/odoo-healthcare-erp', '/healthcare-erp', '/odoo-education-erp', '/en/service-product', '/en/odoo-hotel-management'].includes(pathname)) ? ' navbar__link--active' : ''}`}
+                className={`navbar__link navbar__link--btn${activeItem === item.label || (item.isOdooMega && ['/construction-erp-odoo', '/odoo-healthcare-erp', '/healthcare-erp', '/odoo-education-erp', '/en/service-product', '/en/odoo-hotel-management', '/odoo-loan-management'].includes(pathname)) ? ' navbar__link--active' : ''}`}
                 onClick={() => {
                   setActiveItem(item.label);
                   if (isThisCompany) {

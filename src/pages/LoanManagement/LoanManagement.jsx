@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import ModuleShowcase from '../../components/ModuleShowcase';
-import { LMS_CONTENT, LMS_FEATURES, LMS_MODULES, LMS_PAGE } from '../../data/lms';
+import { LMS_CONTENT, LMS_FEATURES, LMS_PAGE } from '../../data/lms';
 import LendingScene from './LendingScene';
 import './LoanManagement.css';
 
@@ -22,26 +22,10 @@ function FeatureIcon({ kind }) {
 
 export default function LoanManagement() {
   useEffect(() => {
-    if (!import.meta.env.DEV) return undefined;
-
-    const controller = new AbortController();
-    LMS_MODULES.filter((module) => module.videoId).forEach(async (module) => {
-      const videoUrl = `https://www.youtube.com/watch?v=${module.videoId}`;
-      const oembedUrl = `https://www.youtube.com/oembed?format=json&url=${encodeURIComponent(videoUrl)}`;
-      try {
-        const response = await fetch(oembedUrl, { signal: controller.signal });
-        if (!response.ok) return;
-        const { title } = await response.json();
-        const titleNumber = title?.match(/^0?(\d{1,2})\s*(?:[.)\-–—:]|\s)/)?.[1];
-        if (!titleNumber || Number(titleNumber) !== Number(module.number)) {
-          console.warn(`Video mismatch: module ${module.number} plays video titled "${title}"`);
-        }
-      } catch {
-        // Ignore network and parsing errors in this development-only check.
-      }
-    });
-
-    return () => controller.abort();
+    const previousTitle = document.title;
+    document.title = 'LoanSuite for Odoo — Jupical Technologies';
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    return () => { document.title = previousTitle; };
   }, []);
 
   return (
@@ -54,7 +38,7 @@ export default function LoanManagement() {
               <h1 className="jp-cons__loans-title">{LMS_CONTENT.heroTitle}</h1>
               <p>{LMS_CONTENT.heroParagraph}</p>
               <div className="jp-cons__loan-actions">
-                <Link className="jp-cons__loan-btn" to="/contact-us">{LMS_CONTENT.buyLabel}</Link>
+                <Link className="jp-cons__loan-btn" to={LMS_CONTENT.buyHref}>{LMS_CONTENT.buyLabel}</Link>
                 <Link className="jp-cons__loan-btn jp-cons__loan-btn--outline" to="/contact-us">{LMS_CONTENT.requestDemoLabel}<span aria-hidden="true"> →</span></Link>
               </div>
             </div>
@@ -65,7 +49,7 @@ export default function LoanManagement() {
         <section className="jp-cons__loan-overview jp-cons__loan-wrap">
           <div className="jp-cons__loan-intro">
             <h2>{LMS_CONTENT.introTitle}</h2>
-            <p>{LMS_CONTENT.introDescription}</p>
+            {LMS_CONTENT.introParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           </div>
           <h2 className="jp-cons__loan-section-title">Key Features</h2>
           <div className="jp-cons__loan-features">
@@ -79,14 +63,16 @@ export default function LoanManagement() {
         </section>
 
         <ModuleShowcase
+          className="jp-cons__loan-showcase"
           title={LMS_PAGE.showcaseTitle}
-          subtitle=""
-          playerTitle="LoanSuite"
-          playerHeading="See LoanSuite in Action"
-          playerSubtitle=""
+          subtitle={LMS_PAGE.showcaseSubtitle}
+          playerTitle="See LoanSuite in Action"
+          playerSubtitle="Explore the LoanSuite lending workflow from application to repayment."
           mainVideoId={LMS_PAGE.mainVideoId}
           modules={LMS_PAGE.modules}
           labelPrefix="Floor"
+          warnOnVideoCheckError
+          playerAfterHeading
         />
 
         <section className="jp-cons__loan-cta">

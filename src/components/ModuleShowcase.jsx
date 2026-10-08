@@ -1,10 +1,11 @@
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import {
   Activity, Award, BedDouble, BellRing, BookOpen, Boxes, Bus, CalendarDays,
-  ChartNoAxesCombined, ClipboardList, Globe, GraduationCap, HeartHandshake,
-  KeyRound, LibraryBig, Play, School, Settings2, ShieldCheck, ShoppingCart,
-  Smartphone, Sparkles, TicketCheck, Truck, Utensils, UserRound, UsersRound,
-  WalletCards, Wrench,
+  ChartNoAxesCombined, ClipboardList, Clock3, FileCheck2, FileText, Gauge,
+  Globe, GraduationCap, Handshake, HeartHandshake, House, KeyRound, LibraryBig,
+  LockKeyhole, Percent, Play, School, Settings2, ShieldCheck, ShoppingCart,
+  Smartphone, Sparkles, Table2, Tag, TicketCheck, Truck, Utensils, UserRound,
+  UsersRound, WalletCards, Wrench, Coins,
 } from 'lucide-react';
 import './ModuleShowcase.css';
 
@@ -47,6 +48,17 @@ function HotelHousekeepingIcon(props) {
   return <HotelComboIcon {...props} main={Sparkles} accent={Wrench} />;
 }
 
+function LoanComboIcon({ main: MainIcon, accent: AccentIcon, size = 38 }) {
+  return <HotelComboIcon size={size} main={MainIcon} accent={AccentIcon} />;
+}
+
+function LoanSystemIcon(props) { return <LoanComboIcon {...props} main={Settings2} accent={FileText} />; }
+function LoanProductsIcon(props) { return <LoanComboIcon {...props} main={House} accent={Tag} />; }
+function LoanCreateIcon(props) { return <LoanComboIcon {...props} main={CalendarDays} accent={Coins} />; }
+function LoanLedgerIcon(props) { return <LoanComboIcon {...props} main={FileText} accent={ChartNoAxesCombined} />; }
+function LoanPortalIcon(props) { return <LoanComboIcon {...props} main={UserRound} accent={ClipboardList} />; }
+function LoanAgreementIcon(props) { return <LoanComboIcon {...props} main={Handshake} accent={Coins} />; }
+
 const posterIcons = {
   activity: Activity,
   award: Award,
@@ -76,6 +88,20 @@ const posterIcons = {
   'hotel-housekeeping': HotelHousekeepingIcon,
   'hotel-restaurant': Utensils,
   'hotel-reports': ChartNoAxesCombined,
+  'loan-system': LoanSystemIcon,
+  'loan-dashboard': Gauge,
+  'loan-products': LoanProductsIcon,
+  'loan-create': LoanCreateIcon,
+  'loan-validation': FileCheck2,
+  'loan-interest': Percent,
+  'loan-payments': Clock3,
+  'loan-summary': Table2,
+  'loan-close': LockKeyhole,
+  'loan-accounting': LoanLedgerIcon,
+  'loan-portal': LoanPortalIcon,
+  'loan-approval': ShieldCheck,
+  'loan-agreement': LoanAgreementIcon,
+  'loan-mobile': Smartphone,
 };
 
 function VideoFrame({ videoId, title }) {
@@ -119,7 +145,7 @@ function ModuleCard({ module, active, playing, onPlay }) {
   );
 }
 
-export default function ModuleShowcase({ id, title, subtitle, playerTitle, playerSubtitle, mainVideoId, modules, labelPrefix = 'Floor', warnOnVideoCheckError = false, playerAfterHeading = false }) {
+export default function ModuleShowcase({ id, title, subtitle, playerTitle, playerSubtitle, mainVideoId, modules, labelPrefix = 'Floor', warnOnVideoCheckError = false, playerAfterHeading = false, className = '' }) {
   const sectionRef = useRef(null);
   const [playingKey, setPlayingKey] = useState(null);
   const [activeIndex, setActiveIndex] = useState(-1);
@@ -200,7 +226,7 @@ export default function ModuleShowcase({ id, title, subtitle, playerTitle, playe
   return (
     <>
       {!playerAfterHeading && mainPlayer}
-      <section className="jp-cons__wrap jp-cons__module-section" id={id} ref={sectionRef}>
+      <section className={`jp-cons__wrap jp-cons__module-section${className ? ` ${className}` : ''}`} id={id} ref={sectionRef}>
         <h2 className="jp-cons__sequence-title">{title}</h2><p className="jp-cons__sequence-intro">{subtitle}</p>
         {playerAfterHeading && mainPlayer}
         <div className="jp-cons__sequence">

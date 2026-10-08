@@ -72,6 +72,10 @@
 .jp-cons .jp-cons__showcase {padding-top:10px}
 .jp-cons .jp-cons__showcase > .jp-cons__sequence-title {text-align:center;margin-top:24px}
 .jp-cons .jp-cons__showcase > .jp-cons__sequence-intro:empty {display:none}
+.jp-cons .jp-cons__loan-showcase {padding-top:34px;padding-bottom:12px}
+.jp-cons .jp-cons__loan-showcase > .jp-cons__sequence-title {padding:22px 28px;border:1px solid #c7defb;border-radius:10px;background:linear-gradient(110deg,#eef6ff,#fff);color:#102747;text-align:center}
+.jp-cons .jp-cons__loan-showcase > .jp-cons__sequence-intro {max-width:760px;margin:0 auto 24px;text-align:center}
+.jp-cons .jp-cons__loan-showcase .jp-cons__video-section {padding-top:12px}
 .jp-cons .jp-cons__loan-cta {position:relative;overflow:hidden;background:linear-gradient(115deg,#0a6cff,#00b4ff);padding:76px 24px;text-align:center;color:#fff}
 .jp-cons .jp-cons__loan-cta::before,.jp-cons .jp-cons__loan-cta::after {content:"";position:absolute;width:280px;height:280px;border:1px solid rgba(255,255,255,.16);border-radius:50%;pointer-events:none}
 .jp-cons .jp-cons__loan-cta::before {left:-110px;top:-170px}.jp-cons .jp-cons__loan-cta::after {right:-100px;bottom:-190px}
