@@ -1,11 +1,11 @@
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import {
-  Activity, Award, BedDouble, BellRing, BookOpen, Boxes, Bus, CalendarDays,
-  ChartNoAxesCombined, ClipboardList, Clock3, FileCheck2, FileText, Gauge,
-  Globe, GraduationCap, Handshake, HeartHandshake, House, KeyRound, LibraryBig,
-  LockKeyhole, Percent, Play, School, Settings2, ShieldCheck, ShoppingCart,
-  Smartphone, Sparkles, Table2, Tag, TicketCheck, Truck, Utensils, UserRound,
-  UsersRound, WalletCards, Wrench, Coins,
+  Activity, Award, BedDouble, BellRing, BookOpen, Boxes, Building2, Bus, Calculator,
+  CalendarDays, ChartColumnIncreasing, ChartNoAxesCombined, ClipboardList, Clock3,
+  FileCheck2, FileText, Filter, Gauge, Globe, GraduationCap, Handshake, HeartHandshake,
+  House, KeyRound, LayoutDashboard, LibraryBig, LockKeyhole, Percent, Play, ReceiptText,
+  Repeat2, School, Settings2, ShieldCheck, ShoppingCart, Smartphone, Sparkles, Table2,
+  Tag, TicketCheck, Truck, Utensils, UserRound, UsersRound, WalletCards, Wrench, Coins,
 } from 'lucide-react';
 import './ModuleShowcase.css';
 
@@ -102,6 +102,14 @@ const posterIcons = {
   'loan-approval': ShieldCheck,
   'loan-agreement': LoanAgreementIcon,
   'loan-mobile': Smartphone,
+  'pms-dashboard': LayoutDashboard,
+  'pms-portfolio': Building2,
+  'pms-crm-pipeline': Filter,
+  'pms-sales-invoice': ReceiptText,
+  'pms-rental-contract': Repeat2,
+  'pms-cashflow': ChartColumnIncreasing,
+  'pms-emi-calculator': Calculator,
+  'pms-reports': ChartNoAxesCombined,
 };
 
 function VideoFrame({ videoId, title }) {
