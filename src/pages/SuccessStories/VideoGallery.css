@@ -1,5 +1,5 @@
 .vg {
-  --bg: #f4f8ff;
+  --bg: #ffffff;
   --card: #ffffff;
   --ink: #0b1f4d;
   --mute: #64748b;
@@ -10,8 +10,6 @@
   padding-top: calc(var(--nav-height, 72px) + 20px + env(safe-area-inset-top, 0px));
   padding-bottom: env(safe-area-inset-bottom, 0px);
   background: var(--bg);
-  background-image: radial-gradient(circle, rgba(11,91,255,.12) 1.4px, transparent 1.6px);
-  background-size: 26px 26px;
   color: var(--ink);
   font-family: "Poppins", "Segoe UI", system-ui, sans-serif;
 }
